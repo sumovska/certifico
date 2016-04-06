@@ -63,7 +63,9 @@ body {
   height: 100%;
   min-height: 100%;
   margin: 0 auto;
+  padding-top: 110px;
   background: #fff;
+  position: relative;
 }
 /* ==========================================================================
    _TEXT STYLES
@@ -311,6 +313,9 @@ h6 {
   content: '\0020';
   clear: both;
 }
+.wrapper.wrapper-narrow {
+  max-width: 750px;
+}
 /* PureCSS styles */
 .pure-g {
   font-family: inherit;
@@ -348,8 +353,195 @@ table tr th {
 table tr td {
   min-width: 200px;
   padding: 28px 30px;
-  border-bottom: 1px solid #ededed;
+  border-bottom: 2px solid #ededed;
 }
 /* ==========================================================================
    _HEADER
    ========================================================================== */
+.header {
+  height: 110px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+.header .wrapper {
+  position: relative;
+  cursor: default;
+}
+.header .logo {
+  width: 246px;
+  height: 20px;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 36px;
+}
+.header .logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.header .slogan {
+  width: 246px;
+  margin: 0 auto;
+  text-align: center;
+  font: 11px 'Daxline Pro', Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  position: absolute;
+  top: 72px;
+  left: 0;
+  right: 0;
+}
+.header .tel {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  cursor: default;
+  font: 20px/24px 'Daxline Pro', Helvetica, sans-serif;
+  letter-spacing: .02em;
+  position: absolute;
+  left: 182px;
+  top: 35px;
+}
+.header .language {
+  padding-right: 18px;
+  display: block;
+  font: 14px/24px 'Daxline Pro', Helvetica, sans-serif;
+  color: #000;
+  text-decoration: none;
+  position: absolute;
+  right: 258px;
+  top: 36px;
+}
+.header .language:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 4px 0 4px;
+  border-color: #000 transparent transparent transparent;
+  position: absolute;
+  right: 0;
+  top: 8px;
+  transition: border-color 0.2s ease;
+}
+.header .language:hover {
+  color: #2db8e9;
+}
+.header .language:hover:before {
+  border-color: #2db8e9 transparent transparent transparent;
+}
+.header .toggle {
+  width: 22px;
+  height: 16px;
+  display: block;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  cursor: pointer;
+  position: absolute;
+  right: 96px;
+  top: 39px;
+  transition: border-color 0.2s ease;
+}
+.header .toggle:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  height: 2px;
+  background: #000;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5px;
+  transition: background 0.2s ease;
+}
+.header .toggle:hover {
+  border-color: #2db8e9;
+}
+.header .toggle:hover:before {
+  background: #2db8e9;
+}
+.header .nav {
+  display: none;
+  box-shadow: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+.header .nav:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.8);
+  transition: opacity 0.2s ease;
+}
+.nav-visible .header .nav {
+  display: block;
+}
+.nav-done .header .nav:before {
+  opacity: 1;
+}
+.header .nav .space {
+  width: 250px;
+  height: 100% !important;
+  padding: 20px;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  bottom: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.2s ease;
+  -moz-transition: -moz-transform 0.4s ease;
+  -ms-transition: -ms-transform 0.4s ease;
+  -o-transition: -o-transform 0.4s ease;
+  transition: transform 0.4s ease;
+}
+.nav-done .header .nav .space {
+  -webkit-transform: translate3d(-250px, 0, 0);
+  -moz-transform: translate3d(-250px, 0, 0);
+  -ms-transform: translate3d(-250px, 0, 0);
+  -o-transform: translate3d(-250px, 0, 0);
+  transform: translate3d(-250px, 0, 0);
+}
+.header .nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+.header .nav ul li {
+  padding-left: 0;
+  border-bottom: 2px solid #ededed;
+}
+.header .nav ul li:before,
+.header .nav ul li:after {
+  display: none;
+}
+.header .nav ul li a {
+  padding: 10px 0;
+  display: block;
+  color: #000;
+  text-decoration: none;
+}

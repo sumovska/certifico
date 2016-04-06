@@ -26,6 +26,7 @@
 @color-pink-light: #fafafb;
 
 @duration: .2s ease;
+@duration-menu: .4s ease;
 
 @margin-md: 28px;
 
@@ -132,7 +133,9 @@ body {
   height: 100%;
   min-height: 100%;
   margin: 0 auto;
+  padding-top: 110px;
   background: @color-white;
+  position: relative;
 }
 /* ==========================================================================
    _TEXT STYLES
@@ -284,6 +287,10 @@ h6 {&:extend(.h6); }
   padding: 0 15px;
   margin: 0 auto;
   &:after { .clearfix; }
+
+  &.wrapper-narrow {
+    max-width: 750px;
+  }
 }
 /* PureCSS styles */
 .pure-g {
@@ -315,10 +322,189 @@ table {
     td {
       min-width: 200px;
       padding: 28px 30px;
-      border-bottom: 1px solid @color-gray-light;
+      border-bottom: 2px solid @color-gray-light;
     }
   }
 }
 /* ==========================================================================
    _HEADER
    ========================================================================== */
+.header {
+  height: 110px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  .wrapper {
+    position: relative;
+    cursor: default;
+  }
+
+  .logo {
+    width: 246px;
+    height: 20px;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 36px;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .slogan {
+    width: 246px;
+    margin: 0 auto;
+    text-align: center;
+    font: 11px @font-daxline;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+  }
+
+  .tel {
+    display: block;
+    color: @color-black;
+    text-decoration: none;
+    cursor: default;
+    font: 20px/24px @font-daxline;
+    letter-spacing: .02em;
+    position: absolute;
+    left: 182px;
+    top: 35px;
+  }
+
+  .language {
+    padding-right: 18px;
+    display: block;
+   font: 14px/24px @font-daxline;
+    color: @color-black;
+    text-decoration: none;
+    position: absolute;
+    right: 258px;
+    top: 36px;
+
+    &:before {
+      .before;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 6px 4px 0 4px;
+      border-color: @color-black transparent transparent transparent;
+      position: absolute;
+      right: 0;
+      top: 8px;
+      transition: border-color @duration;
+    }
+
+    &:hover {
+      color: @color-blue;
+      &:before { border-color: @color-blue transparent transparent transparent;}
+    }
+  }
+
+  .toggle {
+    width: 22px;
+    height: 16px;
+    display: block;
+    border-top: 2px solid @color-black;
+    border-bottom: 2px solid @color-black;
+    cursor: pointer;
+    position: absolute;
+    right: 96px;
+    top: 39px;
+    transition: border-color @duration;
+
+    &:before {
+      .before;
+      height: 2px;
+      background: @color-black;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 5px;
+      transition: background @duration;
+    }
+
+    &:hover {
+      border-color: @color-blue;
+      &:before { background: @color-blue;}
+    }
+  }
+
+  .nav {
+    display: none;
+    box-shadow: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+
+    &:before {
+      .before;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      opacity: 0;
+      .color-black(.8);
+      background: @color;
+      transition: opacity @duration;
+    }
+
+    .nav-visible & { display: block; }
+    .nav-done & {
+      &:before { opacity: 1; }
+    }
+
+    .space {
+      width: 250px;
+      height: 100% !important;
+      padding: 20px;
+      background-color: @color-white;
+      position: fixed;
+      top: 0;
+      right: -250px;
+      bottom: 0;
+      .translate-3d(0, 0, 0);
+      .transition-translate(@duration-menu);
+
+      .nav-done & { .translate-3d(-250px, 0, 0); }
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+
+      li {
+        padding-left: 0;
+        border-bottom: 2px solid @color-gray-light;
+
+        &:before, &:after { display: none; }
+
+        a {
+          padding: 10px 0;
+          display: block;
+          color: @color-black;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

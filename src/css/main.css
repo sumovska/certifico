@@ -949,3 +949,35 @@ table tr td {
     top: 16px;
   }
 }
+/* ==========================================================================
+   _404
+   ========================================================================== */
+.page-404 {
+  padding-bottom: 200px;
+  background: url("../img/404.jpg") 50% 100% no-repeat;
+  background-size: auto 200px;
+}
+@media (min-width: 568px) {
+  .page-404 {
+    padding-bottom: 0;
+    background: url("../img/404.jpg") 4% 50% no-repeat;
+    background-size: 200px auto;
+  }
+  .page-404 .wrapper {
+    padding-left: 230px;
+  }
+}
+@media (min-width: 768px) {
+  .page-404 {
+    background-position: 4% 0;
+    background-size: auto 100%;
+  }
+  .page-404 .wrapper {
+    padding-left: 320px;
+  }
+}
+@media (min-width: 1000px) {
+  .page-404 {
+    padding-bottom: 120px;
+  }
+}

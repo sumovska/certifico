@@ -281,9 +281,9 @@ h6 {&:extend(.h6); }
   .h1 { font-size: 50px; line-height: 56px; margin: 35px 0 35px; }
   .h2 { font-size: 40px; line-height: 40px; }
   .h3 { font-size: 36px; line-height: 40px; }
-  .h4 {font-size: 32px; line-height: 38px;}
-  .h5 {  font-size: 28px; line-height: 34px; }
-  .h6 {  font-size: 24px; line-height: 30px; }
+  .h4 { font-size: 32px; line-height: 38px; }
+  .h5 { font-size: 28px; line-height: 34px; }
+  .h6 { font-size: 24px; line-height: 30px; }
 }
 @media @xl {
   .h1 { font-size: 100px; line-height: 100px; margin: 35px 0 35px; }
@@ -770,7 +770,7 @@ table {
   }
 
   @media @md {
-    .item { margin-bottom: 50px;}
+    .item { margin-bottom: 50px; }
   }
 
   @media @lg {
@@ -787,5 +787,30 @@ table {
         }
       }
     }
+  }
+}
+/* ==========================================================================
+   _404
+   ========================================================================== */
+.page-404 {
+  padding-bottom: 200px;
+  background: url("@{images}/404.jpg") 50% 100% no-repeat;
+  background-size: auto 200px;
+
+  @media @sm {
+    padding-bottom: 0;
+    background: url("../img/404.jpg") 4% 50% no-repeat;
+    background-size: 200px auto;
+    .wrapper { padding-left: 230px; }
+  }
+
+  @media @md {
+    background-position: 4% 0;
+    background-size: auto 100%;
+    .wrapper { padding-left: 320px; }
+  }
+
+  @media @lg {
+    padding-bottom: 120px;
   }
 }

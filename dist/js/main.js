@@ -36,4 +36,6 @@ $(document).ready(function () {
 		});
 	});
 
+	$('table').wrapAll('<div class="table-scroll"></div>')
+
 });

@@ -7,27 +7,33 @@
 // _VARIABLES
 // ==========================================================================
 @min-width: 320px;
-@sm-width: 768px;
-@md-width: 850px;
-@lg-width: 1130px;
+@md-width: 768px;
+@lg-width: 850px;
+@xl-width: 1130px;
 
-@xs: ~"(min-width: 568px)";
-@sm: ~"(min-width: 768px)";
-@md: ~"(min-width: 1000px)";
-@lg: ~"(min-width: 1280px)";
+@sm: ~"(min-width: 568px)";
+@md: ~"(min-width: 768px)";
+@lg: ~"(min-width: 1000px)";
+@xl: ~"(min-width: 1280px)";
 
 @font-segoe: 'Segoe Ui', Helvetica, sans-serif;
 @font-daxline: 'Daxline Pro', Helvetica, sans-serif;
 
 @color-white: #fff;
 @color-black: #000;
+@color-blue-light: #59d0fa;
 @color-blue: #2db8e9;
 @color-gray-light: #ededed;
 @color-pink-light: #fafafb;
+@color-gray: #d3d1ce;
+@color-dark: #414141;
+@color-orange: #f26141;
+@color-orange-light: #ff8568;
 
 @duration: .2s ease;
 @duration-menu: .4s ease;
 
+@margin-sm: 18px;
 @margin-md: 28px;
 
 @images: '../img';
@@ -133,20 +139,22 @@ body {
   height: 100%;
   min-height: 100%;
   margin: 0 auto;
-  padding-top: 110px;
+  padding-top: 50px;
   background: @color-white;
   position: relative;
+}
+@media @md {
+  body { padding-top: 124px; }
 }
 /* ==========================================================================
    _TEXT STYLES
    ========================================================================== */
 p {
-  margin: 0 0 @margin-md;
+  margin: 0 0 @margin-sm;
 }
 ol {
-  margin: @margin-md 0 @margin-md;
+  margin: @margin-sm 0 @margin-sm;
   padding: 0;
-  font-size: 20px;
   list-style: none;
   counter-reset: item;
 
@@ -168,9 +176,8 @@ ol {
   }
 }
 ul {
-  margin: @margin-md 0 @margin-md;
+  margin: @margin-sm 0 @margin-sm;
   padding: 0;
-  font-size: 20px;
   list-style: none;
 
   li {
@@ -212,44 +219,44 @@ audio, canvas, img, video { vertical-align: middle; }
 }
 .h1 {
   &:extend(.h-default);
-  margin: @margin-md 0 @margin-md;
+  margin: @margin-sm 0 @margin-sm;
   font-size: 40px;
-  line-height: 40px;
+  line-height: 46px;
   font-style: normal;
 }
 .h2 {
   &:extend(.h-default);
-  margin: @margin-md 0 @margin-md;
+  margin: @margin-sm 0 @margin-sm;
   font-size: 36px;
-  line-height: 36px;
+  line-height: 42px;
   font-style: normal;
 }
 .h3 {
   &:extend(.h-default);
-  margin: @margin-md 0 @margin-md;
+  margin: @margin-sm 0 @margin-sm;
   font-size: 34px;
-  line-height: 34px;
+  line-height: 40px;
   font-style: normal;
 }
 .h4 {
   &:extend(.h-default);
-  margin: @margin-md 0 @margin-md;
+  margin: @margin-sm 0 @margin-sm;
   font-size: 32px;
-  line-height: 32px;
+  line-height: 38px;
   font-style: normal;
 }
 .h5 {
   &:extend(.h-default);
-  margin: @margin-md 0 @margin-md;
+  margin: @margin-sm 0 @margin-sm;
   font-size: 28px;
-  line-height: 28px;
+  line-height: 34px;
   font-style: normal;
 }
 .h6 {
   &:extend(.h-default);
-  margin: @margin-md 0 @margin-md;
+  margin: @margin-sm 0 @margin-sm;
   font-size: 24px;
-  line-height: 24px;
+  line-height: 30px;
   font-style: normal;
 }
 h1 {&:extend(.h1); }
@@ -258,21 +265,29 @@ h3 {&:extend(.h3); }
 h4 {&:extend(.h4); }
 h5 {&:extend(.h5); }
 h6 {&:extend(.h6); }
+.h-center { text-align: center; }
 @media @md {
-  .h1 { font-size: 50px; line-height: 50px; margin: 35px 0 35px; }
-  .h2 { font-size: 40px; line-height: 40px; }
-  .h3 { font-size: 36px; line-height: 36px; }
-  .h4 { font-size: 32px; line-height: 32px; }
-  .h5 { font-size: 28px; line-height: 28px; }
-  .h6 { font-size: 26px; line-height: 26px; }
+  p { margin: 0 0 @margin-md; }
+  ol, ul { margin: @margin-md 0 @margin-md; }
+  .h1 { margin: @margin-md 0 @margin-md; }
+  .h2 { margin: @margin-md 0 @margin-md; }
+  .h3 { margin: @margin-md 0 @margin-md; }
+  .h4 { margin: @margin-md 0 @margin-md; }
+  .h5 { margin: @margin-md 0 @margin-md; }
+  .h6 { margin: @margin-md 0 @margin-md; }
 }
 @media @lg {
+  ol, ul { font-size: 20px; }
+  .h1 { font-size: 50px; line-height: 56px; margin: 35px 0 35px; }
+  .h2 { font-size: 40px; line-height: 40px; }
+  .h3 { font-size: 36px; line-height: 40px; }
+}
+@media @xl {
   .h1 { font-size: 100px; line-height: 100px; margin: 35px 0 35px; }
   .h2 { font-size: 46px; line-height: 46px; }
-  .h3 { font-size: 40px; line-height: 40px; }
-  .h4 { font-size: 36px; line-height: 36px; }
-  .h5 { font-size: 32px; line-height: 32px; }
-  .h6 { font-size: 28px; line-height: 28px; }
+  .h3 { font-size: 40px; line-height: 44px; }
+  .h4 { font-size: 36px; line-height: 42px; }
+  .h5 { font-size: 30px; line-height: 35px; }
 }
 /* ==========================================================================
    _CONTAINERS
@@ -280,17 +295,14 @@ h6 {&:extend(.h6); }
 .clearfix { display: table; content: '\0020'; clear: both; }
 .before { display: block; content: '\0020'; overflow: hidden; }
 .hidden { display: none; }
+.mobile-hidden { display: none; }
 /* Wrapper */
 .wrapper {
   width: 100%;
-  max-width: @sm-width;
+  max-width: @md-width;
   padding: 0 15px;
   margin: 0 auto;
   &:after { .clearfix; }
-
-  &.wrapper-narrow {
-    max-width: 750px;
-  }
 }
 /* PureCSS styles */
 .pure-g {
@@ -302,7 +314,14 @@ h6 {&:extend(.h6); }
   .large { font-size: 32px; line-height: 40px; }
 }
 @media @lg {
+  .mobile-hidden { display: block; }
   .wrapper { max-width: @lg-width; }
+}
+@media @xl {
+  .wrapper { max-width: @xl-width; }
+  &.wrapper-narrow {
+    max-width: 750px;
+  }
 }
 /* ==========================================================================
    _FORMS
@@ -312,17 +331,105 @@ fieldset {
   border: 0;
   margin: 0;
 }
+/* INPUT & TEXTAREA */
+input {
+  height: 46px;
+  padding: 10px 15px;
+  font: 16px/24px @font-segoe;
+  color: @color-black;
+  background: @color-white;
+  border: 1px solid @color-gray;
+  border-radius: 0;
+  transition: background-color @duration, border-color @duration;
+  -webkit-appearance: none;
+
+  &:focus { border-color: @color-blue; }
+  .form-line & { width: 100%; }
+}
+textarea {
+  &:extend(input);
+  height: 134px;
+  display: block;
+  resize: none;
+
+  &:focus { border-color: @color-blue; }
+  .form-line & { width: 100%; }
+}
+::-webkit-input-placeholder { color: @color-black; }
+:-moz-placeholder { color: @color-black; }
+::-moz-placeholder { color: @color-black; }
+:-ms-input-placeholder { color: @color-black; }
+/* BUTTONS */
+.button, button, input[type="submit"] {
+  height: auto;
+  padding: 26px 34px 16px;
+  font: bold 18px/18px @font-daxline;
+  display: inline-block;
+  background: @color-blue;
+  border-radius: 0;
+  border: none;
+  color: @color-white;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: .09em;
+  transition: background @duration;
+
+  &:hover, &:focus { background: @color-blue-light; }
+  &:active { background: @color-blue-light; box-shadow: inset -2px 0 7px 0 rgba(0, 0, 0, 0.22); }
+
+  .form-submit & { width: 100%; }
+
+  &.button-black {
+    background: @color-black;
+
+    &:hover, &:focus { background: @color-dark; }
+    &:active { background: @color-dark; box-shadow: inset -2px 0 7px 0 rgba(0, 0, 0, 0.95); }
+  }
+
+  &.button-orange {
+    background: @color-orange;
+
+    &:hover, &:focus { background: @color-orange-light; }
+    &:active { background: @color-orange-light; box-shadow: inset -2px 0 7px 0 rgba(0, 0, 0, 0.22); }
+  }
+}
+/* FORM LINE */
+.form-line {
+  margin-bottom: 16px;
+  &:after { .clearfix; }
+}
+.form-submit {
+  margin-top: 22px;
+  &:after { .clearfix; }
+}
+.label {
+  margin-bottom: 8px;
+  display: block;
+}
+/* TABLE */
 table {
   tr {
     th {
-      padding: 28px 30px;
+      padding: 10px 15px;
       text-align: left;
       background-color: @color-pink-light;
     }
     td {
-      min-width: 200px;
-      padding: 28px 30px;
+      padding: 10px 15px;
       border-bottom: 2px solid @color-gray-light;
+    }
+  }
+}
+.table-scroll {
+  width: auto;
+  overflow-x: scroll;
+}
+@media @lg {
+  table {
+    tr {
+      th { padding: 28px 30px; }
+      td { padding: 26px 30px; }
     }
   }
 }
@@ -330,7 +437,7 @@ table {
    _HEADER
    ========================================================================== */
 .header {
-  height: 110px;
+  height: 50px;
   position: absolute;
   top: 0;
   left: 0;
@@ -338,18 +445,19 @@ table {
   z-index: 1000;
 
   .wrapper {
+    height: 100%;
     position: relative;
     cursor: default;
   }
 
   .logo {
-    width: 246px;
-    height: 20px;
+    width: 196px;
+    height: 16px;
     margin: 0 auto;
     position: absolute;
     left: 0;
     right: 0;
-    top: 36px;
+    top: 20px;
 
     img {
       width: 100%;
@@ -361,6 +469,7 @@ table {
   .slogan {
     width: 246px;
     margin: 0 auto;
+    display: none;
     text-align: center;
     font: 11px @font-daxline;
     text-transform: uppercase;
@@ -372,25 +481,25 @@ table {
   }
 
   .tel {
-    display: block;
+    display: none;
     color: @color-black;
     text-decoration: none;
     cursor: default;
     font: 20px/24px @font-daxline;
     letter-spacing: .02em;
     position: absolute;
-    left: 182px;
+    left: 15px;
     top: 35px;
   }
 
   .language {
     padding-right: 18px;
-    display: block;
-   font: 14px/24px @font-daxline;
+    display: none;
+    font: 14px/24px @font-daxline;
     color: @color-black;
     text-decoration: none;
     position: absolute;
-    right: 258px;
+    right: 85px;
     top: 36px;
 
     &:before {
@@ -408,7 +517,7 @@ table {
 
     &:hover {
       color: @color-blue;
-      &:before { border-color: @color-blue transparent transparent transparent;}
+      &:before { border-color: @color-blue transparent transparent transparent; }
     }
   }
 
@@ -420,9 +529,10 @@ table {
     border-bottom: 2px solid @color-black;
     cursor: pointer;
     position: absolute;
-    right: 96px;
-    top: 39px;
+    right: 15px;
+    top: 20px;
     transition: border-color @duration;
+    z-index: 1000;
 
     &:before {
       .before;
@@ -437,7 +547,7 @@ table {
 
     &:hover {
       border-color: @color-blue;
-      &:before { background: @color-blue;}
+      &:before { background: @color-blue; }
     }
   }
 
@@ -507,18 +617,129 @@ table {
       }
     }
   }
+  @media @md {
+    height: 110px;
+    .logo { width: 246px; height: 20px; top: 36px; }
+    .slogan { display: block; }
+    .tel, .language { display: block; }
+    .toggle { top: 39px; }
+  }
+  @media @lg {
+    .toggle { right: 96px; }
+  }
+  @media @xl {
+    .tel { left: 182px; }
+    .language { right: 258px; }
+  }
 }
 /* ==========================================================================
    _FOOTER
    ========================================================================== */
 .footer {
-  height: 98px;
-  padding: 40px 0;
-  
+  height: 60px;
+  padding: 20px 0;
+
   .copyright {
     margin: 0;
     font: 14px @font-daxline;
     text-align: center;
     letter-spacing: .02em;
+  }
+
+  @media @md {
+    height: 98px;
+    padding: 44px 0;
+  }
+}
+/* ==========================================================================
+   _CONTACTS
+   ========================================================================== */
+.contacts {
+  margin-top: 30px;
+  padding: 30px 0;
+  background: @color-pink-light;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+
+  .pure-g {
+    margin: 0 -15px;
+    [class*="pure-u"] {
+      padding: 0 15px 30px;
+
+      &:last-of-type { padding-bottom: 0; }
+    }
+  }
+
+  .heading {
+    display: none;
+    margin-bottom: 68px;
+    text-align: center;
+
+    img { width: 246px; height: 20px; }
+  }
+
+  .title {
+    &:extend(.h5);
+    margin: 0 0 20px;
+  }
+
+  .list {
+    font-size: 16px;
+    line-height: 24px;
+
+    li {
+      margin-bottom: 20px;
+      padding: 0;
+      &:before, &:after { display: none; }
+
+      a {
+        color: @color-black;
+        text-decoration: none;
+
+        &:hover { color: @color-blue; }
+      }
+    }
+  }
+
+  .tel {
+    cursor: default;
+    &:hover { color: @color-black; }
+  }
+
+  .develop {
+    margin: 0;
+    a {
+      color: @color-black;
+      text-decoration: none;
+      &:hover { color: @color-blue; }
+    }
+  }
+
+  form {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  @media @md {
+    margin-top: 60px;
+    padding: 44px 0 54px;
+    text-align: left;
+    .pure-g {
+      [class*="pure-u"] { padding-bottom: 0; }
+    }
+    .heading { display: block; }
+    .small { font: 14px/18px @font-daxline; }
+    form { max-width: none; }
+  }
+
+  @media @lg {
+    .develop {
+      margin: 0;
+      position: relative;
+      top: 50px;
+    }
   }
 }

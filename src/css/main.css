@@ -175,14 +175,17 @@ h3,
 h4,
 h5,
 h6,
-.contacts .title {
+.contacts .title,
+.faq .heading,
+.faq .item .title {
   margin: 0;
   line-height: normal;
   font-weight: normal;
   font-family: 'Daxline Pro', Helvetica, sans-serif;
 }
 .h1,
-h1 {
+h1,
+.faq .heading {
   margin: 18px 0 18px;
   font-size: 40px;
   line-height: 46px;
@@ -203,25 +206,26 @@ h3 {
   font-style: normal;
 }
 .h4,
-h4 {
+h4,
+.faq .item .title {
   margin: 18px 0 18px;
-  font-size: 32px;
-  line-height: 38px;
+  font-size: 30px;
+  line-height: 36px;
   font-style: normal;
 }
 .h5,
 h5,
 .contacts .title {
   margin: 18px 0 18px;
-  font-size: 28px;
-  line-height: 34px;
+  font-size: 26px;
+  line-height: 32px;
   font-style: normal;
 }
 .h6,
 h6 {
   margin: 18px 0 18px;
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 22px;
+  line-height: 28px;
   font-style: normal;
 }
 .h-center {
@@ -236,7 +240,8 @@ h6 {
     margin: 28px 0 28px;
   }
   .h1,
-  h1 {
+  h1,
+  .faq .heading {
     margin: 28px 0 28px;
   }
   .h2,
@@ -248,7 +253,8 @@ h6 {
     margin: 28px 0 28px;
   }
   .h4,
-  h4 {
+  h4,
+  .faq .item .title {
     margin: 28px 0 28px;
   }
   .h5,
@@ -267,7 +273,8 @@ h6 {
     font-size: 20px;
   }
   .h1,
-  h1 {
+  h1,
+  .faq .heading {
     font-size: 50px;
     line-height: 56px;
     margin: 35px 0 35px;
@@ -282,10 +289,28 @@ h6 {
     font-size: 36px;
     line-height: 40px;
   }
+  .h4,
+  h4,
+  .faq .item .title {
+    font-size: 32px;
+    line-height: 38px;
+  }
+  .h5,
+  h5,
+  .contacts .title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .h6,
+  h6 {
+    font-size: 24px;
+    line-height: 30px;
+  }
 }
 @media (min-width: 1280px) {
   .h1,
-  h1 {
+  h1,
+  .faq .heading {
     font-size: 100px;
     line-height: 100px;
     margin: 35px 0 35px;
@@ -301,9 +326,10 @@ h6 {
     line-height: 44px;
   }
   .h4,
-  h4 {
+  h4,
+  .faq .item .title {
     font-size: 36px;
-    line-height: 42px;
+    line-height: 40px;
   }
   .h5,
   h5,
@@ -885,5 +911,41 @@ table tr td {
     margin: 0;
     position: relative;
     top: 50px;
+  }
+}
+/* ==========================================================================
+   _FAQ
+   ========================================================================== */
+.faq .heading {
+  margin: 28px 0 28px;
+  text-align: center;
+}
+.faq .item {
+  margin-bottom: 30px;
+}
+.faq .item:last-of-type {
+  margin-bottom: 0;
+}
+.faq .item .title {
+  margin: 0 0 8px;
+  color: #2db8e9;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .faq .item {
+    margin-bottom: 50px;
+  }
+}
+@media (min-width: 1000px) {
+  .faq .item .title:before {
+    display: block;
+    content: '\0020';
+    overflow: hidden;
+    width: 32px;
+    height: 2px;
+    background: #2db8e9;
+    position: absolute;
+    left: -46px;
+    top: 16px;
   }
 }

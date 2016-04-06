@@ -545,3 +545,16 @@ table tr td {
   color: #000;
   text-decoration: none;
 }
+/* ==========================================================================
+   _FOOTER
+   ========================================================================== */
+.footer {
+  height: 98px;
+  padding: 40px 0;
+}
+.footer .copyright {
+  margin: 0;
+  font: 14px 'Daxline Pro', Helvetica, sans-serif;
+  text-align: center;
+  letter-spacing: .02em;
+}

@@ -814,3 +814,82 @@ table {
     padding-bottom: 120px;
   }
 }
+/* ==========================================================================
+   _JOBS
+   ========================================================================== */
+.jobs {
+  .heading {
+    &:extend(.h1);
+    margin: @margin-md 0 @margin-md;
+    text-align: center;
+  }
+
+  .item {
+    margin-bottom: 40px;
+
+    &:last-of-type { margin-bottom: 0;}
+
+    .title {
+      &:extend(.h4);
+      margin: 0 0 8px;
+      color: @color-blue;
+    }
+
+    ul {
+      margin: 10px 0 18px;
+      font-size: 18px;
+      line-height: 22px;
+
+      li {
+        &:before { top: 10px; }
+        &:after { top: 6px; }
+      }
+    }
+
+    .bottom {
+      &:after { .clearfix; }
+      text-align: center;
+
+      .salary {
+        margin-bottom: 10px;
+        display: block;
+        color: @color-blue;
+        font-size: 24px;
+        line-height: normal;
+      }
+      .button { width: 100%;}
+    }
+
+  }
+
+  @media @sm {
+    .item {
+      .bottom {
+        text-align: left;
+
+        .salary {
+          margin-bottom: 0;
+          float: left;
+          position: relative;
+          top: 14px;
+        }
+        .button { width: auto; float: right; }
+      }
+    }
+  }
+
+  @media @md {
+    padding-bottom: 24px;
+
+    .item {
+      margin-bottom: 136px;
+      .bottom {
+        .salary {
+          font-size: 32px;
+          line-height: 40px;
+          top: 5px;
+        }
+      }
+    }
+  }
+}

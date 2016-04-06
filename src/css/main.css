@@ -177,7 +177,9 @@ h5,
 h6,
 .contacts .title,
 .faq .heading,
-.faq .item .title {
+.faq .item .title,
+.jobs .heading,
+.jobs .item .title {
   margin: 0;
   line-height: normal;
   font-weight: normal;
@@ -185,7 +187,8 @@ h6,
 }
 .h1,
 h1,
-.faq .heading {
+.faq .heading,
+.jobs .heading {
   margin: 18px 0 18px;
   font-size: 40px;
   line-height: 46px;
@@ -207,7 +210,8 @@ h3 {
 }
 .h4,
 h4,
-.faq .item .title {
+.faq .item .title,
+.jobs .item .title {
   margin: 18px 0 18px;
   font-size: 30px;
   line-height: 36px;
@@ -241,7 +245,8 @@ h6 {
   }
   .h1,
   h1,
-  .faq .heading {
+  .faq .heading,
+  .jobs .heading {
     margin: 28px 0 28px;
   }
   .h2,
@@ -254,7 +259,8 @@ h6 {
   }
   .h4,
   h4,
-  .faq .item .title {
+  .faq .item .title,
+  .jobs .item .title {
     margin: 28px 0 28px;
   }
   .h5,
@@ -274,7 +280,8 @@ h6 {
   }
   .h1,
   h1,
-  .faq .heading {
+  .faq .heading,
+  .jobs .heading {
     font-size: 50px;
     line-height: 56px;
     margin: 35px 0 35px;
@@ -291,7 +298,8 @@ h6 {
   }
   .h4,
   h4,
-  .faq .item .title {
+  .faq .item .title,
+  .jobs .item .title {
     font-size: 32px;
     line-height: 38px;
   }
@@ -310,7 +318,8 @@ h6 {
 @media (min-width: 1280px) {
   .h1,
   h1,
-  .faq .heading {
+  .faq .heading,
+  .jobs .heading {
     font-size: 100px;
     line-height: 100px;
     margin: 35px 0 35px;
@@ -327,7 +336,8 @@ h6 {
   }
   .h4,
   h4,
-  .faq .item .title {
+  .faq .item .title,
+  .jobs .item .title {
     font-size: 36px;
     line-height: 40px;
   }
@@ -979,5 +989,79 @@ table tr td {
 @media (min-width: 1000px) {
   .page-404 {
     padding-bottom: 120px;
+  }
+}
+/* ==========================================================================
+   _JOBS
+   ========================================================================== */
+.jobs .heading {
+  margin: 28px 0 28px;
+  text-align: center;
+}
+.jobs .item {
+  margin-bottom: 40px;
+}
+.jobs .item:last-of-type {
+  margin-bottom: 0;
+}
+.jobs .item .title {
+  margin: 0 0 8px;
+  color: #2db8e9;
+}
+.jobs .item ul {
+  margin: 10px 0 18px;
+  font-size: 18px;
+  line-height: 22px;
+}
+.jobs .item ul li:before {
+  top: 10px;
+}
+.jobs .item ul li:after {
+  top: 6px;
+}
+.jobs .item .bottom {
+  text-align: center;
+}
+.jobs .item .bottom:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.jobs .item .bottom .salary {
+  margin-bottom: 10px;
+  display: block;
+  color: #2db8e9;
+  font-size: 24px;
+  line-height: normal;
+}
+.jobs .item .bottom .button {
+  width: 100%;
+}
+@media (min-width: 568px) {
+  .jobs .item .bottom {
+    text-align: left;
+  }
+  .jobs .item .bottom .salary {
+    margin-bottom: 0;
+    float: left;
+    position: relative;
+    top: 14px;
+  }
+  .jobs .item .bottom .button {
+    width: auto;
+    float: right;
+  }
+}
+@media (min-width: 768px) {
+  .jobs {
+    padding-bottom: 24px;
+  }
+  .jobs .item {
+    margin-bottom: 136px;
+  }
+  .jobs .item .bottom .salary {
+    font-size: 32px;
+    line-height: 40px;
+    top: 5px;
   }
 }

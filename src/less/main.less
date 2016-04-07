@@ -8,13 +8,15 @@
 // ==========================================================================
 @min-width: 320px;
 @md-width: 768px;
-@lg-width: 850px;
-@xl-width: 1130px;
+@lg-width: 860px;
+@xl-width: 1140px;
+@xxl-width: 1420px;
 
 @sm: ~"(min-width: 568px)";
 @md: ~"(min-width: 768px)";
 @lg: ~"(min-width: 1000px)";
 @xl: ~"(min-width: 1280px)";
+@xxl: ~"(min-width: 1560px)";
 
 @font-segoe: 'Segoe Ui', Helvetica, sans-serif;
 @font-daxline: 'Daxline Pro', Helvetica, sans-serif;
@@ -29,6 +31,7 @@
 @color-dark: #414141;
 @color-orange: #f26141;
 @color-orange-light: #ff8568;
+@color-orange-medium: #f64;
 
 @duration: .2s ease;
 @duration-menu: .4s ease;
@@ -83,6 +86,7 @@
 // COLORS
 .color-white(@opacity) { @color: rgba(255, 255, 255, @opacity); }
 .color-black(@opacity) { @color: rgba(0, 0, 0, @opacity); }
+.color-orange-medium(@opacity) { @color: rgba(255, 102, 68, @opacity); }
 // ROTATE
 .rotate(@deg) {
   -webkit-transform: rotate(@deg);
@@ -139,12 +143,13 @@ body {
   height: 100%;
   min-height: 100%;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 70px;
   background: @color-white;
   position: relative;
+  &.index { padding-top: 0; }
 }
-@media @md {
-  body { padding-top: 124px; }
+@media @sm {
+  body { padding-top: 130px; }
 }
 /* ==========================================================================
    _TEXT STYLES
@@ -303,7 +308,7 @@ h6 {&:extend(.h6); }
 .wrapper {
   width: 100%;
   max-width: @md-width;
-  padding: 0 15px;
+  padding: 0 20px;
   margin: 0 auto;
   &:after { .clearfix; }
 }
@@ -325,6 +330,9 @@ h6 {&:extend(.h6); }
   &.wrapper-narrow {
     max-width: 750px;
   }
+}
+@media @xxl {
+  .wrapper { max-width: @xxl-width; }
 }
 /* ==========================================================================
    _FORMS
@@ -440,7 +448,7 @@ table {
    _HEADER
    ========================================================================== */
 .header {
-  height: 50px;
+  height: 70px;
   position: absolute;
   top: 0;
   left: 0;
@@ -455,12 +463,38 @@ table {
 
   .logo {
     width: 196px;
-    height: 16px;
     margin: 0 auto;
+    padding: 20px 10px;
     position: absolute;
     left: 0;
     right: 0;
-    top: 20px;
+    top: 0;
+    z-index: 1;
+
+    &:before {
+      .before;
+      background: @color-white;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+
+    &:after {
+      .before;
+      clear: both;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 14px 196px 0 0;
+      border-color: @color-white transparent transparent transparent;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+    }
 
     img {
       width: 100%;
@@ -481,6 +515,7 @@ table {
     top: 72px;
     left: 0;
     right: 0;
+    z-index: 10;
   }
 
   .tel {
@@ -491,8 +526,8 @@ table {
     font: 20px/24px @font-daxline;
     letter-spacing: .02em;
     position: absolute;
-    left: 15px;
-    top: 35px;
+    left: 34px;
+    top: 40px;
   }
 
   .language {
@@ -502,8 +537,8 @@ table {
     color: @color-black;
     text-decoration: none;
     position: absolute;
-    right: 85px;
-    top: 36px;
+    right: 112px;
+    top: 40px;
 
     &:before {
       .before;
@@ -532,7 +567,7 @@ table {
     border-bottom: 2px solid @color-black;
     cursor: pointer;
     position: absolute;
-    right: 15px;
+    right: 20px;
     top: 20px;
     transition: border-color @duration;
     z-index: 1000;
@@ -620,19 +655,57 @@ table {
       }
     }
   }
-  @media @md {
-    height: 110px;
-    .logo { width: 246px; height: 20px; top: 36px; }
+
+  .index & {
+    color: @color-white;
+    .slogan { color: @color-black; }
+    .tel { color: @color-white; }
+    .language {
+      &:not(:hover) {
+        color: @color-white;
+        &:before { border-color: @color-white transparent transparent transparent; }
+      }
+    }
+    .toggle {
+      &:not(:hover) {
+        border-top-color: @color-white;
+        border-bottom-color: @color-white;
+        &:before { background: @color-white; }
+      }
+    }
+  }
+
+  @media @sm {
+    height: 130px;
+    .logo {
+      width: 326px;
+      padding: 40px 40px 32px;
+      &:after {border-width: 22px 326px 0 0; }
+    }
+    .toggle { top: 40px; right: 50%; margin-right: -210px; }
+  }
+
+  @media @lg {
+    .logo {
+      width: 368px;
+      padding-left: 60px;
+      padding-right: 60px;
+      padding-bottom: 44px;
+      &:after { border-width: 22px 368px 0 0; }
+    }
+    .toggle { margin-right: -406px; }
     .slogan { display: block; }
     .tel, .language { display: block; }
-    .toggle { top: 39px; }
-  }
-  @media @lg {
-    .toggle { right: 96px; }
   }
   @media @xl {
-    .tel { left: 182px; }
-    .language { right: 258px; }
+    .tel { left: 188px; }
+    .language { right: 260px; }
+    .toggle { margin-right: -550px; }
+  }
+  @media @xxl {
+    .tel { left: 308px; }
+    .language { right: 400px; }
+    .toggle { margin-right: -780px; }
   }
 }
 /* ==========================================================================
@@ -641,6 +714,7 @@ table {
 .footer {
   height: 60px;
   padding: 20px 0;
+  cursor: default;
 
   .copyright {
     margin: 0;
@@ -799,7 +873,7 @@ table {
 
   @media @sm {
     padding-bottom: 0;
-    background: url("../img/404.jpg") 4% 50% no-repeat;
+    background-position: 4% 50%;
     background-size: 200px auto;
     .wrapper { padding-left: 230px; }
   }
@@ -827,7 +901,7 @@ table {
   .item {
     margin-bottom: 40px;
 
-    &:last-of-type { margin-bottom: 0;}
+    &:last-of-type { margin-bottom: 0; }
 
     .title {
       &:extend(.h4);
@@ -857,7 +931,7 @@ table {
         font-size: 24px;
         line-height: normal;
       }
-      .button { width: 100%;}
+      .button { width: 100%; }
     }
 
   }
@@ -889,6 +963,179 @@ table {
           line-height: 40px;
           top: 5px;
         }
+      }
+    }
+  }
+}
+/* ==========================================================================
+   _JUMBOTRON
+   ========================================================================== */
+.jumbotron {
+  height: 100%;
+  padding-bottom: 30px;
+  overflow: hidden;
+  color: @color-white;
+  position: relative;
+
+  &.slick-initialized {
+    height: auto;
+    overflow: visible;
+
+    .slick-dots {
+      margin: 0 0 0 -300px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      text-align: center;
+    }
+  }
+
+  .item {
+    height: 100%;
+    margin-bottom: 30px;
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    &:before {
+      .before;
+      height: 30px;
+      background: url("@{images}/triangle.png") 0 100% no-repeat;
+      background-size: 100% 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .text {
+      width: 280px;
+      margin: 0 auto;
+      padding: 16px 0 24px 16px;
+      text-align: center;
+      font: 18px/24px @font-daxline;
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      right: 0;
+
+      &:before {
+        .before;
+        opacity: .94;
+        border-top: 1px solid #ece7e7;
+        border-left: 1px solid #ece7e7;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 16px;
+        bottom: 16px;
+      }
+
+      &:after {
+        .before;
+        clear: both;
+        height: 1px;
+        opacity: .94;
+        background: @color-white;
+        position: absolute;
+        left: 0;
+        right: 16px;
+        bottom: 27px;
+        .rotate(-5deg);
+      }
+      .text-area {
+        width: 264px;
+        min-height: 274px;
+        margin: 0 auto;
+        padding: 24px 20px;
+        .color-orange-medium(.94);
+        background: @color;
+        position: relative;
+
+        &:before {
+          .before;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 26px 264px 0 0;
+          border-color: @color transparent transparent transparent;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+        }
+
+        &:after {
+          .before;
+          clear: both;
+          width: 1px;
+          opacity: .94;
+          background: @color-white;
+          position: absolute;
+          right: 16px;
+          bottom: 16px;
+          top: -16px;
+        }
+      }
+
+      .heading {
+        margin: 0 0 8px;
+        font-size: 30px;
+        line-height: 34px;
+      }
+
+      p:last-of-type { margin-bottom: 0; }
+    }
+  }
+
+  @media @sm {
+    height: 770px;
+    padding-bottom: 30px;
+
+    .item {
+      padding-top: 375px;
+
+      &:before { height: 70px; }
+
+      .text {
+        width: 456px;
+        position: relative;
+        bottom: auto;
+
+        &:after { .rotate(-3deg); }
+
+        .text-area {
+          width: 440px;
+          min-height: 345px;
+          padding: 44px 40px;
+
+          &:before { border-width: 26px 440px 0 0; }
+        }
+
+        .heading { font-size: 46px; line-height: 55px; }
+      }
+    }
+  }
+  @media @lg {
+    .item {
+      padding-top: 200px;
+      .text { margin-bottom: 0; float: right; }
+    }
+  }
+  @media @xl {
+    height: 780px;
+    .item { padding-top: 210px; }
+  }
+  @media @xxl {
+    height: 910px;
+
+    .item {
+      .text {
+        width: 498px;
+
+        .text-area { width: 480px; }
       }
     }
   }

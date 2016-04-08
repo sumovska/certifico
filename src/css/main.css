@@ -39,6 +39,14 @@
   font-weight: 900;
   font-style: normal;
 }
+/*** Segoe Print ***/
+@font-face {
+  font-family: 'Segoe Print';
+  src: url('../fonts/segoe-print-bold-webfont.eot');
+  src: local('☺'), url('../fonts/segoe-print-bold-webfont.woff') format('woff'), url('../fonts/segoe-print-bold-webfont.ttf') format('truetype'), url('../fonts/segoe-print-bold-webfont.svg') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
 /* ==========================================================================
    _GENERAL STYLES
    ========================================================================== */
@@ -912,6 +920,104 @@ table tr td {
   }
 }
 /* ==========================================================================
+   _SHAPE
+   ========================================================================== */
+.shape {
+  width: 280px;
+  padding: 16px 0 24px 16px;
+  position: relative;
+}
+.shape:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  border-top: 2px solid #ece7e7;
+  border-left: 2px solid #ece7e7;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 16px;
+  bottom: 16px;
+}
+.shape:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  height: 2px;
+  background: #ece7e7;
+  position: absolute;
+  left: 0;
+  right: 16px;
+  bottom: 27px;
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  -o-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+  -webkit-backface-visibility: hidden;
+}
+.shape .shape-area {
+  width: 264px;
+  padding: 24px 20px;
+  background: #fff;
+  position: relative;
+}
+.shape .shape-area:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 26px 264px 0 0;
+  border-color: #fff transparent transparent transparent;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.shape .shape-area:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  width: 2px;
+  background: #ece7e7;
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  top: -16px;
+}
+@media (min-width: 568px) {
+  .shape {
+    width: 456px;
+  }
+  .shape:after {
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+    -webkit-backface-visibility: hidden;
+  }
+  .shape .shape-area {
+    width: 440px;
+    padding: 44px 30px;
+  }
+  .shape .shape-area:before {
+    border-width: 26px 440px 0 0;
+  }
+}
+@media (min-width: 1560px) {
+  .shape {
+    width: 498px;
+  }
+  .shape .shape-area {
+    width: 480px;
+  }
+}
+/* ==========================================================================
    _CONTACTS
    ========================================================================== */
 .contacts {
@@ -1231,10 +1337,8 @@ table tr td {
   right: 0;
   z-index: 10;
 }
-.jumbotron .item .text {
-  width: 280px;
+.jumbotron .item .shape {
   margin: 0 auto;
-  padding: 16px 0 24px 16px;
   text-align: center;
   font: 18px/24px 'Daxline Pro', Helvetica, sans-serif;
   position: absolute;
@@ -1243,85 +1347,33 @@ table tr td {
   right: 0;
   z-index: 100;
 }
-.jumbotron .item .text:before {
-  display: block;
-  content: '\0020';
-  overflow: hidden;
+.jumbotron .item .shape:before,
+.jumbotron .item .shape:after {
   opacity: .94;
-  border-top: 2px solid #ece7e7;
-  border-left: 2px solid #ece7e7;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 16px;
-  bottom: 16px;
 }
-.jumbotron .item .text:after {
-  display: block;
-  content: '\0020';
-  overflow: hidden;
-  clear: both;
-  height: 2px;
-  opacity: .94;
-  background: #fff;
-  position: absolute;
-  left: 0;
-  right: 16px;
-  bottom: 27px;
-  -webkit-transform: rotate(-5deg);
-  -moz-transform: rotate(-5deg);
-  -ms-transform: rotate(-5deg);
-  -o-transform: rotate(-5deg);
-  transform: rotate(-5deg);
-  -webkit-backface-visibility: hidden;
-}
-.jumbotron .item .text .text-area {
-  width: 264px;
+.jumbotron .item .shape .shape-area {
   min-height: 264px;
   margin: 0 auto;
-  padding: 24px 20px;
   background: rgba(255, 102, 68, 0.94);
-  position: relative;
 }
-.jumbotron .item .text .text-area:before {
-  display: block;
-  content: '\0020';
-  overflow: hidden;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 26px 264px 0 0;
+.jumbotron .item .shape .shape-area:before {
   border-color: rgba(255, 102, 68, 0.94) transparent transparent transparent;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
 }
-.jumbotron .item .text .text-area:after {
-  display: block;
-  content: '\0020';
-  overflow: hidden;
-  clear: both;
-  width: 2px;
+.jumbotron .item .shape .shape-area:after {
   opacity: .94;
-  background: #fff;
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  top: -16px;
 }
-.jumbotron .item .text .text-area.blue-area {
+.jumbotron .item .shape .shape-area.blue-area {
   background: rgba(45, 184, 233, 0.94);
 }
-.jumbotron .item .text .text-area.blue-area:before {
+.jumbotron .item .shape .shape-area.blue-area:before {
   border-color: rgba(45, 184, 233, 0.94) transparent transparent transparent;
 }
-.jumbotron .item .text .heading {
+.jumbotron .item .shape .heading {
   margin: 0 0 8px;
   font-size: 30px;
   line-height: 34px;
 }
-.jumbotron .item .text p:last-of-type {
+.jumbotron .item .shape p:last-of-type {
   margin-bottom: 0;
 }
 @media (min-width: 568px) {
@@ -1332,7 +1384,7 @@ table tr td {
     height: auto;
   }
   .jumbotron.slick-initialized .slick-list {
-    height: auto ;
+    height: auto;
     padding-bottom: 0;
   }
   .jumbotron.slick-initialized .slick-list .slick-slide {
@@ -1344,30 +1396,14 @@ table tr td {
   .jumbotron .item:before {
     height: 50px;
   }
-  .jumbotron .item .text {
-    width: 456px;
+  .jumbotron .item .shape {
     margin-bottom: -10px;
     position: relative;
     bottom: auto;
     left: auto;
     right: auto;
   }
-  .jumbotron .item .text:after {
-    -webkit-transform: rotate(-3deg);
-    -moz-transform: rotate(-3deg);
-    -ms-transform: rotate(-3deg);
-    -o-transform: rotate(-3deg);
-    transform: rotate(-3deg);
-    -webkit-backface-visibility: hidden;
-  }
-  .jumbotron .item .text .text-area {
-    width: 440px;
-    padding: 44px 30px;
-  }
-  .jumbotron .item .text .text-area:before {
-    border-width: 26px 440px 0 0;
-  }
-  .jumbotron .item .text .heading {
+  .jumbotron .item .shape .heading {
     font-size: 46px;
     line-height: 55px;
   }
@@ -1400,7 +1436,7 @@ table tr td {
   .jumbotron .item:before {
     display: none;
   }
-  .jumbotron .item .text {
+  .jumbotron .item .shape {
     margin-bottom: 0;
     float: right;
   }
@@ -1424,10 +1460,136 @@ table tr td {
     margin-left: -760px;
     top: 270px;
   }
-  .jumbotron .item .text {
-    width: 498px;
+}
+/* ==========================================================================
+   _TESTIMONIALS
+   ========================================================================== */
+.testimonials .heading {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.testimonials .list {
+  height: 554px;
+  overflow: hidden;
+}
+.testimonials .list:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.testimonials .list.slick-initialized {
+  height: auto;
+  overflow: visible;
+}
+.testimonials .list .item {
+  color: #fff;
+  line-height: 30px;
+}
+.testimonials .list .item .shape {
+  width: 100%;
+  padding: 20px 0 24px 20px;
+}
+.testimonials .list .item .shape:before {
+  bottom: 56px;
+}
+.testimonials .list .item .shape:after {
+  bottom: 70px;
+  z-index: -1;
+}
+.testimonials .list .item .shape .shape-area {
+  width: 100%;
+  padding: 36px 36px 60px;
+  background-position: 30% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.testimonials .list .item .shape .shape-area:before {
+  width: 100%;
+  height: 30px;
+  background: url("../img/triangle.png") 0 0 no-repeat;
+  background-size: 100% 100%;
+  border: none;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: auto;
+}
+.testimonials .list .item .shape .shape-area:after {
+  z-index: -1;
+  top: -20px;
+  bottom: 60px;
+}
+.testimonials .list .item .name {
+  margin: 0 0 36px;
+  font: bold 16px/20px 'Segoe Print', Helvetica, sans-serif;
+}
+.testimonials .list .item .name span {
+  display: block;
+}
+.testimonials .list .item .text {
+  min-height: 336px;
+  margin-bottom: 18px;
+  padding-right: 60px;
+}
+.testimonials .list .item .text p:last-of-type {
+  margin-bottom: 0;
+}
+.testimonials .list .item .button {
+  padding-left: 24px;
+  padding-right: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.testimonials .list .item .icon-logo {
+  width: auto;
+  height: 58px;
+  margin: 0 0 0 26px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.testimonials .list .item:nth-of-type(1) .shape:before {
+  bottom: 90px;
+}
+.testimonials .list .item:nth-of-type(1) .shape:after {
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  transform: rotate(5deg);
+  -webkit-backface-visibility: hidden;
+}
+.testimonials .list .item:nth-of-type(1) .shape .shape-area:before {
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+.testimonials .list .item:nth-of-type(1) .shape .shape-area:after {
+  bottom: 28px;
+}
+@media (min-width: 768px) {
+  .testimonials .list .item .text {
+    padding-right: 180px;
   }
-  .jumbotron .item .text .text-area {
-    width: 480px;
+}
+@media (min-width: 1280px) {
+  .testimonials .list {
+    height: auto;
+    margin: 0 -32px;
+    overflow: visible;
+  }
+  .testimonials .list .item {
+    width: 50%;
+    padding: 0 20px;
+    float: left;
+  }
+}
+@media (min-width: 1560px) {
+  .testimonials .list {
+    margin: 0 -40px;
+  }
+  .testimonials .list .item {
+    padding: 0 40px;
   }
 }

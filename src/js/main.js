@@ -10,7 +10,7 @@ $(document).ready(function () {
 	FastClick.attach(document.body);
 
 	/*** TOGGLE NAVIGATION ***/
-	$('.header').each(function(){
+	$('.header').each(function () {
 		var body = $('body'), _nav = $('.nav', this);
 		$(this).prepend("<span class='toggle'></span>");
 		_nav.wrapInner('<div class="space"></div>');
@@ -38,7 +38,7 @@ $(document).ready(function () {
 
 	$('table').wrapAll('<div class="table-scroll"></div>');
 
-	$('.jumbotron').each(function(){
+	$('.jumbotron').each(function () {
 		$(this).slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
@@ -48,6 +48,22 @@ $(document).ready(function () {
 			customPaging: function (slider, i) {
 				return '<span class="dots" data-role="none"></span>';
 			}
+		});
+	});
+
+	$('.testimonials').each(function () {
+		$('.list', this).slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			mobileFirst: true,
+			arrows: false,
+			dots: false,
+			responsive: [
+				{
+					breakpoint: 1280,
+					settings: 'unslick'
+				}
+			]
 		});
 	});
 

@@ -87,6 +87,7 @@
 .color-white(@opacity) { @color: rgba(255, 255, 255, @opacity); }
 .color-black(@opacity) { @color: rgba(0, 0, 0, @opacity); }
 .color-orange-medium(@opacity) { @color: rgba(255, 102, 68, @opacity); }
+.color-blue(@opacity) { @color: rgba(45, 184, 233, @opacity); }
 // ROTATE
 .rotate(@deg) {
   -webkit-transform: rotate(@deg);
@@ -512,7 +513,7 @@ table {
     text-transform: uppercase;
     letter-spacing: .1em;
     position: absolute;
-    top: 72px;
+    top: 70px;
     left: 0;
     right: 0;
     z-index: 10;
@@ -526,8 +527,8 @@ table {
     font: 20px/24px @font-daxline;
     letter-spacing: .02em;
     position: absolute;
-    left: 34px;
-    top: 40px;
+    left: 36px;
+    top: 36px;
   }
 
   .language {
@@ -537,8 +538,8 @@ table {
     color: @color-black;
     text-decoration: none;
     position: absolute;
-    right: 112px;
-    top: 40px;
+    right: 110px;
+    top: 36px;
 
     &:before {
       .before;
@@ -679,10 +680,10 @@ table {
     height: 130px;
     .logo {
       width: 326px;
-      padding: 40px 40px 32px;
+      padding: 36px 40px;
       &:after {border-width: 22px 326px 0 0; }
     }
-    .toggle { top: 40px; right: 50%; margin-right: -210px; }
+    .toggle { top: 36px; right: 50%; margin-right: -210px; }
   }
 
   @media @lg {
@@ -690,10 +691,10 @@ table {
       width: 368px;
       padding-left: 60px;
       padding-right: 60px;
-      padding-bottom: 44px;
+      padding-bottom: 48px;
       &:after { border-width: 22px 368px 0 0; }
     }
-    .toggle { margin-right: -406px; }
+    .toggle { margin-right: -410px; }
     .slogan { display: block; }
     .tel, .language { display: block; }
   }
@@ -705,7 +706,7 @@ table {
   @media @xxl {
     .tel { left: 308px; }
     .language { right: 400px; }
-    .toggle { margin-right: -780px; }
+    .toggle { margin-right: -690px; }
   }
 }
 /* ==========================================================================
@@ -978,16 +979,45 @@ table {
   position: relative;
 
   &.slick-initialized {
-    height: auto;
     overflow: visible;
+    padding-bottom: 0;
+
+    .slick-list {
+      height: 100%;
+      padding-bottom: 30px;
+    }
+    .slick-track { height: 100%; }
 
     .slick-dots {
-      margin: 0 0 0 -300px;
+      max-height: 34px;
+      margin: auto 0 auto -382px;
       position: absolute;
-      top: 0;
+      top: 80px;
       bottom: 0;
       left: 50%;
       text-align: center;
+      z-index: 1001;
+      .rotate(90deg);
+
+      li {
+        margin: 0 7px;
+        padding: 0;
+        display: inline-block;
+        &:before, &:after { display: none;}
+
+        .dots {
+          width: 10px;
+          height: 10px;
+          display: block;
+          border-radius: 50%;
+          background: @color-white;
+          cursor: pointer;
+          opacity: .21;
+        }
+        &.slick-active {
+          .dots {opacity: 1;}
+        }
+      }
     }
   }
 
@@ -1008,6 +1038,7 @@ table {
       bottom: 0;
       left: 0;
       right: 0;
+      z-index: 10;
     }
 
     .text {
@@ -1020,12 +1051,13 @@ table {
       bottom: -16px;
       left: 0;
       right: 0;
+      z-index: 100;
 
       &:before {
         .before;
         opacity: .94;
-        border-top: 1px solid #ece7e7;
-        border-left: 1px solid #ece7e7;
+        border-top: 2px solid #ece7e7;
+        border-left: 2px solid #ece7e7;
         position: absolute;
         left: 0;
         top: 0;
@@ -1036,7 +1068,7 @@ table {
       &:after {
         .before;
         clear: both;
-        height: 1px;
+        height: 2px;
         opacity: .94;
         background: @color-white;
         position: absolute;
@@ -1047,7 +1079,7 @@ table {
       }
       .text-area {
         width: 264px;
-        min-height: 274px;
+        min-height: 264px;
         margin: 0 auto;
         padding: 24px 20px;
         .color-orange-medium(.94);
@@ -1070,13 +1102,20 @@ table {
         &:after {
           .before;
           clear: both;
-          width: 1px;
+          width: 2px;
           opacity: .94;
           background: @color-white;
           position: absolute;
           right: 16px;
           bottom: 16px;
           top: -16px;
+        }
+
+        &.blue-area {
+          .color-blue(.94);
+          background: @color;
+
+          &:before { border-color: @color transparent transparent transparent; }
         }
       }
 
@@ -1091,25 +1130,34 @@ table {
   }
 
   @media @sm {
-    height: 770px;
-    padding-bottom: 30px;
+    height: 750px;
+
+    &.slick-initialized {
+      height: auto;
+      .slick-list {
+        height: auto ;
+        padding-bottom: 0;
+
+        .slick-slide {min-height: 720px;}
+      }
+    }
 
     .item {
       padding-top: 375px;
-
-      &:before { height: 70px; }
-
+      &:before { height: 50px;}
       .text {
         width: 456px;
+        margin-bottom: -10px;
         position: relative;
         bottom: auto;
+        left: auto;
+        right: auto;
 
         &:after { .rotate(-3deg); }
 
         .text-area {
           width: 440px;
-          min-height: 345px;
-          padding: 44px 40px;
+          padding: 44px 30px;
 
           &:before { border-width: 26px 440px 0 0; }
         }
@@ -1119,22 +1167,49 @@ table {
     }
   }
   @media @lg {
+    &.slick-initialized {
+      .slick-list {
+        .slick-slide {min-height: 750px; margin-bottom: 0;}
+      }
+      .slick-dots { margin-left: -560px;}
+    }
+
+    &:before {
+      .before;
+      height: 70px;
+      background: url("@{images}/triangle.png") 0 100% no-repeat;
+      background-size: 100% 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
     .item {
-      padding-top: 200px;
+      padding-top: 210px;
+      padding-bottom: 160px;
+      &:before { display: none;}
       .text { margin-bottom: 0; float: right; }
     }
   }
   @media @xl {
     height: 780px;
-    .item { padding-top: 210px; }
   }
   @media @xxl {
     height: 910px;
+    &:before { height: 100px;}
+
+    &.slick-initialized {
+      .slick-list {
+        .slick-slide {min-height: 910px;}
+      }
+      .slick-dots { margin-left: -760px; top: 270px;}
+    }
 
     .item {
       .text {
         width: 498px;
-
         .text-area { width: 480px; }
       }
     }

@@ -38,18 +38,17 @@ $(document).ready(function () {
 
 	$('table').wrapAll('<div class="table-scroll"></div>');
 
-	/*$('.jumbotron').each(function(){
+	$('.jumbotron').each(function(){
 		$(this).slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			mobileFirst: true,
 			arrows: false,
-			adaptiveHeight: true,
 			dots: true,
 			customPaging: function (slider, i) {
 				return '<span class="dots" data-role="none"></span>';
 			}
 		});
-	});*/
+	});
 
 });

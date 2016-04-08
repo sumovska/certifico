@@ -654,7 +654,7 @@ table tr td {
   text-transform: uppercase;
   letter-spacing: .1em;
   position: absolute;
-  top: 72px;
+  top: 70px;
   left: 0;
   right: 0;
   z-index: 10;
@@ -667,8 +667,8 @@ table tr td {
   font: 20px/24px 'Daxline Pro', Helvetica, sans-serif;
   letter-spacing: .02em;
   position: absolute;
-  left: 34px;
-  top: 40px;
+  left: 36px;
+  top: 36px;
 }
 .header .language {
   padding-right: 18px;
@@ -677,8 +677,8 @@ table tr td {
   color: #000;
   text-decoration: none;
   position: absolute;
-  right: 112px;
-  top: 40px;
+  right: 110px;
+  top: 36px;
 }
 .header .language:before {
   display: block;
@@ -837,13 +837,13 @@ table tr td {
   }
   .header .logo {
     width: 326px;
-    padding: 40px 40px 32px;
+    padding: 36px 40px;
   }
   .header .logo:after {
     border-width: 22px 326px 0 0;
   }
   .header .toggle {
-    top: 40px;
+    top: 36px;
     right: 50%;
     margin-right: -210px;
   }
@@ -853,13 +853,13 @@ table tr td {
     width: 368px;
     padding-left: 60px;
     padding-right: 60px;
-    padding-bottom: 44px;
+    padding-bottom: 48px;
   }
   .header .logo:after {
     border-width: 22px 368px 0 0;
   }
   .header .toggle {
-    margin-right: -406px;
+    margin-right: -410px;
   }
   .header .slogan {
     display: block;
@@ -888,7 +888,7 @@ table tr td {
     right: 400px;
   }
   .header .toggle {
-    margin-right: -780px;
+    margin-right: -690px;
   }
 }
 /* ==========================================================================
@@ -1163,16 +1163,52 @@ table tr td {
   position: relative;
 }
 .jumbotron.slick-initialized {
-  height: auto;
   overflow: visible;
+  padding-bottom: 0;
+}
+.jumbotron.slick-initialized .slick-list {
+  height: 100%;
+  padding-bottom: 30px;
+}
+.jumbotron.slick-initialized .slick-track {
+  height: 100%;
 }
 .jumbotron.slick-initialized .slick-dots {
-  margin: 0 0 0 -300px;
+  max-height: 34px;
+  margin: auto 0 auto -382px;
   position: absolute;
-  top: 0;
+  top: 80px;
   bottom: 0;
   left: 50%;
   text-align: center;
+  z-index: 1001;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-backface-visibility: hidden;
+}
+.jumbotron.slick-initialized .slick-dots li {
+  margin: 0 7px;
+  padding: 0;
+  display: inline-block;
+}
+.jumbotron.slick-initialized .slick-dots li:before,
+.jumbotron.slick-initialized .slick-dots li:after {
+  display: none;
+}
+.jumbotron.slick-initialized .slick-dots li .dots {
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  opacity: .21;
+}
+.jumbotron.slick-initialized .slick-dots li.slick-active .dots {
+  opacity: 1;
 }
 .jumbotron .item {
   height: 100%;
@@ -1193,6 +1229,7 @@ table tr td {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 10;
 }
 .jumbotron .item .text {
   width: 280px;
@@ -1204,14 +1241,15 @@ table tr td {
   bottom: -16px;
   left: 0;
   right: 0;
+  z-index: 100;
 }
 .jumbotron .item .text:before {
   display: block;
   content: '\0020';
   overflow: hidden;
   opacity: .94;
-  border-top: 1px solid #ece7e7;
-  border-left: 1px solid #ece7e7;
+  border-top: 2px solid #ece7e7;
+  border-left: 2px solid #ece7e7;
   position: absolute;
   left: 0;
   top: 0;
@@ -1223,7 +1261,7 @@ table tr td {
   content: '\0020';
   overflow: hidden;
   clear: both;
-  height: 1px;
+  height: 2px;
   opacity: .94;
   background: #fff;
   position: absolute;
@@ -1239,7 +1277,7 @@ table tr td {
 }
 .jumbotron .item .text .text-area {
   width: 264px;
-  min-height: 274px;
+  min-height: 264px;
   margin: 0 auto;
   padding: 24px 20px;
   background: rgba(255, 102, 68, 0.94);
@@ -1264,13 +1302,19 @@ table tr td {
   content: '\0020';
   overflow: hidden;
   clear: both;
-  width: 1px;
+  width: 2px;
   opacity: .94;
   background: #fff;
   position: absolute;
   right: 16px;
   bottom: 16px;
   top: -16px;
+}
+.jumbotron .item .text .text-area.blue-area {
+  background: rgba(45, 184, 233, 0.94);
+}
+.jumbotron .item .text .text-area.blue-area:before {
+  border-color: rgba(45, 184, 233, 0.94) transparent transparent transparent;
 }
 .jumbotron .item .text .heading {
   margin: 0 0 8px;
@@ -1282,19 +1326,31 @@ table tr td {
 }
 @media (min-width: 568px) {
   .jumbotron {
-    height: 770px;
-    padding-bottom: 30px;
+    height: 750px;
+  }
+  .jumbotron.slick-initialized {
+    height: auto;
+  }
+  .jumbotron.slick-initialized .slick-list {
+    height: auto ;
+    padding-bottom: 0;
+  }
+  .jumbotron.slick-initialized .slick-list .slick-slide {
+    min-height: 720px;
   }
   .jumbotron .item {
     padding-top: 375px;
   }
   .jumbotron .item:before {
-    height: 70px;
+    height: 50px;
   }
   .jumbotron .item .text {
     width: 456px;
+    margin-bottom: -10px;
     position: relative;
     bottom: auto;
+    left: auto;
+    right: auto;
   }
   .jumbotron .item .text:after {
     -webkit-transform: rotate(-3deg);
@@ -1306,8 +1362,7 @@ table tr td {
   }
   .jumbotron .item .text .text-area {
     width: 440px;
-    min-height: 345px;
-    padding: 44px 40px;
+    padding: 44px 30px;
   }
   .jumbotron .item .text .text-area:before {
     border-width: 26px 440px 0 0;
@@ -1318,8 +1373,32 @@ table tr td {
   }
 }
 @media (min-width: 1000px) {
+  .jumbotron.slick-initialized .slick-list .slick-slide {
+    min-height: 750px;
+    margin-bottom: 0;
+  }
+  .jumbotron.slick-initialized .slick-dots {
+    margin-left: -560px;
+  }
+  .jumbotron:before {
+    display: block;
+    content: '\0020';
+    overflow: hidden;
+    height: 70px;
+    background: url("../img/triangle.png") 0 100% no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
   .jumbotron .item {
-    padding-top: 200px;
+    padding-top: 210px;
+    padding-bottom: 160px;
+  }
+  .jumbotron .item:before {
+    display: none;
   }
   .jumbotron .item .text {
     margin-bottom: 0;
@@ -1330,13 +1409,20 @@ table tr td {
   .jumbotron {
     height: 780px;
   }
-  .jumbotron .item {
-    padding-top: 210px;
-  }
 }
 @media (min-width: 1560px) {
   .jumbotron {
     height: 910px;
+  }
+  .jumbotron:before {
+    height: 100px;
+  }
+  .jumbotron.slick-initialized .slick-list .slick-slide {
+    min-height: 910px;
+  }
+  .jumbotron.slick-initialized .slick-dots {
+    margin-left: -760px;
+    top: 270px;
   }
   .jumbotron .item .text {
     width: 498px;

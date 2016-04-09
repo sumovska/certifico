@@ -60,8 +60,35 @@ $(document).ready(function () {
 			dots: false,
 			responsive: [
 				{
-					breakpoint: 1280,
+					breakpoint: 1279,
 					settings: 'unslick'
+				}
+			]
+		});
+	});
+
+	$('.about').each(function () {
+		$('.list', this).slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			mobileFirst: true,
+			arrows: false,
+			dots: true,
+			customPaging: function (slider, i) {
+				return '<span class="dots" data-role="none"></span>';
+			},
+			responsive: [
+				{
+					breakpoint: 767,
+					settings: {
+						slidesToShow: 3
+					}
+				},
+				{
+					breakpoint: 1279,
+					settings: {
+						slidesToShow: 4
+					}
 				}
 			]
 		});

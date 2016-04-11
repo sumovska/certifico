@@ -968,9 +968,9 @@ table tr td {
   content: '\0020';
   overflow: hidden;
   height: 80%;
-  border-top: 1px solid #ece7e7;
-  border-left: 1px solid #ece7e7;
-  border-right: 1px solid #ece7e7;
+  border-top: 2px solid #ece7e7;
+  border-left: 2px solid #ece7e7;
+  border-right: 2px solid #ece7e7;
   position: absolute;
   top: 0;
   left: 0;
@@ -982,9 +982,9 @@ table tr td {
   overflow: hidden;
   clear: both;
   height: 30%;
-  border-bottom: 1px solid #ece7e7;
-  border-left: 1px solid #ece7e7;
-  border-right: 1px solid #ece7e7;
+  border-bottom: 2px solid #ece7e7;
+  border-left: 2px solid #ece7e7;
+  border-right: 2px solid #ece7e7;
   transform: skew(0deg, -3deg);
   -webkit-transform: skew(0deg, -3deg);
   -moz-transform: skew(0deg, -3deg);
@@ -994,6 +994,20 @@ table tr td {
   bottom: 0;
   left: 0;
   right: 0;
+}
+.cornered.cornered-inverse:before {
+  transform: skew(0deg, 3deg);
+  -webkit-transform: skew(0deg, 3deg);
+  -moz-transform: skew(0deg, 3deg);
+  -o-transform: skew(0deg, 3deg);
+  -ms-transform: skew(0deg, 3deg);
+}
+.cornered.cornered-inverse .border:after {
+  transform: skew(0deg, 3deg);
+  -webkit-transform: skew(0deg, 3deg);
+  -moz-transform: skew(0deg, 3deg);
+  -o-transform: skew(0deg, 3deg);
+  -ms-transform: skew(0deg, 3deg);
 }
 /* ==========================================================================
    _SHAPE
@@ -1566,44 +1580,28 @@ table tr td {
   overflow: visible;
 }
 .testimonials .list .item {
-  max-width: 450px;
-  margin: 0 auto;
+  margin-bottom: 44px;
+  padding: 16px 0 36px 16px;
   color: #fff;
   line-height: 30px;
 }
-.testimonials .list .item .shape-old {
-  width: 100%;
-  padding: 20px 0 24px 20px;
-}
-.testimonials .list .item .shape-old:before {
-  bottom: 38px;
-}
-.testimonials .list .item .shape-old:after {
-  bottom: 56px;
-  z-index: -1;
-}
-.testimonials .list .item .shape-old .shape-area {
-  width: 100%;
-  padding: 40px 30px 60px;
-  background-position: 30% 50%;
-  background-repeat: no-repeat;
+.testimonials .list .item .space {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  background-position: 40% 0;
   background-size: cover;
+  background-repeat: no-repeat;
 }
-.testimonials .list .item .shape-old .shape-area:before {
-  width: 100%;
-  height: 30px;
-  background: url("../img/triangle.png") 0 0 no-repeat;
-  background-size: 100% 100%;
-  border: none;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: auto;
+.testimonials .list .item .space.cornered {
+  padding-bottom: 74px;
 }
-.testimonials .list .item .shape-old .shape-area:after {
-  z-index: -1;
-  top: -20px;
-  bottom: 52px;
+.testimonials .list .item .space.cornered:before {
+  height: 42px;
+  bottom: -21px;
+}
+.testimonials .list .item .space.cornered .border {
+  margin-bottom: 36px;
 }
 .testimonials .list .item .name {
   min-height: 60px;
@@ -1614,9 +1612,9 @@ table tr td {
   display: block;
 }
 .testimonials .list .item .text {
+  max-width: 70%;
   min-height: 320px;
   margin-bottom: 18px;
-  padding-right: 60px;
 }
 .testimonials .list .item .text p:last-of-type {
   margin-bottom: 0;
@@ -1634,56 +1632,14 @@ table tr td {
   display: inline-block;
   vertical-align: middle;
 }
-.testimonials .list .item:nth-of-type(odd) .shape-old:before {
-  bottom: 74px;
-}
-.testimonials .list .item:nth-of-type(odd) .shape-old:after {
-  -moz-transform: scale(1, 1.01) rotate(5deg);
-  -webkit-transform: scale(1, 1.01) rotate(5deg);
-  -o-transform: scale(1, 1.01) rotate(5deg);
-  -ms-transform: scale(1, 1.01) rotate(5deg);
-  transform: scale(1, 1.01) rotate(5deg);
-}
-.testimonials .list .item:nth-of-type(odd) .shape-old .shape-area:before {
-  -moz-transform: scale(-1, 1);
-  -webkit-transform: scale(-1, 1);
-  -o-transform: scale(-1, 1);
-  -ms-transform: scale(-1, 1);
-  transform: scale(-1, 1);
-}
-.testimonials .list .item:nth-of-type(odd) .shape-old .shape-area:after {
-  bottom: 14px;
-}
-@media (min-width: 568px) {
-  .testimonials .list .item .shape-old .shape-area {
-    padding: 36px 36px 60px;
-  }
-  .testimonials .list .item .text {
-    min-height: 336px;
-  }
-  .testimonials .list .item:nth-of-type(odd) .shape-old:after {
-    bottom: 56px;
-    -moz-transform: scale(1, 1.01) rotate(3deg);
-    -webkit-transform: scale(1, 1.01) rotate(3deg);
-    -o-transform: scale(1, 1.01) rotate(3deg);
-    -ms-transform: scale(1, 1.01) rotate(3deg);
-    transform: scale(1, 1.01) rotate(3deg);
-  }
-  .testimonials .list .item:nth-of-type(odd) .shape-old .shape-area:after {
-    bottom: 19px;
-  }
-}
 @media (min-width: 768px) {
-  .testimonials .list .item {
+  .testimonials .list .item .space {
     max-width: none;
+    padding-left: 44px;
+    padding-right: 44px;
   }
   .testimonials .list .item .text {
-    padding-right: 280px;
-  }
-}
-@media (min-width: 1024px) {
-  .testimonials .list .item:nth-of-type(odd) .shape-old:after {
-    bottom: 54px;
+    max-width: 45%;
   }
 }
 @media (min-width: 1280px) {
@@ -1694,14 +1650,23 @@ table tr td {
   }
   .testimonials .list .item {
     width: 50%;
+    margin-bottom: 0;
     padding: 0 20px;
     float: left;
   }
   .testimonials .list .item .text {
-    padding-right: 180px;
+    max-width: 64%;
+    min-height: 334px;
   }
   .testimonials .list .item .name {
     margin-bottom: 34px;
+  }
+  .testimonials .list .item .space {
+    padding-bottom: 54px;
+  }
+  .testimonials .list .item .space.cornered:before {
+    height: 30px;
+    bottom: -15px;
   }
 }
 @media (min-width: 1560px) {
@@ -1710,6 +1675,10 @@ table tr td {
   }
   .testimonials .list .item {
     padding: 0 40px;
+  }
+  .testimonials .list .item .space.cornered:before {
+    height: 40px;
+    bottom: -20px;
   }
 }
 /* ==========================================================================

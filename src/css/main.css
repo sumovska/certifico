@@ -193,7 +193,6 @@ h3,
 h4,
 h5,
 h6,
-.contacts .title,
 .faq .heading,
 .faq .item .title,
 .jobs .heading,
@@ -236,8 +235,7 @@ h4,
   font-style: normal;
 }
 .h5,
-h5,
-.contacts .title {
+h5 {
   margin: 18px 0 18px;
   font-size: 26px;
   line-height: 32px;
@@ -282,8 +280,7 @@ h6 {
     margin: 28px 0 28px;
   }
   .h5,
-  h5,
-  .contacts .title {
+  h5 {
     margin: 28px 0 28px;
   }
   .h6,
@@ -322,8 +319,7 @@ h6 {
     line-height: 38px;
   }
   .h5,
-  h5,
-  .contacts .title {
+  h5 {
     font-size: 28px;
     line-height: 34px;
   }
@@ -360,8 +356,7 @@ h6 {
     line-height: 40px;
   }
   .h5,
-  h5,
-  .contacts .title {
+  h5 {
     font-size: 30px;
     line-height: 35px;
   }
@@ -468,7 +463,7 @@ input:focus {
   width: 100%;
 }
 textarea {
-  height: 134px;
+  height: 104px;
   display: block;
   resize: none;
 }
@@ -477,6 +472,11 @@ textarea:focus {
 }
 .form-line textarea {
   width: 100%;
+}
+@media (min-width: 1024px) {
+  textarea {
+    height: 134px;
+  }
 }
 ::-webkit-input-placeholder {
   color: #000;
@@ -1113,7 +1113,6 @@ table tr td {
   background: #fafafb;
   font-size: 16px;
   line-height: 24px;
-  text-align: center;
 }
 .contacts .pure-g {
   margin: 0 -15px;
@@ -1135,6 +1134,8 @@ table tr td {
 }
 .contacts .title {
   margin: 0 0 20px;
+  font-size: 30px;
+  line-height: 34px;
 }
 .contacts .list {
   font-size: 16px;
@@ -1162,14 +1163,17 @@ table tr td {
   color: #000;
 }
 .contacts .develop {
-  margin: 0;
+  margin: 40px 0 0 0;
 }
 .contacts .develop a {
   color: #000;
   text-decoration: none;
 }
 .contacts .develop a:hover {
-  color: #2db8e9;
+  text-decoration: underline;
+}
+.contacts .small {
+  font: 14px/18px 'Daxline Pro', Helvetica, sans-serif;
 }
 .contacts form {
   max-width: 450px;
@@ -1181,22 +1185,25 @@ table tr td {
   .contacts {
     margin-top: 60px;
     padding: 44px 0 54px;
-    text-align: left;
   }
   .contacts .pure-g [class*="pure-u"] {
-    padding-bottom: 0;
+    padding-bottom: 20px;
   }
   .contacts .heading {
     display: block;
-  }
-  .contacts .small {
-    font: 14px/18px 'Daxline Pro', Helvetica, sans-serif;
   }
   .contacts form {
     max-width: none;
   }
 }
 @media (min-width: 1024px) {
+  .contacts .pure-g [class*="pure-u"] {
+    padding-bottom: 0;
+  }
+  .contacts .title {
+    font-size: 32px;
+    line-height: 36px;
+  }
   .contacts .develop {
     margin: 0;
     position: relative;
@@ -1424,53 +1431,51 @@ table tr td {
   right: 0;
   z-index: 10;
 }
-.jumbotron .item .shape-old {
+.jumbotron .item .panel {
+  width: 260px;
+  min-height: 264px;
   margin: 0 auto;
+  padding: 15px 25px 25px;
   text-align: center;
   font: 18px/24px 'Daxline Pro', Helvetica, sans-serif;
+  background: rgba(255, 102, 68, 0.94);
   position: absolute;
-  bottom: -16px;
+  bottom: 6px;
   left: 0;
   right: 0;
   z-index: 100;
 }
-.jumbotron .item .shape-old:before {
-  bottom: 16px;
-  opacity: .94;
-}
-.jumbotron .item .shape-old:after {
-  bottom: 27px;
-  opacity: .94;
-}
-.jumbotron .item .shape-old .shape-area {
-  min-height: 264px;
-  margin: 0 auto;
-  background: rgba(255, 102, 68, 0.94);
-}
-.jumbotron .item .shape-old .shape-area:before {
+.jumbotron .item .panel.cornered:before {
   width: 0;
   height: 0;
-  border-style: solid;
-  border-color: rgba(255, 102, 68, 0.94) transparent transparent transparent;
   background: transparent;
+  border-style: solid;
+  border-width: 16px 260px 0 0;
+  border-color: rgba(255, 102, 68, 0.94) transparent transparent transparent;
+  transform: skew(0deg, 0deg);
+  -webkit-transform: skew(0deg, 0deg);
+  -moz-transform: skew(0deg, 0deg);
+  -o-transform: skew(0deg, 0deg);
+  -ms-transform: skew(0deg, 0deg);
+  bottom: auto;
   top: 100%;
 }
-.jumbotron .item .shape-old .shape-area:after {
-  bottom: 16px;
-  opacity: .94;
+.jumbotron .item .panel.cornered .border {
+  margin: -16px 16px 6px -16px;
+  z-index: 1;
 }
-.jumbotron .item .shape-old .shape-area.blue-area {
+.jumbotron .item .panel.panel-blue {
   background: rgba(45, 184, 233, 0.94);
 }
-.jumbotron .item .shape-old .shape-area.blue-area:before {
+.jumbotron .item .panel.panel-blue.cornered:before {
   border-color: rgba(45, 184, 233, 0.94) transparent transparent transparent;
 }
-.jumbotron .item .shape-old .heading {
+.jumbotron .item .panel .heading {
   margin: 0 0 8px;
   font-size: 30px;
   line-height: 34px;
 }
-.jumbotron .item .shape-old p:last-of-type {
+.jumbotron .item .panel p:last-of-type {
   margin-bottom: 0;
 }
 @media (min-width: 568px) {
@@ -1488,31 +1493,27 @@ table tr td {
     min-height: 740px;
   }
   .jumbotron .item {
-    padding-top: 375px;
+    padding-top: 390px;
   }
-  .jumbotron .item .shape-old {
+  .jumbotron .item .panel {
+    width: 440px;
+    min-height: 346px;
     margin-bottom: -40px;
+    padding: 44px 30px;
     position: relative;
     bottom: auto;
     left: auto;
     right: auto;
   }
-  .jumbotron .item .shape-old .shape-area {
-    min-height: 344px;
+  .jumbotron .item .panel.cornered:before {
+    border-width: 24px 440px 0 0;
   }
-  .jumbotron .item .shape-old .heading {
+  .jumbotron .item .panel .heading {
     font-size: 46px;
     line-height: 55px;
   }
 }
 @media (min-width: 1024px) {
-  .jumbotron.slick-initialized .slick-list .slick-slide {
-    min-height: 750px;
-    margin-bottom: 0;
-  }
-  .jumbotron.slick-initialized .slick-dots {
-    margin-left: -560px;
-  }
   .jumbotron:before {
     display: block;
     content: '\0020';
@@ -1526,14 +1527,21 @@ table tr td {
     right: 0;
     z-index: 100;
   }
+  .jumbotron.slick-initialized .slick-list .slick-slide {
+    min-height: 750px;
+    margin-bottom: 0;
+  }
+  .jumbotron.slick-initialized .slick-dots {
+    margin-left: -560px;
+  }
   .jumbotron .item {
-    padding-top: 210px;
+    padding-top: 224px;
     padding-bottom: 160px;
   }
   .jumbotron .item:before {
     display: none;
   }
-  .jumbotron .item .shape-old {
+  .jumbotron .item .panel {
     margin-bottom: 0;
     float: right;
   }
@@ -1558,6 +1566,12 @@ table tr td {
     margin-left: -760px;
     top: 270px;
   }
+  .jumbotron .item .panel {
+    width: 480px;
+  }
+  .jumbotron .item .panel.cornered:before {
+    border-width: 24px 480px 0 0;
+  }
 }
 /* ==========================================================================
    _TESTIMONIALS
@@ -1579,18 +1593,20 @@ table tr td {
   height: auto;
   overflow: visible;
 }
+.testimonials .list.slick-initialized .slick-slide {
+  margin-bottom: 0;
+}
 .testimonials .list .item {
   margin-bottom: 44px;
   padding: 16px 0 36px 16px;
-  color: #fff;
   line-height: 30px;
 }
 .testimonials .list .item .space {
   max-width: 450px;
   margin: 0 auto;
-  padding: 40px 30px;
-  background-position: 40% 0;
-  background-size: cover;
+  padding: 240px 15px 40px;
+  background-position: 100% 0;
+  background-size: auto 220px;
   background-repeat: no-repeat;
 }
 .testimonials .list .item .space.cornered {
@@ -1612,7 +1628,6 @@ table tr td {
   display: block;
 }
 .testimonials .list .item .text {
-  max-width: 70%;
   min-height: 320px;
   margin-bottom: 18px;
 }
@@ -1629,8 +1644,24 @@ table tr td {
   width: auto;
   height: 58px;
   margin: 0 0 0 26px;
-  display: inline-block;
+  display: none;
   vertical-align: middle;
+}
+@media (min-width: 568px) {
+  .testimonials .list .item {
+    color: #fff;
+  }
+  .testimonials .list .item .space {
+    padding: 40px 30px;
+    background-position: 40% 0;
+    background-size: cover;
+  }
+  .testimonials .list .item .text {
+    max-width: 70%;
+  }
+  .testimonials .list .item .icon-logo {
+    display: inline-block;
+  }
 }
 @media (min-width: 768px) {
   .testimonials .list .item .space {
@@ -1685,14 +1716,14 @@ table tr td {
    _FEATURES
    ========================================================================== */
 .features {
-  padding: 75px 0 25px;
+  padding: 50px 0 25px;
 }
 .features .heading {
   margin: 0 0 10px;
   text-align: center;
 }
 .features .list {
-  margin-top: 0;
+  margin: 0;
   padding-top: 40px;
   text-align: center;
   font-size: 14px;
@@ -1750,7 +1781,7 @@ table tr td {
   margin: 0 auto;
 }
 .features .list .item .image {
-  min-height: 206px;
+  min-height: 180px;
   margin: 0 0 30px;
   position: relative;
 }
@@ -1806,10 +1837,21 @@ table tr td {
   transform: rotate(45deg);
   -webkit-backface-visibility: hidden;
 }
+.features .list .item p:last-of-type {
+  margin-bottom: 0;
+}
 .features .list .item .title {
   margin: 0 0 6px;
   font: 900 20px/24px 'Daxline Pro', Helvetica, sans-serif;
   color: #2db8e9;
+}
+@media (min-width: 568px) {
+  .features {
+    padding-top: 75px;
+  }
+  .features .list .item .image {
+    min-height: 206px;
+  }
 }
 @media (min-width: 768px) {
   .features .list {
@@ -1855,44 +1897,44 @@ table tr td {
   background: #f3f6f9 url("../img/temp/picture-1.jpg") 50% 0 no-repeat;
   background-size: auto 320px;
 }
-.blockquote .pure-g {
-  padding-right: 65px;
-}
 .blockquote .quote {
-  padding: 62px 30px 76px;
+  margin-bottom: 10px;
+  padding: 62px 15px 15px;
+  line-height: 30px;
   border-top: 1px solid #2db8e9;
   border-left: 1px solid #2db8e9;
-  line-height: 30px;
   position: relative;
 }
 .blockquote .quote:before {
   display: block;
   content: '\0020';
   overflow: hidden;
-  height: 1px;
-  background: #2db8e9;
-  -moz-transform: scale(1, 1.01) rotate(-4deg);
-  -webkit-transform: scale(1, 1.01) rotate(-4deg);
-  -o-transform: scale(1, 1.01) rotate(-4deg);
-  -ms-transform: scale(1, 1.01) rotate(-4deg);
-  transform: scale(1, 1.01) rotate(-4deg);
+  height: 30%;
+  border-bottom: 1px solid #2db8e9;
+  border-left: 1px solid #2db8e9;
+  border-right: 1px solid #2db8e9;
+  transform: skew(0deg, -3deg);
+  -webkit-transform: skew(0deg, -3deg);
+  -moz-transform: skew(0deg, -3deg);
+  -o-transform: skew(0deg, -3deg);
+  -ms-transform: skew(0deg, -3deg);
   position: absolute;
-  bottom: 22px;
-  left: -2px;
-  right: -2px;
+  bottom: 0;
+  left: -1px;
+  right: -1px;
 }
 .blockquote .quote:after {
   display: block;
   content: '\0020';
   overflow: hidden;
   clear: both;
-  width: 65px;
-  background: url("../img/arrow.png") 0 0 no-repeat;
-  background-size: 100% 100%;
+  height: 80%;
+  border-left: 1px solid #2db8e9;
+  border-right: 1px solid #2db8e9;
   position: absolute;
-  left: 100%;
-  top: -2px;
-  bottom: 46px;
+  top: 0;
+  left: -1px;
+  right: -1px;
 }
 .blockquote .quote p:last-of-type {
   margin-bottom: 0;
@@ -1907,6 +1949,32 @@ table tr td {
 }
 .blockquote .name cite {
   font-style: normal;
+}
+@media (min-width: 568px) {
+  .blockquote .pure-g {
+    padding-right: 65px;
+  }
+  .blockquote .quote {
+    margin-bottom: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 76px;
+  }
+  .blockquote .quote:before {
+    height: 20px;
+    border-right-color: rgba(45, 184, 233, 0.5);
+  }
+  .blockquote .quote:after {
+    width: 65px;
+    height: auto;
+    background: url("../img/arrow.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+    border: none;
+    position: absolute;
+    left: 100%;
+    top: -2px;
+    bottom: 34px;
+  }
 }
 @media (min-width: 1024px) {
   .blockquote {
@@ -1924,8 +1992,9 @@ table tr td {
     border-left-width: 2px;
   }
   .blockquote .quote:before {
-    height: 2px;
-    bottom: 16px;
+    border-width: 2px;
+    left: -2px;
+    right: -2px;
   }
   .blockquote .quote:after {
     width: 120px;
@@ -1934,12 +2003,13 @@ table tr td {
 }
 @media (min-width: 1280px) {
   .blockquote {
-    background-position: 100% 0;
+    background-position: 180% 0;
   }
 }
 @media (min-width: 1560px) {
   .blockquote {
     padding-top: 90px;
+    background-position: 100% 0;
   }
   .blockquote .quote {
     padding-left: 76px;

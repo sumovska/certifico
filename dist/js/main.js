@@ -61,6 +61,7 @@ $(document).ready(function () {
 			mobileFirst: true,
 			arrows: false,
 			dots: false,
+			adaptiveHeight: true,
 			responsive: [
 				{
 					breakpoint: 1279,
@@ -76,6 +77,7 @@ $(document).ready(function () {
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			mobileFirst: true,
+			adaptiveHeight: true,
 			arrows: false,
 			dots: true,
 			customPaging: function (slider, i) {
@@ -86,7 +88,8 @@ $(document).ready(function () {
 					breakpoint: 767,
 					settings: {
 						slidesToShow: 3,
-						slidesToScroll: 3
+						slidesToScroll: 3,
+						adaptiveHeight: false
 					}
 				},
 				{

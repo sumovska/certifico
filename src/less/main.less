@@ -409,12 +409,16 @@ input {
 }
 textarea {
   &:extend(input);
-  height: 134px;
+  height: 104px;
   display: block;
   resize: none;
 
   &:focus { border-color: @color-blue; }
   .form-line & { width: 100%; }
+
+  @media @lg {
+    height: 134px;
+  }
 }
 ::-webkit-input-placeholder { color: @color-black; }
 :-moz-placeholder { color: @color-black; }
@@ -835,6 +839,10 @@ table {
       &:after { .skew(0deg, 3deg); }
     }
   }
+
+  @media @sm {
+
+  }
 }
 /* ==========================================================================
    _SHAPE
@@ -921,7 +929,6 @@ table {
   background: @color-pink-light;
   font-size: 16px;
   line-height: 24px;
-  text-align: center;
 
   .pure-g {
     margin: 0 -15px;
@@ -941,8 +948,9 @@ table {
   }
 
   .title {
-    &:extend(.h5);
     margin: 0 0 20px;
+    font-size: 30px;
+    line-height: 34px;
   }
 
   .list {
@@ -969,13 +977,15 @@ table {
   }
 
   .develop {
-    margin: 0;
+    margin: 40px 0 0 0;
     a {
       color: @color-black;
       text-decoration: none;
-      &:hover { color: @color-blue; }
+      &:hover { text-decoration: underline; }
     }
   }
+
+  .small { font: 14px/18px @font-daxline; }
 
   form {
     max-width: 450px;
@@ -987,21 +997,22 @@ table {
   @media @md {
     margin-top: 60px;
     padding: 44px 0 54px;
-    text-align: left;
     .pure-g {
-      [class*="pure-u"] { padding-bottom: 0; }
+      [class*="pure-u"] { padding-bottom: 20px; }
     }
     .heading { display: block; }
-    .small { font: 14px/18px @font-daxline; }
     form { max-width: none; }
   }
 
   @media @lg {
-    .develop {
-      margin: 0;
-      position: relative;
-      top: 50px;
+    .pure-g {
+      [class*="pure-u"] { padding-bottom: 0; }
     }
+    .title {
+      font-size: 32px;
+      line-height: 36px;
+    }
+    .develop { margin: 0; position: relative; top: 50px; }
   }
 }
 /* ==========================================================================
@@ -1165,10 +1176,7 @@ table {
     overflow: visible;
     padding-bottom: 0;
 
-    .slick-list {
-      height: 100%;
-      padding-bottom: 30px;
-    }
+    .slick-list { height: 100%; padding-bottom: 30px; }
     .slick-track { height: 100%; }
 
     .slick-dots {
@@ -1224,40 +1232,50 @@ table {
       z-index: 10;
     }
 
-    .shape-old {
+    .panel {
+      width: 260px;
+      min-height: 264px;
       margin: 0 auto;
+      padding: 15px 25px 25px;
       text-align: center;
       font: 18px/24px @font-daxline;
+      .color-orange-medium(.94);
+      background: @color;
       position: absolute;
-      bottom: -16px;
+      bottom: 6px;
       left: 0;
       right: 0;
       z-index: 100;
 
-      &:before { bottom: 16px; opacity: .94; }
-      &:after { bottom: 27px; opacity: .94; }
-
-      .shape-area {
-        min-height: 264px;
-        margin: 0 auto;
-        .color-orange-medium(.94);
-        background: @color;
-
+      &.cornered {
         &:before {
+          .color-orange-medium(.94);
           width: 0;
           height: 0;
-          border-style: solid;
-          border-color: @color transparent transparent transparent;
           background: transparent;
+          border-style: solid;
+          border-width: 16px 260px 0 0;
+          border-color: @color transparent transparent transparent;
+          .skew(0deg, 0deg);
+          bottom: auto;
           top: 100%;
         }
-        &:after { bottom: 16px; opacity: .94; }
 
-        &.blue-area {
-          .color-blue(.94);
-          background: @color;
+        .border {
+          margin: -16px 16px 6px -16px;
+          z-index: 1;
+        }
+      }
 
-          &:before { border-color: @color transparent transparent transparent; }
+      &.panel-blue {
+        .color-blue(.94);
+        background: @color;
+
+        &.cornered {
+          &:before {
+            .color-blue(.94);
+            border-color: @color transparent transparent transparent;
+          }
         }
       }
 
@@ -1284,16 +1302,22 @@ table {
       }
     }
     .item {
-      padding-top: 375px;
+      padding-top: 390px;
 
-      .shape-old {
+      .panel {
+        width: 440px;
+        min-height: 346px;
         margin-bottom: -40px;
+        padding: 44px 30px;
         position: relative;
         bottom: auto;
         left: auto;
         right: auto;
-        .shape-area {
-          min-height: 344px;
+
+        &.cornered {
+          &:before {
+            border-width: 24px 440px 0 0;
+          }
         }
 
         .heading { font-size: 46px; line-height: 55px; }
@@ -1301,12 +1325,6 @@ table {
     }
   }
   @media @lg {
-    &.slick-initialized {
-      .slick-list {
-        .slick-slide { min-height: 750px; margin-bottom: 0; }
-      }
-      .slick-dots { margin-left: -560px; }
-    }
     &:before {
       .before;
       height: 70px;
@@ -1318,11 +1336,17 @@ table {
       right: 0;
       z-index: 100;
     }
+    &.slick-initialized {
+      .slick-list {
+        .slick-slide { min-height: 750px; margin-bottom: 0; }
+      }
+      .slick-dots { margin-left: -560px; }
+    }
     .item {
-      padding-top: 210px;
+      padding-top: 224px;
       padding-bottom: 160px;
       &:before { display: none; }
-      .shape-old { margin-bottom: 0; float: right; }
+      .panel { margin-bottom: 0; float: right; }
     }
   }
   @media @xl {
@@ -1338,6 +1362,17 @@ table {
         .slick-slide { min-height: 910px; }
       }
       .slick-dots { margin-left: -760px; top: 270px; }
+    }
+    .item {
+      .panel {
+        width: 480px;
+
+        &.cornered {
+          &:before {
+            border-width: 24px 480px 0 0;
+          }
+        }
+      }
     }
   }
 }
@@ -1358,20 +1393,21 @@ table {
     &.slick-initialized {
       height: auto;
       overflow: visible;
+
+      .slick-slide { margin-bottom: 0; }
     }
 
     .item {
       margin-bottom: 44px;
       padding: 16px 0 36px 16px;
-      color: @color-white;
       line-height: 30px;
 
       .space {
         max-width: 450px;
         margin: 0 auto;
-        padding: 40px 30px;
-        background-position: 40% 0;
-        background-size: cover;
+        padding: 240px 15px 40px;
+        background-position: 100% 0;
+        background-size: auto 220px;
         background-repeat: no-repeat;
 
         &.cornered {
@@ -1393,7 +1429,6 @@ table {
       }
 
       .text {
-        max-width: 70%;
         min-height: 320px;
         margin-bottom: 18px;
 
@@ -1411,8 +1446,27 @@ table {
         width: auto;
         height: 58px;
         margin: 0 0 0 26px;
-        display: inline-block;
+        display: none;
         vertical-align: middle;
+      }
+    }
+  }
+
+  @media @sm {
+    .list {
+      .item {
+        color: @color-white;
+        .space {
+          padding: 40px 30px;
+          background-position: 40% 0;
+          background-size: cover;
+        }
+        .text {
+          max-width: 70%;
+        }
+        .icon-logo {
+          display: inline-block;
+        }
       }
     }
   }
@@ -1478,14 +1532,14 @@ table {
    _FEATURES
    ========================================================================== */
 .features {
-  padding: 75px 0 25px;
+  padding: 50px 0 25px;
   .heading {
     margin: 0 0 10px;
     text-align: center;
   }
 
   .list {
-    margin-top: 0;
+    margin: 0;
     padding-top: 40px;
     text-align: center;
     font-size: 14px;
@@ -1540,7 +1594,7 @@ table {
       }
 
       .image {
-        min-height: 206px;
+        min-height: 180px;
         margin: 0 0 30px;
         position: relative;
 
@@ -1587,10 +1641,22 @@ table {
         }
       }
 
+      p:last-of-type { margin-bottom: 0; }
+
       .title {
         margin: 0 0 6px;
         font: 900 20px/24px @font-daxline;
         color: @color-blue;
+      }
+    }
+  }
+  @media @sm {
+    padding-top: 75px;
+    .list {
+      .item {
+        .image {
+          min-height: 206px;
+        }
       }
     }
   }
@@ -1634,35 +1700,36 @@ table {
   background: @color-beige-light url("@{images}/temp/picture-1.jpg") 50% 0 no-repeat;
   background-size: auto 320px;
 
-  .pure-g { padding-right: 65px; }
-
   .quote {
-    padding: 62px 30px 76px;
+    margin-bottom: 10px;
+    padding: 62px 15px 15px;
+    line-height: 30px;
     border-top: 1px solid @color-blue;
     border-left: 1px solid @color-blue;
-    line-height: 30px;
     position: relative;
 
     &:before {
       .before;
-      height: 1px;
-      background: @color-blue;
-      .scale-rotate(1, 1.01, -4deg);
+      height: 30%;
+      border-bottom: 1px solid @color-blue;
+      border-left: 1px solid @color-blue;
+      border-right: 1px solid @color-blue;
+      .skew(0deg, -3deg);
       position: absolute;
-      bottom: 22px;
-      left: -2px;
-      right: -2px;
+      bottom: 0;
+      left: -1px;
+      right: -1px;
     }
     &:after {
       .before;
       clear: both;
-      width: 65px;
-      background: url("@{images}/arrow.png") 0 0 no-repeat;
-      background-size: 100% 100%;
+      height: 80%;
+      border-left: 1px solid @color-blue;
+      border-right: 1px solid @color-blue;
       position: absolute;
-      left: 100%;
-      top: -2px;
-      bottom: 46px;
+      top: 0;
+      left: -1px;
+      right: -1px;
     }
 
     p:last-of-type { margin-bottom: 0; }
@@ -1677,6 +1744,32 @@ table {
     cite { font-style: normal; }
   }
 
+  @media @sm {
+    .pure-g { padding-right: 65px; }
+    .quote {
+      margin-bottom: 0;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-bottom: 76px;
+      &:before {
+        height: 20px;
+        .color-blue(.5);
+        border-right-color: @color;
+      }
+      &:after {
+        width: 65px;
+        height: auto;
+        background: url("@{images}/arrow.png") 0 0 no-repeat;
+        background-size: 100% 100%;
+        border: none;
+        position: absolute;
+        left: 100%;
+        top: -2px;
+        bottom: 34px;
+      }
+    }
+  }
+
   @media @lg {
     padding: 80px 0 20px;
     background-size: auto 100%;
@@ -1687,17 +1780,18 @@ table {
       padding-right: 46px;
       border-top-width: 2px;
       border-left-width: 2px;
-      &:before { height: 2px; bottom: 16px; }
+      &:before { border-width: 2px; left: -2px; right: -2px; }
       &:after { width: 120px; bottom: 32px; }
     }
   }
 
   @media @xl {
-    background-position: 100% 0;
+    background-position: 180% 0;
   }
 
   @media @xxl {
     padding-top: 90px;
+    background-position: 100% 0;
     .quote { padding-left: 76px; padding-right: 76px; }
   }
 }

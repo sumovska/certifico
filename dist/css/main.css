@@ -935,6 +935,69 @@ table tr td {
 /* ==========================================================================
    _SHAPE
    ========================================================================== */
+.cornered {
+  position: relative;
+}
+.cornered:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  height: 20px;
+  background: #fff;
+  position: absolute;
+  bottom: -11px;
+  left: 0;
+  right: 0;
+  transform: skew(0deg, -3deg);
+  -webkit-transform: skew(0deg, -3deg);
+  -moz-transform: skew(0deg, -3deg);
+  -o-transform: skew(0deg, -3deg);
+  -ms-transform: skew(0deg, -3deg);
+}
+.cornered .border {
+  margin: -16px 16px 24px -16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.cornered .border:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  height: 80%;
+  border-top: 1px solid #ece7e7;
+  border-left: 1px solid #ece7e7;
+  border-right: 1px solid #ece7e7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.cornered .border:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  height: 30%;
+  border-bottom: 1px solid #ece7e7;
+  border-left: 1px solid #ece7e7;
+  border-right: 1px solid #ece7e7;
+  transform: skew(0deg, -3deg);
+  -webkit-transform: skew(0deg, -3deg);
+  -moz-transform: skew(0deg, -3deg);
+  -o-transform: skew(0deg, -3deg);
+  -ms-transform: skew(0deg, -3deg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+/* ==========================================================================
+   _SHAPE
+   ========================================================================== */
 .shape-old {
   width: 280px;
   padding: 16px 0 24px 16px;
@@ -1026,20 +1089,6 @@ table tr td {
   .shape-old .shape-area {
     width: 480px;
   }
-}
-.shape .area {
-  padding: 40px;
-}
-.shape .area:before {
-  display: block;
-  content: '\0020';
-  overflow: hidden;
-  background: #2db8e9;
-  transform: skew(1deg, 1deg);
-  -webkit-transform: skew(1deg, 1deg);
-  -moz-transform: skew(1deg, 1deg);
-  -o-transform: skew(1deg, 1deg);
-  -ms-transform: skew(1deg, 1deg);
 }
 /* ==========================================================================
    _CONTACTS
@@ -1675,7 +1724,7 @@ table tr td {
 }
 .features .list {
   margin-top: 0;
-  padding-top: 56px;
+  padding-top: 40px;
   text-align: center;
   font-size: 14px;
   line-height: 22px;
@@ -1687,6 +1736,8 @@ table tr td {
 }
 .features .list.slick-initialized .slick-slide {
   margin-bottom: 0;
+  padding-top: 16px;
+  padding-left: 16px;
 }
 .features .list.slick-initialized .slick-dots {
   margin: 0;
@@ -1731,7 +1782,7 @@ table tr td {
 }
 .features .list .item .image {
   min-height: 206px;
-  margin: 0 0 24px;
+  margin: 0 0 30px;
   position: relative;
 }
 .features .list .item .image img {
@@ -1743,7 +1794,7 @@ table tr td {
 .features .list .item .image .icon {
   width: 34px;
   height: 34px;
-  margin: 0 auto -15px;
+  margin: 0 auto -6px;
   display: block;
   background: #2db8e9;
   border-radius: 50%;
@@ -1751,6 +1802,7 @@ table tr td {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 2;
 }
 .features .list .item .image .icon:before,
 .features .list .item .image .icon:after {
@@ -1792,12 +1844,12 @@ table tr td {
 }
 @media (min-width: 768px) {
   .features .list {
-    margin: 0 -15px;
-    padding-top: 64px;
+    margin: 0 -16px;
+    padding-top: 48px;
   }
   .features .list .item {
     width: 33.3%;
-    padding: 0 15px;
+    padding: 0 16px;
     float: left;
   }
   .features .list .item:nth-of-type(3n+1) {
@@ -1808,7 +1860,7 @@ table tr td {
   }
   .features .list .item .image {
     min-height: 0;
-    margin-bottom: 40px;
+    margin-bottom: 34px;
   }
   .features .list.slick-initialized .slick-slide {
     clear: none !important;

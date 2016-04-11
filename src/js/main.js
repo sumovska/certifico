@@ -114,9 +114,4 @@ $(document).ready(function () {
 		});
 	});
 
-	/*** Shape carousel ***/
-	$('.shape').each(function () {
-		$(this).append('<div class="border"></div>');
-	});
-
 });

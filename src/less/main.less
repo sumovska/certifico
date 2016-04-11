@@ -781,6 +781,57 @@ table {
 /* ==========================================================================
    _SHAPE
    ========================================================================== */
+.cornered {
+  position: relative;
+  &:before {
+    .before;
+    height: 20px;
+    background: @color-white;
+    position: absolute;
+    bottom: -11px;
+    left: 0;
+    right: 0;
+    .skew(0deg, -3deg);
+  }
+
+  .border {
+    margin: -16px 16px 24px -16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    &:before {
+      .before;
+      height: 80%;
+      border-top:1px solid @color-gray-light;
+      border-left:1px solid @color-gray-light;
+      border-right:1px solid @color-gray-light;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    &:after {
+      .before;
+      clear: both;
+      height: 30%;
+      border-bottom:1px solid @color-gray-light;
+      border-left:1px solid @color-gray-light;
+      border-right:1px solid @color-gray-light;
+      .skew(0deg, -3deg);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+/* ==========================================================================
+   _SHAPE
+   ========================================================================== */
 .shape-old {
   width: 280px;
   padding: 16px 0 24px 16px;
@@ -852,17 +903,6 @@ table {
   @media @xxl {
     width: 498px;
     .shape-area { width: 480px; }
-  }
-}
-.shape {
-  .area {
-    padding: 40px;
-
-    &:before {
-      .before;
-      background: @color-blue;
-      .skew(1deg, 1deg);
-    }
   }
 }
 /* ==========================================================================
@@ -1468,7 +1508,7 @@ table {
 
   .list {
     margin-top: 0;
-    padding-top: 56px;
+    padding-top: 40px;
     text-align: center;
     font-size: 14px;
     line-height: 22px;
@@ -1476,7 +1516,11 @@ table {
     &:after { .clearfix; }
 
     &.slick-initialized {
-      .slick-slide { margin-bottom: 0; }
+      .slick-slide {
+        margin-bottom: 0;
+        padding-top: 16px;
+        padding-left: 16px;
+      }
       .slick-dots {
         margin: 0;
         position: absolute;
@@ -1519,7 +1563,7 @@ table {
 
       .image {
         min-height: 206px;
-        margin: 0 0 24px;
+        margin: 0 0 30px;
         position: relative;
 
         img {
@@ -1532,7 +1576,7 @@ table {
         .icon {
           width: 34px;
           height: 34px;
-          margin: 0 auto -15px;
+          margin: 0 auto -6px;
           display: block;
           background: @color-blue;
           border-radius: 50%;
@@ -1540,6 +1584,7 @@ table {
           bottom: 0;
           left: 0;
           right: 0;
+          z-index: 2;
 
           &:before, &:after {
             .before;
@@ -1573,17 +1618,17 @@ table {
   }
   @media @md {
     .list {
-      margin: 0 -15px;
-      padding-top: 64px;
+      margin: 0 -16px;
+      padding-top: 48px;
 
       .item {
         width: 33.3%;
-        padding: 0 15px;
+        padding: 0 16px;
         float: left;
 
         &:nth-of-type(3n+1) { clear: left; }
         .space { max-width: none; }
-        .image {min-height: 0; margin-bottom: 40px;}
+        .image {min-height: 0; margin-bottom: 34px;}
       }
 
       &.slick-initialized {

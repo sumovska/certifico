@@ -149,13 +149,21 @@
   -ms-transform: scale(@a,@b);
   transform: scale(@a,@b);
 }
-// SCALE
+// SCALE-ROTATE
 .scale-rotate(@a,@b, @c) {
   -moz-transform: scale(@a, @b) rotate(@c);
   -webkit-transform: scale(@a, @b) rotate(@c);
   -o-transform: scale(@a, @b) rotate(@c);
   -ms-transform: scale(@a, @b) rotate(@c);
   transform: scale(@a, @b) rotate(@c);
+}
+// SKEW
+.skew(@a,@b) {
+  transform: skew(@a,@b) ;
+  -webkit-transform: skew(@a,@b) ;
+  -moz-transform: skew(@a,@b) ;
+  -o-transform: skew(@a,@b) ;
+  -ms-transform: skew(@a,@b) ;
 }
 /* ==========================================================================
    _GENERAL STYLES
@@ -773,7 +781,7 @@ table {
 /* ==========================================================================
    _SHAPE
    ========================================================================== */
-.shape {
+.shape-old {
   width: 280px;
   padding: 16px 0 24px 16px;
   position: relative;
@@ -844,6 +852,17 @@ table {
   @media @xxl {
     width: 498px;
     .shape-area { width: 480px; }
+  }
+}
+.shape {
+  .area {
+    padding: 40px;
+
+    &:before {
+      .before;
+      background: @color-blue;
+      .skew(1deg, 1deg);
+    }
   }
 }
 /* ==========================================================================
@@ -1158,7 +1177,7 @@ table {
       z-index: 10;
     }
 
-    .shape {
+    .shape-old {
       margin: 0 auto;
       text-align: center;
       font: 18px/24px @font-daxline;
@@ -1220,7 +1239,7 @@ table {
     .item {
       padding-top: 375px;
 
-      .shape {
+      .shape-old {
         margin-bottom: -40px;
         position: relative;
         bottom: auto;
@@ -1256,7 +1275,7 @@ table {
       padding-top: 210px;
       padding-bottom: 160px;
       &:before { display: none; }
-      .shape { margin-bottom: 0; float: right; }
+      .shape-old { margin-bottom: 0; float: right; }
     }
   }
   @media @xl {
@@ -1300,7 +1319,7 @@ table {
       color: @color-white;
       line-height: 30px;
 
-      .shape {
+      .shape-old {
         width: 100%;
         padding: 20px 0 24px 20px;
         &:before { bottom: 38px; }
@@ -1360,7 +1379,7 @@ table {
       }
 
       &:nth-of-type(odd) {
-        .shape {
+        .shape-old {
           &:before { bottom: 74px; }
           &:after { .scale-rotate(1, 1.01, 5deg); }
 
@@ -1375,14 +1394,14 @@ table {
   @media @sm {
     .list {
       .item {
-        .shape {
+        .shape-old {
           .shape-area {
             padding: 36px 36px 60px;
           }
         }
         .text { min-height: 336px; }
         &:nth-of-type(odd) {
-          .shape {
+          .shape-old {
             &:after { bottom: 56px; .scale-rotate(1, 1.01, 3deg); }
             .shape-area {
               &:after { bottom: 19px; }
@@ -1405,7 +1424,7 @@ table {
     .list {
       .item {
         &:nth-of-type(odd) {
-          .shape {
+          .shape-old {
             &:after { bottom: 54px; }
           }
         }
@@ -1671,7 +1690,7 @@ table {
   line-height: 24px;
   text-align: center;
 
-  .shape {
+  .shape-old {
     width: auto;
     margin-bottom: 30px;
     padding-bottom: 0;
@@ -1734,7 +1753,7 @@ table {
   font-size: 16px;
   line-height: 24px;
 
-  .shape {
+  .shape-old {
     width: auto;
     margin-bottom: 32px;
     padding-bottom: 0;
@@ -1808,7 +1827,7 @@ table {
   font-size: 16px;
   line-height: 24px;
 
-  .shape {
+  .shape-old {
     width: auto;
     .shape-area {
       width: auto;
@@ -1872,7 +1891,7 @@ table {
   }
 
   &:not(.article-right) {
-    .shape {
+    .shape-old {
       &:before {
         border-top: none;
         border-bottom: 2px solid @color-gray-light;

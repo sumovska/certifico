@@ -85,13 +85,15 @@ $(document).ready(function () {
 				{
 					breakpoint: 767,
 					settings: {
-						slidesToShow: 3
+						slidesToShow: 3,
+						slidesToScroll: 3
 					}
 				},
 				{
 					breakpoint: 1279,
 					settings: {
-						slidesToShow: 4
+						slidesToShow: 4,
+						slidesToScroll: 4
 					}
 				}
 			]
@@ -110,6 +112,11 @@ $(document).ready(function () {
 				return '<span class="dots" data-role="none"></span>';
 			}
 		});
+	});
+
+	/*** Shape carousel ***/
+	$('.shape').each(function () {
+		$(this).append('<div class="border"></div>');
 	});
 
 });

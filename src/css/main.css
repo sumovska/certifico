@@ -935,12 +935,12 @@ table tr td {
 /* ==========================================================================
    _SHAPE
    ========================================================================== */
-.shape {
+.shape-old {
   width: 280px;
   padding: 16px 0 24px 16px;
   position: relative;
 }
-.shape:before {
+.shape-old:before {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -952,7 +952,7 @@ table tr td {
   right: 16px;
   bottom: 8px;
 }
-.shape:after {
+.shape-old:after {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -969,13 +969,13 @@ table tr td {
   -ms-transform: scale(1, 1.01) rotate(-5deg);
   transform: scale(1, 1.01) rotate(-5deg);
 }
-.shape .shape-area {
+.shape-old .shape-area {
   width: 264px;
   padding: 24px 20px;
   background: #fff;
   position: relative;
 }
-.shape .shape-area:before {
+.shape-old .shape-area:before {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -988,7 +988,7 @@ table tr td {
   left: 0;
   right: 0;
 }
-.shape .shape-area:after {
+.shape-old .shape-area:after {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -1001,31 +1001,45 @@ table tr td {
   top: -16px;
 }
 @media (min-width: 568px) {
-  .shape {
+  .shape-old {
     width: 456px;
   }
-  .shape:after {
+  .shape-old:after {
     -moz-transform: scale(1, 1.01) rotate(-3deg);
     -webkit-transform: scale(1, 1.01) rotate(-3deg);
     -o-transform: scale(1, 1.01) rotate(-3deg);
     -ms-transform: scale(1, 1.01) rotate(-3deg);
     transform: scale(1, 1.01) rotate(-3deg);
   }
-  .shape .shape-area {
+  .shape-old .shape-area {
     width: 440px;
     padding: 44px 30px;
   }
-  .shape .shape-area:before {
+  .shape-old .shape-area:before {
     border-width: 26px 440px 0 0;
   }
 }
 @media (min-width: 1560px) {
-  .shape {
+  .shape-old {
     width: 498px;
   }
-  .shape .shape-area {
+  .shape-old .shape-area {
     width: 480px;
   }
+}
+.shape .area {
+  padding: 40px;
+}
+.shape .area:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  background: #2db8e9;
+  transform: skew(1deg, 1deg);
+  -webkit-transform: skew(1deg, 1deg);
+  -moz-transform: skew(1deg, 1deg);
+  -o-transform: skew(1deg, 1deg);
+  -ms-transform: skew(1deg, 1deg);
 }
 /* ==========================================================================
    _CONTACTS
@@ -1347,7 +1361,7 @@ table tr td {
   right: 0;
   z-index: 10;
 }
-.jumbotron .item .shape {
+.jumbotron .item .shape-old {
   margin: 0 auto;
   text-align: center;
   font: 18px/24px 'Daxline Pro', Helvetica, sans-serif;
@@ -1357,20 +1371,20 @@ table tr td {
   right: 0;
   z-index: 100;
 }
-.jumbotron .item .shape:before {
+.jumbotron .item .shape-old:before {
   bottom: 16px;
   opacity: .94;
 }
-.jumbotron .item .shape:after {
+.jumbotron .item .shape-old:after {
   bottom: 27px;
   opacity: .94;
 }
-.jumbotron .item .shape .shape-area {
+.jumbotron .item .shape-old .shape-area {
   min-height: 264px;
   margin: 0 auto;
   background: rgba(255, 102, 68, 0.94);
 }
-.jumbotron .item .shape .shape-area:before {
+.jumbotron .item .shape-old .shape-area:before {
   width: 0;
   height: 0;
   border-style: solid;
@@ -1378,22 +1392,22 @@ table tr td {
   background: transparent;
   top: 100%;
 }
-.jumbotron .item .shape .shape-area:after {
+.jumbotron .item .shape-old .shape-area:after {
   bottom: 16px;
   opacity: .94;
 }
-.jumbotron .item .shape .shape-area.blue-area {
+.jumbotron .item .shape-old .shape-area.blue-area {
   background: rgba(45, 184, 233, 0.94);
 }
-.jumbotron .item .shape .shape-area.blue-area:before {
+.jumbotron .item .shape-old .shape-area.blue-area:before {
   border-color: rgba(45, 184, 233, 0.94) transparent transparent transparent;
 }
-.jumbotron .item .shape .heading {
+.jumbotron .item .shape-old .heading {
   margin: 0 0 8px;
   font-size: 30px;
   line-height: 34px;
 }
-.jumbotron .item .shape p:last-of-type {
+.jumbotron .item .shape-old p:last-of-type {
   margin-bottom: 0;
 }
 @media (min-width: 568px) {
@@ -1413,17 +1427,17 @@ table tr td {
   .jumbotron .item {
     padding-top: 375px;
   }
-  .jumbotron .item .shape {
+  .jumbotron .item .shape-old {
     margin-bottom: -40px;
     position: relative;
     bottom: auto;
     left: auto;
     right: auto;
   }
-  .jumbotron .item .shape .shape-area {
+  .jumbotron .item .shape-old .shape-area {
     min-height: 344px;
   }
-  .jumbotron .item .shape .heading {
+  .jumbotron .item .shape-old .heading {
     font-size: 46px;
     line-height: 55px;
   }
@@ -1456,7 +1470,7 @@ table tr td {
   .jumbotron .item:before {
     display: none;
   }
-  .jumbotron .item .shape {
+  .jumbotron .item .shape-old {
     margin-bottom: 0;
     float: right;
   }
@@ -1508,25 +1522,25 @@ table tr td {
   color: #fff;
   line-height: 30px;
 }
-.testimonials .list .item .shape {
+.testimonials .list .item .shape-old {
   width: 100%;
   padding: 20px 0 24px 20px;
 }
-.testimonials .list .item .shape:before {
+.testimonials .list .item .shape-old:before {
   bottom: 38px;
 }
-.testimonials .list .item .shape:after {
+.testimonials .list .item .shape-old:after {
   bottom: 56px;
   z-index: -1;
 }
-.testimonials .list .item .shape .shape-area {
+.testimonials .list .item .shape-old .shape-area {
   width: 100%;
   padding: 40px 30px 60px;
   background-position: 30% 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.testimonials .list .item .shape .shape-area:before {
+.testimonials .list .item .shape-old .shape-area:before {
   width: 100%;
   height: 30px;
   background: url("../img/triangle.png") 0 0 no-repeat;
@@ -1537,7 +1551,7 @@ table tr td {
   bottom: 0;
   top: auto;
 }
-.testimonials .list .item .shape .shape-area:after {
+.testimonials .list .item .shape-old .shape-area:after {
   z-index: -1;
   top: -20px;
   bottom: 52px;
@@ -1571,34 +1585,34 @@ table tr td {
   display: inline-block;
   vertical-align: middle;
 }
-.testimonials .list .item:nth-of-type(odd) .shape:before {
+.testimonials .list .item:nth-of-type(odd) .shape-old:before {
   bottom: 74px;
 }
-.testimonials .list .item:nth-of-type(odd) .shape:after {
+.testimonials .list .item:nth-of-type(odd) .shape-old:after {
   -moz-transform: scale(1, 1.01) rotate(5deg);
   -webkit-transform: scale(1, 1.01) rotate(5deg);
   -o-transform: scale(1, 1.01) rotate(5deg);
   -ms-transform: scale(1, 1.01) rotate(5deg);
   transform: scale(1, 1.01) rotate(5deg);
 }
-.testimonials .list .item:nth-of-type(odd) .shape .shape-area:before {
+.testimonials .list .item:nth-of-type(odd) .shape-old .shape-area:before {
   -moz-transform: scale(-1, 1);
   -webkit-transform: scale(-1, 1);
   -o-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
-.testimonials .list .item:nth-of-type(odd) .shape .shape-area:after {
+.testimonials .list .item:nth-of-type(odd) .shape-old .shape-area:after {
   bottom: 14px;
 }
 @media (min-width: 568px) {
-  .testimonials .list .item .shape .shape-area {
+  .testimonials .list .item .shape-old .shape-area {
     padding: 36px 36px 60px;
   }
   .testimonials .list .item .text {
     min-height: 336px;
   }
-  .testimonials .list .item:nth-of-type(odd) .shape:after {
+  .testimonials .list .item:nth-of-type(odd) .shape-old:after {
     bottom: 56px;
     -moz-transform: scale(1, 1.01) rotate(3deg);
     -webkit-transform: scale(1, 1.01) rotate(3deg);
@@ -1606,7 +1620,7 @@ table tr td {
     -ms-transform: scale(1, 1.01) rotate(3deg);
     transform: scale(1, 1.01) rotate(3deg);
   }
-  .testimonials .list .item:nth-of-type(odd) .shape .shape-area:after {
+  .testimonials .list .item:nth-of-type(odd) .shape-old .shape-area:after {
     bottom: 19px;
   }
 }
@@ -1619,7 +1633,7 @@ table tr td {
   }
 }
 @media (min-width: 1024px) {
-  .testimonials .list .item:nth-of-type(odd) .shape:after {
+  .testimonials .list .item:nth-of-type(odd) .shape-old:after {
     bottom: 54px;
   }
 }
@@ -1923,28 +1937,28 @@ table tr td {
   line-height: 24px;
   text-align: center;
 }
-.article .shape {
+.article .shape-old {
   width: auto;
   margin-bottom: 30px;
   padding-bottom: 0;
 }
-.article .shape:before {
+.article .shape-old:before {
   border-top: none;
   border-bottom: 2px solid #ece7e7;
   bottom: 38px;
   top: 22px;
   z-index: 1;
 }
-.article .shape:after {
+.article .shape-old:after {
   bottom: auto;
   top: 10px;
 }
-.article .shape .shape-area {
+.article .shape-old .shape-area {
   width: auto;
   margin: 0;
   padding: 0;
 }
-.article .shape .shape-area:before {
+.article .shape-old .shape-area:before {
   width: 100%;
   height: 40px;
   border: none;
@@ -1960,10 +1974,10 @@ table tr td {
   -ms-transform: scale(1, 1.01) rotate(180deg);
   transform: scale(1, 1.01) rotate(180deg);
 }
-.article .shape .shape-area:after {
+.article .shape-old .shape-area:after {
   bottom: 16px;
 }
-.article .shape .shape-area img {
+.article .shape-old .shape-area img {
   width: 100%;
   height: auto;
   display: block;
@@ -1989,14 +2003,14 @@ table tr td {
   font-size: 16px;
   line-height: 24px;
 }
-.article-simple .shape {
+.article-simple .shape-old {
   width: auto;
   margin-bottom: 32px;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 16px;
 }
-.article-simple .shape:before {
+.article-simple .shape-old:before {
   border-top: none;
   border-bottom: 2px solid #ece7e7;
   bottom: 16px;
@@ -2005,18 +2019,18 @@ table tr td {
   right: 0;
   z-index: 1;
 }
-.article-simple .shape:after {
+.article-simple .shape-old:after {
   bottom: auto;
   top: 10px;
   left: 16px;
   right: 0;
 }
-.article-simple .shape .shape-area {
+.article-simple .shape-old .shape-area {
   width: auto;
   margin: 0;
   padding: 0;
 }
-.article-simple .shape .shape-area:before {
+.article-simple .shape-old .shape-area:before {
   width: 100%;
   height: 40px;
   border: none;
@@ -2032,11 +2046,11 @@ table tr td {
   -ms-transform: scale(1, 1.01) rotate(180deg);
   transform: scale(1, 1.01) rotate(180deg);
 }
-.article-simple .shape .shape-area:after {
+.article-simple .shape-old .shape-area:after {
   bottom: 16px;
   right: -16px;
 }
-.article-simple .shape .shape-area img {
+.article-simple .shape-old .shape-area img {
   width: 100%;
   height: auto;
   display: block;
@@ -2066,15 +2080,15 @@ table tr td {
   font-size: 16px;
   line-height: 24px;
 }
-.article-picture .shape {
+.article-picture .shape-old {
   width: auto;
 }
-.article-picture .shape .shape-area {
+.article-picture .shape-old .shape-area {
   width: auto;
   margin: 0;
   padding: 0;
 }
-.article-picture .shape .shape-area img {
+.article-picture .shape-old .shape-area img {
   width: 100%;
   height: auto;
   display: block;
@@ -2127,18 +2141,18 @@ table tr td {
   position: relative;
   top: -26px;
 }
-.article-picture:not(.article-right) .shape:before {
+.article-picture:not(.article-right) .shape-old:before {
   border-top: none;
   border-bottom: 2px solid #ece7e7;
   bottom: 38px;
   top: 22px;
   z-index: 1;
 }
-.article-picture:not(.article-right) .shape:after {
+.article-picture:not(.article-right) .shape-old:after {
   bottom: auto;
   top: 10px;
 }
-.article-picture:not(.article-right) .shape .shape-area:before {
+.article-picture:not(.article-right) .shape-old .shape-area:before {
   width: 100%;
   height: 40px;
   border: none;
@@ -2154,7 +2168,7 @@ table tr td {
   -ms-transform: scale(1, 1.01) rotate(180deg);
   transform: scale(1, 1.01) rotate(180deg);
 }
-.article-picture:not(.article-right) .shape .shape-area:after {
+.article-picture:not(.article-right) .shape-old .shape-area:after {
   bottom: 16px;
 }
 .article-picture:not(.article-right) .title {

@@ -1438,9 +1438,9 @@ table {
   }
 }
 /* ==========================================================================
-   _ABOUT
+   _FEATURES
    ========================================================================== */
-.about {
+.features {
   padding: 75px 0 25px;
   .heading {
     margin: 0 0 10px;
@@ -1448,7 +1448,8 @@ table {
   }
 
   .list {
-    padding-top: 50px;
+    margin-top: 0;
+    padding-top: 56px;
     text-align: center;
     font-size: 14px;
     line-height: 22px;
@@ -1489,46 +1490,63 @@ table {
 
     .item {
       margin: 0 0 40px;
+      padding: 0;
+      &:before, &:after { display: none;}
 
-      .item-area { max-width: 450px; margin: 0 auto; }
+      .space {
+        max-width: 310px;
+        margin: 0 auto;
+      }
 
-      .shape {
-        width: 100%;
-        margin: 0 0 10px;
-        padding-top: 14px;
-        padding-left: 14px;
+      .image {
+        min-height: 206px;
+        margin: 0 0 24px;
+        position: relative;
 
-        &:before { bottom: 36px; }
-        &:after { bottom: 40px; .scale-rotate(1, 1.01, -3deg); z-index: -1; }
-
-        .shape-area {
+        img {
           width: 100%;
-          padding: 0;
+          height: auto;
+          margin: 0 auto;
+          display: block;
+        }
 
-          &:before {
-            width: 100%;
-            height: 18px;
-            background: url("@{images}/triangle.png") 0 0 no-repeat;
-            background-size: 100% 100%;
-            border: none;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            top: auto;
+        .icon {
+          width: 34px;
+          height: 34px;
+          margin: 0 auto -15px;
+          display: block;
+          background: @color-blue;
+          border-radius: 50%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+
+          &:before, &:after {
+            .before;
+            clear: both;
+            width: 4px;
+            height: 10px;
+            background: @color-white;
+            border-radius: 10px;
+            position: absolute;
           }
-          &:after { top: -14px; bottom: 22px; z-index: -1; }
-
-          img {
-            width: 100%;
-            height: auto;
-            margin: 0 auto;
-            display: block;
+          &:before {
+            top: 14px;
+            left: 12px;
+            .rotate(-45deg);
+          }
+          &:after {
+            height: 12px;
+            top: 11px;
+            left: 18px;
+            .rotate(45deg);
           }
         }
       }
 
       .title {
-        margin: 0;
+        margin: 0 0 6px;
         font: 900 20px/24px @font-daxline;
         color: @color-blue;
       }
@@ -1537,6 +1555,7 @@ table {
   @media @md {
     .list {
       margin: 0 -15px;
+      padding-top: 64px;
 
       .item {
         width: 33.3%;
@@ -1544,10 +1563,8 @@ table {
         float: left;
 
         &:nth-of-type(3n+1) { clear: left; }
-
-        .item-area { max-width: none; }
-
-        .shape { margin-left: -8px; margin-right: -8px; }
+        .space { max-width: none; }
+        .image {min-height: 0; margin-bottom: 40px;}
       }
 
       &.slick-initialized {
@@ -1564,9 +1581,6 @@ table {
         &:nth-of-type(4n+1) { clear: left; }
       }
     }
-  }
-  @media @xxl {
-    .shape { margin-left: -5px; margin-right: -5px; }
   }
 }
 /* ==========================================================================
@@ -1622,7 +1636,7 @@ table {
   }
 
   @media @lg {
-    padding: 70px 0 20px;
+    padding: 80px 0 20px;
     background-size: auto 100%;
     background-position: 250px 0;
     .pure-g { padding-right: 0; }
@@ -1697,7 +1711,7 @@ table {
       }
     }
   }
-  
+
   .text {
     padding: 0 20px;
   }
@@ -1707,7 +1721,7 @@ table {
   }
   @media @lg {
     max-width: none;
-    margin-top: 30px;
+    margin-top: 36px;
     margin-bottom: 24px;
   }
 
@@ -1780,7 +1794,7 @@ table {
     margin-top: -20px;
     margin-bottom: 24px;
     z-index: 2;
-    .title { margin-bottom: 20px;}
+    .title { margin-bottom: 20px; }
   }
 }
 /*** Article-picture ***/
@@ -1820,7 +1834,7 @@ table {
       padding: 40px 28px;
       background: @color-beige;
 
-      p:last-of-type{ margin-bottom: 0;}
+      p:last-of-type { margin-bottom: 0; }
 
       ul {
         margin: 0;
@@ -1903,7 +1917,7 @@ table {
       right: 0;
       left: 100px;
       top: 0;
-      .text-area { padding-top: 30px; padding-bottom: 44px;}
+      .text-area { padding-top: 30px; padding-bottom: 44px; }
     }
   }
   @media @lg {
@@ -1913,19 +1927,17 @@ table {
 
     .text {
       width: 348px;
-      margin-right: -80px;
       right: auto;
       top: 26px;
     }
-
     &:not(.article-right) {
       .title {
         margin-bottom: 20px;
+        margin-right: -80px;
         font-size: 55px;
         line-height: 62px;
       }
     }
-
     &.article-right {
       padding-left: 0;
       padding-right: 100px;
@@ -1935,7 +1947,6 @@ table {
   }
 
   @media @xl {
-    .title { font-size: 55px; line-height: 62px; }
     padding-left: 170px;
     &.article-right { padding-left: 0; padding-right: 300px; }
   }
@@ -2007,7 +2018,7 @@ table {
         }
       }
     }
-    
+
     .item {
       padding: 0 20px;
     }
@@ -2037,11 +2048,13 @@ table {
     margin-bottom: 24px;
 
     .icon { margin: 0 auto -80px; top: -100px; }
-    .carousel {
-      &.slick-initialized {
-        .slick-dots {
-          margin: 0;
-        }
+    &.article-right {
+      margin-top: 20px;
+      margin-bottom: 70px;
+
+      .icon {
+        top: -86px;
+        margin-bottom: -56px;
       }
     }
   }

@@ -70,8 +70,8 @@ $(document).ready(function () {
 		});
 	});
 
-	/*** About section carousel ***/
-	$('.about').each(function () {
+	/*** Features section carousel ***/
+	$('.features').each(function () {
 		$('.list', this).slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,

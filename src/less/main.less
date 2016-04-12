@@ -415,10 +415,6 @@ textarea {
 
   &:focus { border-color: @color-blue; }
   .form-line & { width: 100%; }
-
-  @media @lg {
-    height: 134px;
-  }
 }
 ::-webkit-input-placeholder { color: @color-black; }
 :-moz-placeholder { color: @color-black; }
@@ -995,8 +991,6 @@ table {
 
   form {
     max-width: 450px;
-    margin-left: auto;
-    margin-right: auto;
     text-align: left;
   }
 
@@ -1019,6 +1013,9 @@ table {
       line-height: 36px;
     }
     .develop { margin: 0; position: relative; top: 50px; }
+    form {
+      textarea { height: 134px;}
+    }
   }
 }
 /* ==========================================================================
@@ -2210,5 +2207,139 @@ table {
         }
       }
     }
+  }
+}
+/* ==========================================================================
+   _CONTACT-US
+   ========================================================================== */
+.contact-us {
+
+  .heading {
+    &:extend(.h1);
+    text-align: center;
+  }
+
+  .large { margin-bottom: 30px; }
+
+  .panel {
+    max-width: 450px;
+    margin: 0 auto 100px;
+    padding: 15px;
+    background: @color-pink-light;
+    border-top: 4px solid @color-blue;
+    position: relative;
+
+    &:before {
+      .before;
+      height: 40px;
+      background: @color-pink-light;
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      right: 0;
+      .skew(0deg, -3deg);
+      z-index: -1;
+    }
+
+    .title {
+      &:extend(.h5);
+      margin: 0 0 14px 0;
+    }
+
+    .form {
+      .label {
+        font-family: @font-daxline;
+      }
+      .button {
+        margin: 30px auto -60px;
+        padding-left: 16px;
+        padding-right: 16px;
+        display: block;
+      }
+    }
+
+    .line {
+      margin-bottom: 12px;
+      font-family: @font-daxline;
+
+      .tel {
+        color: @color-black;
+        cursor: default;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .mail {
+        color: @color-black;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .define {
+        width: 100px;
+        float: left;
+        display: block;
+      }
+
+      .name {
+        margin-left: 100px;
+        display: block;
+      }
+    }
+  }
+
+  @media @sm {
+   .panel {
+     padding: 30px;
+     .form {
+       .button {
+         margin: 60px auto -80px;
+       }
+     }
+   }
+  }
+
+  @media @md {
+    .large { margin-bottom: 54px; }
+    .panel {
+      max-width: none;
+      min-height: 460px;
+      margin-bottom: 100px;
+      .line { font-size: 20px;}
+      .form {
+        .button { padding-left: 34px; padding-right: 34px; }
+      }
+    }
+  }
+
+  @media @lg {
+    .panel {
+      .line {
+        &:first-of-type { margin-top: 40px; }
+      }
+    }
+  }
+
+  @media @xl {
+    .panel {
+      padding: 38px 80px 56px;
+      .form {
+        .button { margin-bottom: -110px; }
+      }
+    }
+  }
+}
+/* ==========================================================================
+   _MAP
+   ========================================================================== */
+.map {
+  width: 100%;
+  margin: 0;
+  height: 400px;
+
+  @media @lg {
+    height: 560px;
   }
 }

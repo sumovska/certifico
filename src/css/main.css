@@ -196,7 +196,9 @@ h6,
 .faq .heading,
 .faq .item .title,
 .jobs .heading,
-.jobs .item .title {
+.jobs .item .title,
+.contact-us .heading,
+.contact-us .panel .title {
   margin: 0;
   line-height: normal;
   font-weight: normal;
@@ -205,7 +207,8 @@ h6,
 .h1,
 h1,
 .faq .heading,
-.jobs .heading {
+.jobs .heading,
+.contact-us .heading {
   margin: 18px 0 18px;
   font-size: 40px;
   line-height: 46px;
@@ -235,7 +238,8 @@ h4,
   font-style: normal;
 }
 .h5,
-h5 {
+h5,
+.contact-us .panel .title {
   margin: 18px 0 18px;
   font-size: 26px;
   line-height: 32px;
@@ -262,7 +266,8 @@ h6 {
   .h1,
   h1,
   .faq .heading,
-  .jobs .heading {
+  .jobs .heading,
+  .contact-us .heading {
     margin: 28px 0 28px;
   }
   .h2,
@@ -280,7 +285,8 @@ h6 {
     margin: 28px 0 28px;
   }
   .h5,
-  h5 {
+  h5,
+  .contact-us .panel .title {
     margin: 28px 0 28px;
   }
   .h6,
@@ -296,7 +302,8 @@ h6 {
   .h1,
   h1,
   .faq .heading,
-  .jobs .heading {
+  .jobs .heading,
+  .contact-us .heading {
     font-size: 50px;
     line-height: 56px;
     margin: 35px 0 35px;
@@ -319,7 +326,8 @@ h6 {
     line-height: 38px;
   }
   .h5,
-  h5 {
+  h5,
+  .contact-us .panel .title {
     font-size: 28px;
     line-height: 34px;
   }
@@ -333,7 +341,8 @@ h6 {
   .h1,
   h1,
   .faq .heading,
-  .jobs .heading {
+  .jobs .heading,
+  .contact-us .heading {
     font-size: 100px;
     line-height: 100px;
     margin: 35px 0 35px;
@@ -356,7 +365,8 @@ h6 {
     line-height: 40px;
   }
   .h5,
-  h5 {
+  h5,
+  .contact-us .panel .title {
     font-size: 30px;
     line-height: 35px;
   }
@@ -472,11 +482,6 @@ textarea:focus {
 }
 .form-line textarea {
   width: 100%;
-}
-@media (min-width: 1024px) {
-  textarea {
-    height: 134px;
-  }
 }
 ::-webkit-input-placeholder {
   color: #000;
@@ -1182,8 +1187,6 @@ table tr td {
 }
 .contacts form {
   max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: left;
 }
 @media (min-width: 768px) {
@@ -1213,6 +1216,9 @@ table tr td {
     margin: 0;
     position: relative;
     top: 50px;
+  }
+  .contacts form textarea {
+    height: 134px;
   }
 }
 /* ==========================================================================
@@ -2441,5 +2447,128 @@ table tr td {
 @media (min-width: 1280px) {
   .article-icon .carousel.slick-initialized .slick-dots {
     margin: 24px 0 6px;
+  }
+}
+/* ==========================================================================
+   _CONTACT-US
+   ========================================================================== */
+.contact-us .heading {
+  text-align: center;
+}
+.contact-us .large {
+  margin-bottom: 30px;
+}
+.contact-us .panel {
+  max-width: 450px;
+  margin: 0 auto 100px;
+  padding: 15px;
+  background: #fafafb;
+  border-top: 4px solid #2db8e9;
+  position: relative;
+}
+.contact-us .panel:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  height: 40px;
+  background: #fafafb;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  transform: skew(0deg, -3deg);
+  -webkit-transform: skew(0deg, -3deg);
+  -moz-transform: skew(0deg, -3deg);
+  -o-transform: skew(0deg, -3deg);
+  -ms-transform: skew(0deg, -3deg);
+  z-index: -1;
+}
+.contact-us .panel .title {
+  margin: 0 0 14px 0;
+}
+.contact-us .panel .form .label {
+  font-family: 'Daxline Pro', Helvetica, sans-serif;
+}
+.contact-us .panel .form .button {
+  margin: 30px auto -60px;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: block;
+}
+.contact-us .panel .line {
+  margin-bottom: 12px;
+  font-family: 'Daxline Pro', Helvetica, sans-serif;
+}
+.contact-us .panel .line .tel {
+  color: #000;
+  cursor: default;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.contact-us .panel .line .mail {
+  color: #000;
+  text-decoration: none;
+}
+.contact-us .panel .line .mail:hover {
+  text-decoration: underline;
+}
+.contact-us .panel .line .define {
+  width: 100px;
+  float: left;
+  display: block;
+}
+.contact-us .panel .line .name {
+  margin-left: 100px;
+  display: block;
+}
+@media (min-width: 568px) {
+  .contact-us .panel {
+    padding: 30px;
+  }
+  .contact-us .panel .form .button {
+    margin: 60px auto -80px;
+  }
+}
+@media (min-width: 768px) {
+  .contact-us .large {
+    margin-bottom: 54px;
+  }
+  .contact-us .panel {
+    max-width: none;
+    min-height: 460px;
+    margin-bottom: 100px;
+  }
+  .contact-us .panel .line {
+    font-size: 20px;
+  }
+  .contact-us .panel .form .button {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+}
+@media (min-width: 1024px) {
+  .contact-us .panel .line:first-of-type {
+    margin-top: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .contact-us .panel {
+    padding: 38px 80px 56px;
+  }
+  .contact-us .panel .form .button {
+    margin-bottom: -110px;
+  }
+}
+/* ==========================================================================
+   _MAP
+   ========================================================================== */
+.map {
+  width: 100%;
+  margin: 0;
+  height: 400px;
+}
+@media (min-width: 1024px) {
+  .map {
+    height: 560px;
   }
 }

@@ -117,4 +117,60 @@ $(document).ready(function () {
 		});
 	});
 
+	/** Google Map */
+	$('.map').each(function () {
+		var _map = $(this);
+
+		/** Map initialization */
+		window.mapInit = function () {
+			if (typeof google != 'undefined') {
+				var pos = new google.maps.LatLng(55.965958, 38.0668768 );
+
+				var map = new google.maps.Map(_map[0], {
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					center: pos,
+					zoom: 17,
+					scrollwheel: false,
+					disableDefaultUI: true,
+					backgroundColor: "#f7f1d9"
+				});
+
+				var pin = new google.maps.MarkerImage(
+
+				);
+				var marker = new google.maps.Marker({
+					position: pos,
+					map: map
+				});
+				google.maps.event.addDomListener(window, 'resize', function () {
+					mapCenter.call(map);
+				});
+				mapCenter.call(map);
+			}
+		};
+
+		/** Map centering */
+		window.mapCenter = function () {
+			var center = this.getCenter();
+			google.maps.event.trigger(this, 'resize');
+			this.setCenter(center);
+		};
+
+		/** Map script */
+		function init() {
+			$.getScript('https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=ru-RU&callback=mapInit');
+			_map.fadeIn();
+		}
+
+		$(this).on('location', function () {
+			init();
+		});
+
+		if ($(this).hasClass('open')) {
+			init();
+		}
+	});
+
+
+
 });

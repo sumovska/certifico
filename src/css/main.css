@@ -1059,6 +1059,26 @@ table tr td {
   -o-transform: skew(0deg, 3deg);
   -ms-transform: skew(0deg, 3deg);
 }
+.cornered.cornered-inverse-top .border {
+  margin: 36px -16px -16px 16px;
+}
+.cornered.cornered-inverse-top .border:before {
+  transform: skew(0deg, -3deg);
+  -webkit-transform: skew(0deg, -3deg);
+  -moz-transform: skew(0deg, -3deg);
+  -o-transform: skew(0deg, -3deg);
+  -ms-transform: skew(0deg, -3deg);
+}
+.cornered.cornered-inverse-top .border:after {
+  transform: skew(0deg, 0deg);
+  -webkit-transform: skew(0deg, 0deg);
+  -moz-transform: skew(0deg, 0deg);
+  -o-transform: skew(0deg, 0deg);
+  -ms-transform: skew(0deg, 0deg);
+}
+.cornered.cornered-inverse-top .area:before {
+  top: -11px;
+}
 /* ==========================================================================
    _CONTACTS
    ========================================================================== */
@@ -2593,5 +2613,45 @@ table tr td {
   .programs .list li .big {
     font-size: 70px;
     line-height: 86px;
+  }
+}
+/* ==========================================================================
+   _PICTURE
+   ========================================================================== */
+.picture {
+  max-width: 450px;
+  margin: 50px auto;
+}
+.picture .cornered {
+  position: relative;
+  z-index: 1;
+}
+.picture .cornered .border {
+  z-index: 3;
+}
+.picture .cornered .area:before {
+  height: 40px;
+  top: -20px;
+}
+.picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.picture .text {
+  max-width: 75%;
+  margin: -60px auto 60px;
+  padding: 15px;
+  background: #fafafb;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 768px) {
+  .picture {
+    max-width: none;
+  }
+  .picture .text {
+    margin: -110px auto 110px;
+    padding: 30px 34px 40px;
   }
 }

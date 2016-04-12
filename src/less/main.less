@@ -870,6 +870,21 @@ table {
       &:after { .skew(0deg, 3deg); }
     }
   }
+
+  &.cornered-inverse-top {
+    .border {
+      margin: 36px -16px -16px 16px;
+      &:before {
+        .skew(0deg, -3deg);
+      }
+      &:after {
+        .skew(0deg, 0deg);
+      }
+    }
+    .area {
+      &:before { top: -11px; }
+    }
+  }
 }
 /* ==========================================================================
    _CONTACTS
@@ -2360,6 +2375,51 @@ table {
         padding: 74px 40px;
         .big { font-size: 70px; line-height: 86px; }
       }
+    }
+  }
+}
+/* ==========================================================================
+   _PICTURE
+   ========================================================================== */
+.picture {
+  max-width: 450px;
+  margin: 50px auto;
+
+  .cornered {
+    position: relative;
+    z-index: 1;
+
+    .border {z-index: 3;}
+
+    .area {
+      &:before {
+        height: 40px;
+        top: -20px;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .text {
+    max-width: 75%;
+    margin: -60px auto 60px;
+    padding: 15px;
+    background: @color-pink-light;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media @md {
+    max-width: none;
+
+    .text {
+      margin: -110px auto 110px;
+      padding: 30px 34px 40px;
     }
   }
 }

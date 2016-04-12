@@ -38,6 +38,7 @@
 @color-beige-light: #f3f6f9;
 @color-beige: #efefef;
 @color-green-dark: #6c8e95;
+@color-dark: #303643;
 
 @duration: .2s ease;
 @duration-menu: .4s ease;
@@ -281,22 +282,22 @@ audio, canvas, img, video { vertical-align: middle; }
 .h1 {
   &:extend(.h-default);
   margin: @margin-sm 0 @margin-sm;
-  font-size: 40px;
-  line-height: 46px;
+  font-size: 34px;
+  line-height: 40px;
   font-style: normal;
 }
 .h2 {
   &:extend(.h-default);
   margin: @margin-sm 0 @margin-sm;
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 32px;
+  line-height: 38px;
   font-style: normal;
 }
 .h3 {
   &:extend(.h-default);
   margin: @margin-sm 0 @margin-sm;
-  font-size: 34px;
-  line-height: 40px;
+  font-size: 31px;
+  line-height: 36px;
   font-style: normal;
 }
 .h4 {
@@ -327,10 +328,16 @@ h4 {&:extend(.h4); }
 h5 {&:extend(.h5); }
 h6 {&:extend(.h6); }
 .h-center { text-align: center; }
+
+@media @sm {
+  .h1 {font-size: 40px; line-height: 46px;}
+  .h2 {font-size: 36px; line-height: 42px;}
+  .h3 { font-size: 34px; line-height: 40px;}
+}
 @media @md {
   p { margin: 0 0 @margin-md; }
   ol, ul { margin: @margin-md 0 @margin-md; }
-  .h1 { margin: @margin-md 0 @margin-md; }
+  .h1 { font-size: 50px; line-height: 56px; margin: @margin-md 0 @margin-md; }
   .h2 { margin: @margin-md 0 @margin-md; }
   .h3 { margin: @margin-md 0 @margin-md; }
   .h4 { margin: @margin-md 0 @margin-md; }
@@ -339,7 +346,7 @@ h6 {&:extend(.h6); }
 }
 @media @lg {
   ol, ul { font-size: 20px; }
-  .h1 { font-size: 50px; line-height: 56px; margin: 35px 0 35px; }
+  .h1 { font-size: 80px; line-height: 90px; margin: 35px 0 35px; }
   .h2 { font-size: 40px; line-height: 40px; }
   .h3 { font-size: 36px; line-height: 40px; }
   .h4 { font-size: 32px; line-height: 38px; }
@@ -347,7 +354,7 @@ h6 {&:extend(.h6); }
   .h6 { font-size: 24px; line-height: 30px; }
 }
 @media @xl {
-  .h1 { font-size: 100px; line-height: 100px; margin: 35px 0 35px; }
+  .h1 { font-size: 100px; line-height: 120px; margin: 35px 0 35px; }
   .h2 { font-size: 46px; line-height: 46px; }
   .h3 { font-size: 40px; line-height: 44px; }
   .h4 { font-size: 36px; line-height: 40px; }
@@ -376,6 +383,7 @@ h6 {&:extend(.h6); }
 .pure-menu-item:before { display: none; }
 @media @md {
   .large { font-size: 32px; line-height: 40px; }
+  .medium { font-size: 22px; line-height: 32px; }
   .pure-g-default {
     margin: 0 -15px;
     [class *="pure-u"] { padding: 0 15px; }
@@ -865,82 +873,6 @@ table {
   }
 }
 /* ==========================================================================
-   _SHAPE
-   ========================================================================== */
-.shape-old {
-  width: 280px;
-  padding: 16px 0 24px 16px;
-  position: relative;
-
-  &:before {
-    .before;
-    border-top: 2px solid @color-gray-light;
-    border-left: 2px solid @color-gray-light;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 16px;
-    bottom: 8px;
-  }
-
-  &:after {
-    .before;
-    clear: both;
-    height: 2px;
-    background: @color-gray-light;
-    position: absolute;
-    left: 0;
-    right: 16px;
-    bottom: 16px;
-    .scale-rotate(1, 1.01, -5deg);
-  }
-
-  .shape-area {
-    width: 264px;
-    padding: 24px 20px;
-    background: @color-white;
-    position: relative;
-
-    &:before {
-      .before;
-      width: 100%;
-      height: 40px;
-      background: url("@{images}/triangle.png") 0 0 no-repeat;
-      background-size: cover;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-
-    &:after {
-      .before;
-      clear: both;
-      width: 2px;
-      background: @color-gray-light;
-      position: absolute;
-      right: 16px;
-      bottom: 2px;
-      top: -16px;
-    }
-  }
-
-  @media @sm {
-    width: 456px;
-    &:after { .scale-rotate(1, 1.01, -3deg); }
-    .shape-area {
-      width: 440px;
-      padding: 44px 30px;
-      &:before { border-width: 26px 440px 0 0; }
-    }
-  }
-
-  @media @xxl {
-    width: 498px;
-    .shape-area { width: 480px; }
-  }
-}
-/* ==========================================================================
    _CONTACTS
    ========================================================================== */
 .contacts {
@@ -1032,7 +964,7 @@ table {
     }
     .develop { margin: 0; position: relative; top: 50px; }
     form {
-      textarea { height: 134px;}
+      textarea { height: 134px; }
     }
   }
 }
@@ -1341,7 +1273,7 @@ table {
 
         &.cornered {
           .area {
-            min-height: 346px;padding: 44px 30px;
+            min-height: 346px; padding: 44px 30px;
             &:before { border-width: 24px 440px 0 0; }
           }
 
@@ -1486,30 +1418,30 @@ table {
       .item {
         color: @color-white;
         .space {
-         &.cornered {
-           .area {
-             padding: 40px 30px 76px;
-             background-position: 40% 0;
-             background-size: cover;
-             .color-green-dark(69);
-             background-color: @color;
+          &.cornered {
+            .area {
+              padding: 40px 30px 76px;
+              background-position: 40% 0;
+              background-size: cover;
+              .color-green-dark(69);
+              background-color: @color;
 
-             &:after {
-               .before;
-               clear: both;
-               width: 60%;
-               .color-green-dark(0);
-               .gradient-x(@color-green-dark, @color);
-               background-color: transparent;
-               position: absolute;
-               left: 0;
-               top: 0;
-               bottom: 0;
-               opacity: .69;
-               z-index: -1;
-             }
-           }
-         }
+              &:after {
+                .before;
+                clear: both;
+                width: 60%;
+                .color-green-dark(0);
+                .gradient-x(@color-green-dark, @color);
+                background-color: transparent;
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                opacity: .69;
+                z-index: -1;
+              }
+            }
+          }
         }
         .text {
           max-width: 70%;
@@ -1528,12 +1460,12 @@ table {
       .item {
         .space {
           max-width: none;
-         &.cornered {
-           .area {
-             padding-left: 44px;
-             padding-right: 44px;
-           }
-         }
+          &.cornered {
+            .area {
+              padding-left: 44px;
+              padding-right: 44px;
+            }
+          }
         }
         .text { max-width: 45%; }
       }
@@ -1552,7 +1484,7 @@ table {
         padding: 0 30px;
         float: left;
 
-        &:nth-last-of-type(-n+2) { margin-bottom: 0;}
+        &:nth-last-of-type(-n+2) { margin-bottom: 0; }
 
         .text { max-width: 64%; min-height: 334px; }
         .name { margin-bottom: 34px; }
@@ -1864,47 +1796,6 @@ table {
   line-height: 24px;
   text-align: center;
 
-  .shape-old {
-    width: auto;
-    margin-bottom: 30px;
-    padding-bottom: 0;
-    &:before {
-      border-top: none;
-      border-bottom: 2px solid @color-gray-light;
-      bottom: 38px;
-      top: 22px;
-      z-index: 1;
-    }
-    &:after { bottom: auto; top: 10px; }
-
-    .shape-area {
-      width: auto;
-      margin: 0;
-      padding: 0;
-
-      &:before {
-        width: 100%;
-        height: 40px;
-        border: none;
-        background: url("@{images}/triangle.png") 0 0 no-repeat;
-        background-size: cover;
-        bottom: auto;
-        top: 0;
-        left: 0;
-        right: 0;
-        .scale-rotate(1, 1.01, 180deg);
-      }
-
-      &:after { bottom: 16px; }
-
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-    }
-  }
-
   .text {
     padding: 0 20px;
   }
@@ -1927,58 +1818,6 @@ table {
   font-size: 16px;
   line-height: 24px;
 
-  .shape-old {
-    width: auto;
-    margin-bottom: 32px;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 16px;
-
-    &:before {
-      border-top: none;
-      border-bottom: 2px solid @color-gray-light;
-      bottom: 16px;
-      top: 22px;
-      left: 16px;
-      right: 0;
-      z-index: 1;
-    }
-
-    &:after {
-      bottom: auto;
-      top: 10px;
-      left: 16px;
-      right: 0;
-    }
-
-    .shape-area {
-      width: auto;
-      margin: 0;
-      padding: 0;
-
-      &:before {
-        width: 100%;
-        height: 40px;
-        border: none;
-        background: url("@{images}/triangle.png") 0 0 no-repeat;
-        background-size: cover;
-        bottom: auto;
-        top: 0;
-        left: 0;
-        right: 0;
-        .scale-rotate(1, 1.01, 180deg);
-      }
-
-      &:after { bottom: 16px; right: -16px; }
-
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-    }
-  }
-
   .title {
     margin: 0 0 6px;
   }
@@ -2000,21 +1839,6 @@ table {
   position: relative;
   font-size: 16px;
   line-height: 24px;
-
-  .shape-old {
-    width: auto;
-    .shape-area {
-      width: auto;
-      margin: 0;
-      padding: 0;
-
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-    }
-  }
 
   .text {
     position: absolute;
@@ -2065,31 +1889,6 @@ table {
   }
 
   &:not(.article-right) {
-    .shape-old {
-      &:before {
-        border-top: none;
-        border-bottom: 2px solid @color-gray-light;
-        bottom: 38px;
-        top: 22px;
-        z-index: 1;
-      }
-      &:after { bottom: auto; top: 10px; }
-      .shape-area {
-        &:before {
-          width: 100%;
-          height: 40px;
-          border: none;
-          background: url("@{images}/triangle.png") 0 0 no-repeat;
-          background-size: cover;
-          bottom: auto;
-          top: 0;
-          left: 0;
-          right: 0;
-          .scale-rotate(1, 1.01, 180deg);
-        }
-        &:after { bottom: 16px; }
-      }
-    }
     .title {
       margin: 0 0 18px;
       font-size: 46px;
@@ -2154,18 +1953,6 @@ table {
   position: relative;
   font-size: 16px;
   line-height: 24px;
-
-  &:before {
-    .before;
-    width: 100%;
-    height: 40px;
-    background: url("@{images}/triangle.png") 0 0 no-repeat;
-    background-size: cover;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
 
   .icon {
     width: 202px;
@@ -2345,14 +2132,14 @@ table {
   }
 
   @media @sm {
-   .panel {
-     padding: 30px;
-     .form {
-       .button {
-         margin: 60px auto -80px;
-       }
-     }
-   }
+    .panel {
+      padding: 30px;
+      .form {
+        .button {
+          margin: 60px auto -80px;
+        }
+      }
+    }
   }
 
   @media @md {
@@ -2361,7 +2148,7 @@ table {
       max-width: none;
       min-height: 460px;
       margin-bottom: 100px;
-      .line { font-size: 20px;}
+      .line { font-size: 20px; }
       .form {
         .button { padding-left: 34px; padding-right: 34px; }
       }
@@ -2395,5 +2182,72 @@ table {
 
   @media @lg {
     height: 560px;
+  }
+}
+/* ==========================================================================
+   _TOP
+   ========================================================================== */
+.top {
+  margin-bottom: 30px;
+  padding: 100px 0 50px;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: @color-white;
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    .before;
+    width: 100%;
+    height: 20px;
+    background: url("@{images}/triangle.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  &:after {
+    .before;
+    clear: both;
+    background: @color-dark;
+    opacity: .72;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  .heading {
+    &:extend(.h1);
+    margin: 0;
+    text-align: center;
+  }
+
+  @media @sm {
+    margin-bottom: 58px;
+    padding-top: 160px;
+    padding-bottom: 60px;
+
+    &:before { height: 40px; }
+    .heading {
+      max-width: 75%;
+      margin: 0 auto;
+
+    }
+  }
+
+  @media @md {
+    &:before { height: 60px; }
   }
 }

@@ -198,7 +198,8 @@ h6,
 .jobs .heading,
 .jobs .item .title,
 .contact-us .heading,
-.contact-us .panel .title {
+.contact-us .panel .title,
+.top .heading {
   margin: 0;
   line-height: normal;
   font-weight: normal;
@@ -208,24 +209,25 @@ h6,
 h1,
 .faq .heading,
 .jobs .heading,
-.contact-us .heading {
+.contact-us .heading,
+.top .heading {
   margin: 18px 0 18px;
-  font-size: 40px;
-  line-height: 46px;
+  font-size: 34px;
+  line-height: 40px;
   font-style: normal;
 }
 .h2,
 h2 {
   margin: 18px 0 18px;
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 32px;
+  line-height: 38px;
   font-style: normal;
 }
 .h3,
 h3 {
   margin: 18px 0 18px;
-  font-size: 34px;
-  line-height: 40px;
+  font-size: 31px;
+  line-height: 36px;
   font-style: normal;
 }
 .h4,
@@ -255,6 +257,27 @@ h6 {
 .h-center {
   text-align: center;
 }
+@media (min-width: 568px) {
+  .h1,
+  h1,
+  .faq .heading,
+  .jobs .heading,
+  .contact-us .heading,
+  .top .heading {
+    font-size: 40px;
+    line-height: 46px;
+  }
+  .h2,
+  h2 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+  .h3,
+  h3 {
+    font-size: 34px;
+    line-height: 40px;
+  }
+}
 @media (min-width: 768px) {
   p {
     margin: 0 0 28px;
@@ -267,7 +290,10 @@ h6 {
   h1,
   .faq .heading,
   .jobs .heading,
-  .contact-us .heading {
+  .contact-us .heading,
+  .top .heading {
+    font-size: 50px;
+    line-height: 56px;
     margin: 28px 0 28px;
   }
   .h2,
@@ -303,9 +329,10 @@ h6 {
   h1,
   .faq .heading,
   .jobs .heading,
-  .contact-us .heading {
-    font-size: 50px;
-    line-height: 56px;
+  .contact-us .heading,
+  .top .heading {
+    font-size: 80px;
+    line-height: 90px;
     margin: 35px 0 35px;
   }
   .h2,
@@ -342,9 +369,10 @@ h6 {
   h1,
   .faq .heading,
   .jobs .heading,
-  .contact-us .heading {
+  .contact-us .heading,
+  .top .heading {
     font-size: 100px;
-    line-height: 100px;
+    line-height: 120px;
     margin: 35px 0 35px;
   }
   .h2,
@@ -416,6 +444,10 @@ h6 {
   .large {
     font-size: 32px;
     line-height: 40px;
+  }
+  .medium {
+    font-size: 22px;
+    line-height: 32px;
   }
   .pure-g-default {
     margin: 0 -15px;
@@ -543,12 +575,12 @@ input[type="submit"].button-black:hover,
 .button.button-black:focus,
 button.button-black:focus,
 input[type="submit"].button-black:focus {
-  background: #414141;
+  background: #303643;
 }
 .button.button-black:active,
 button.button-black:active,
 input[type="submit"].button-black:active {
-  background: #414141;
+  background: #303643;
   box-shadow: inset -2px 0 7px 0 rgba(0, 0, 0, 0.95);
 }
 .button.button-orange,
@@ -1026,101 +1058,6 @@ table tr td {
   -moz-transform: skew(0deg, 3deg);
   -o-transform: skew(0deg, 3deg);
   -ms-transform: skew(0deg, 3deg);
-}
-/* ==========================================================================
-   _SHAPE
-   ========================================================================== */
-.shape-old {
-  width: 280px;
-  padding: 16px 0 24px 16px;
-  position: relative;
-}
-.shape-old:before {
-  display: block;
-  content: '\0020';
-  overflow: hidden;
-  border-top: 2px solid #ece7e7;
-  border-left: 2px solid #ece7e7;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 16px;
-  bottom: 8px;
-}
-.shape-old:after {
-  display: block;
-  content: '\0020';
-  overflow: hidden;
-  clear: both;
-  height: 2px;
-  background: #ece7e7;
-  position: absolute;
-  left: 0;
-  right: 16px;
-  bottom: 16px;
-  -moz-transform: scale(1, 1.01) rotate(-5deg);
-  -webkit-transform: scale(1, 1.01) rotate(-5deg);
-  -o-transform: scale(1, 1.01) rotate(-5deg);
-  -ms-transform: scale(1, 1.01) rotate(-5deg);
-  transform: scale(1, 1.01) rotate(-5deg);
-}
-.shape-old .shape-area {
-  width: 264px;
-  padding: 24px 20px;
-  background: #fff;
-  position: relative;
-}
-.shape-old .shape-area:before {
-  display: block;
-  content: '\0020';
-  overflow: hidden;
-  width: 100%;
-  height: 40px;
-  background: url("../img/triangle.png") 0 0 no-repeat;
-  background-size: cover;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-.shape-old .shape-area:after {
-  display: block;
-  content: '\0020';
-  overflow: hidden;
-  clear: both;
-  width: 2px;
-  background: #ece7e7;
-  position: absolute;
-  right: 16px;
-  bottom: 2px;
-  top: -16px;
-}
-@media (min-width: 568px) {
-  .shape-old {
-    width: 456px;
-  }
-  .shape-old:after {
-    -moz-transform: scale(1, 1.01) rotate(-3deg);
-    -webkit-transform: scale(1, 1.01) rotate(-3deg);
-    -o-transform: scale(1, 1.01) rotate(-3deg);
-    -ms-transform: scale(1, 1.01) rotate(-3deg);
-    transform: scale(1, 1.01) rotate(-3deg);
-  }
-  .shape-old .shape-area {
-    width: 440px;
-    padding: 44px 30px;
-  }
-  .shape-old .shape-area:before {
-    border-width: 26px 440px 0 0;
-  }
-}
-@media (min-width: 1560px) {
-  .shape-old {
-    width: 498px;
-  }
-  .shape-old .shape-area {
-    width: 480px;
-  }
 }
 /* ==========================================================================
    _CONTACTS
@@ -2084,51 +2021,6 @@ table tr td {
   line-height: 24px;
   text-align: center;
 }
-.article .shape-old {
-  width: auto;
-  margin-bottom: 30px;
-  padding-bottom: 0;
-}
-.article .shape-old:before {
-  border-top: none;
-  border-bottom: 2px solid #ece7e7;
-  bottom: 38px;
-  top: 22px;
-  z-index: 1;
-}
-.article .shape-old:after {
-  bottom: auto;
-  top: 10px;
-}
-.article .shape-old .shape-area {
-  width: auto;
-  margin: 0;
-  padding: 0;
-}
-.article .shape-old .shape-area:before {
-  width: 100%;
-  height: 40px;
-  border: none;
-  background: url("../img/triangle.png") 0 0 no-repeat;
-  background-size: cover;
-  bottom: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  -moz-transform: scale(1, 1.01) rotate(180deg);
-  -webkit-transform: scale(1, 1.01) rotate(180deg);
-  -o-transform: scale(1, 1.01) rotate(180deg);
-  -ms-transform: scale(1, 1.01) rotate(180deg);
-  transform: scale(1, 1.01) rotate(180deg);
-}
-.article .shape-old .shape-area:after {
-  bottom: 16px;
-}
-.article .shape-old .shape-area img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
 .article .text {
   padding: 0 20px;
 }
@@ -2149,58 +2041,6 @@ table tr td {
   position: relative;
   font-size: 16px;
   line-height: 24px;
-}
-.article-simple .shape-old {
-  width: auto;
-  margin-bottom: 32px;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 16px;
-}
-.article-simple .shape-old:before {
-  border-top: none;
-  border-bottom: 2px solid #ece7e7;
-  bottom: 16px;
-  top: 22px;
-  left: 16px;
-  right: 0;
-  z-index: 1;
-}
-.article-simple .shape-old:after {
-  bottom: auto;
-  top: 10px;
-  left: 16px;
-  right: 0;
-}
-.article-simple .shape-old .shape-area {
-  width: auto;
-  margin: 0;
-  padding: 0;
-}
-.article-simple .shape-old .shape-area:before {
-  width: 100%;
-  height: 40px;
-  border: none;
-  background: url("../img/triangle.png") 0 0 no-repeat;
-  background-size: cover;
-  bottom: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  -moz-transform: scale(1, 1.01) rotate(180deg);
-  -webkit-transform: scale(1, 1.01) rotate(180deg);
-  -o-transform: scale(1, 1.01) rotate(180deg);
-  -ms-transform: scale(1, 1.01) rotate(180deg);
-  transform: scale(1, 1.01) rotate(180deg);
-}
-.article-simple .shape-old .shape-area:after {
-  bottom: 16px;
-  right: -16px;
-}
-.article-simple .shape-old .shape-area img {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 .article-simple .title {
   margin: 0 0 6px;
@@ -2226,19 +2066,6 @@ table tr td {
   position: relative;
   font-size: 16px;
   line-height: 24px;
-}
-.article-picture .shape-old {
-  width: auto;
-}
-.article-picture .shape-old .shape-area {
-  width: auto;
-  margin: 0;
-  padding: 0;
-}
-.article-picture .shape-old .shape-area img {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 .article-picture .text {
   position: absolute;
@@ -2287,36 +2114,6 @@ table tr td {
   float: right;
   position: relative;
   top: -26px;
-}
-.article-picture:not(.article-right) .shape-old:before {
-  border-top: none;
-  border-bottom: 2px solid #ece7e7;
-  bottom: 38px;
-  top: 22px;
-  z-index: 1;
-}
-.article-picture:not(.article-right) .shape-old:after {
-  bottom: auto;
-  top: 10px;
-}
-.article-picture:not(.article-right) .shape-old .shape-area:before {
-  width: 100%;
-  height: 40px;
-  border: none;
-  background: url("../img/triangle.png") 0 0 no-repeat;
-  background-size: cover;
-  bottom: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  -moz-transform: scale(1, 1.01) rotate(180deg);
-  -webkit-transform: scale(1, 1.01) rotate(180deg);
-  -o-transform: scale(1, 1.01) rotate(180deg);
-  -ms-transform: scale(1, 1.01) rotate(180deg);
-  transform: scale(1, 1.01) rotate(180deg);
-}
-.article-picture:not(.article-right) .shape-old .shape-area:after {
-  bottom: 16px;
 }
 .article-picture:not(.article-right) .title {
   margin: 0 0 18px;
@@ -2388,19 +2185,6 @@ table tr td {
   position: relative;
   font-size: 16px;
   line-height: 24px;
-}
-.article-icon:before {
-  display: block;
-  content: '\0020';
-  overflow: hidden;
-  width: 100%;
-  height: 40px;
-  background: url("../img/triangle.png") 0 0 no-repeat;
-  background-size: cover;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 .article-icon .icon {
   width: 202px;
@@ -2615,5 +2399,73 @@ table tr td {
 @media (min-width: 1024px) {
   .map {
     height: 560px;
+  }
+}
+/* ==========================================================================
+   _TOP
+   ========================================================================== */
+.top {
+  margin-bottom: 30px;
+  padding: 100px 0 50px;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.top:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 100%;
+  height: 20px;
+  background: url("../img/triangle.png") 0 0 no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.top:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  background: #303643;
+  opacity: .72;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.top .wrapper {
+  position: relative;
+  z-index: 2;
+}
+.top .heading {
+  margin: 0;
+  text-align: center;
+}
+@media (min-width: 568px) {
+  .top {
+    margin-bottom: 58px;
+    padding-top: 160px;
+    padding-bottom: 60px;
+  }
+  .top:before {
+    height: 40px;
+  }
+  .top .heading {
+    max-width: 75%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 768px) {
+  .top:before {
+    height: 60px;
   }
 }

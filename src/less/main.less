@@ -328,11 +328,10 @@ h4 {&:extend(.h4); }
 h5 {&:extend(.h5); }
 h6 {&:extend(.h6); }
 .h-center { text-align: center; }
-
 @media @sm {
-  .h1 {font-size: 40px; line-height: 46px;}
-  .h2 {font-size: 36px; line-height: 42px;}
-  .h3 { font-size: 34px; line-height: 40px;}
+  .h1 { font-size: 40px; line-height: 46px; }
+  .h2 { font-size: 36px; line-height: 42px; }
+  .h3 { font-size: 34px; line-height: 40px; }
 }
 @media @md {
   p { margin: 0 0 @margin-md; }
@@ -2243,11 +2242,69 @@ table {
     .heading {
       max-width: 75%;
       margin: 0 auto;
-
     }
   }
 
   @media @md {
     &:before { height: 60px; }
+  }
+}
+/* ==========================================================================
+   _STATISTICS
+   ========================================================================== */
+.statistics {
+  padding: 32px 0;
+  background: @color-pink-light;
+  text-align: center;
+  font: 26px/36px @font-daxline;
+
+  .list {
+    margin: 18px -40px 72px;
+    font: 36px/42px @font-daxline;
+    color: @color-blue;
+
+    &:after {.clearfix;}
+
+    li {
+      padding: 74px 40px;
+      position: relative;
+      &:before, &:after { display: none; }
+
+      .icon {
+        width: auto;
+        height: 100%;
+        margin: auto auto;
+        display: block;
+        opacity: .2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      .big {
+        margin: 0;
+        display: block;
+        font-size: 70px;
+        line-height: 86px;
+      }
+    }
+  }
+
+  .tel {
+    white-space: nowrap;
+    color: @color-black;
+    text-decoration: none;
+    cursor: default;
+  }
+
+  @media @md {
+    .list {
+      li {
+        width: 33.3%;
+        float: left;
+      }
+    }
   }
 }

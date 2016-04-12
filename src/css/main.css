@@ -947,8 +947,15 @@ table tr td {
    ========================================================================== */
 .cornered {
   position: relative;
+  z-index: 1;
 }
-.cornered:before {
+.cornered .area {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+.cornered .area:before {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -963,6 +970,7 @@ table tr td {
   -moz-transform: skew(0deg, -3deg);
   -o-transform: skew(0deg, -3deg);
   -ms-transform: skew(0deg, -3deg);
+  z-index: 1;
 }
 .cornered .border {
   margin: -16px 16px 24px -16px;
@@ -1005,7 +1013,7 @@ table tr td {
   left: 0;
   right: 0;
 }
-.cornered.cornered-inverse:before {
+.cornered.cornered-inverse .area:before {
   transform: skew(0deg, 3deg);
   -webkit-transform: skew(0deg, 3deg);
   -moz-transform: skew(0deg, 3deg);
@@ -1428,6 +1436,7 @@ table tr td {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  z-index: 1;
 }
 .jumbotron .item:before {
   display: block;
@@ -1446,7 +1455,6 @@ table tr td {
   width: 260px;
   min-height: 264px;
   margin: 0 auto;
-  padding: 15px 25px 25px;
   text-align: center;
   font: 18px/24px 'Daxline Pro', Helvetica, sans-serif;
   background: rgba(255, 102, 68, 0.94);
@@ -1456,7 +1464,11 @@ table tr td {
   right: 0;
   z-index: 100;
 }
-.jumbotron .item .panel.cornered:before {
+.jumbotron .item .panel.cornered .area {
+  min-height: 264px;
+  padding: 15px 25px 25px;
+}
+.jumbotron .item .panel.cornered .area:before {
   width: 0;
   height: 0;
   background: transparent;
@@ -1473,12 +1485,12 @@ table tr td {
 }
 .jumbotron .item .panel.cornered .border {
   margin: -16px 16px 6px -16px;
-  z-index: 1;
+  z-index: 2;
 }
 .jumbotron .item .panel.panel-blue {
   background: rgba(45, 184, 233, 0.94);
 }
-.jumbotron .item .panel.panel-blue.cornered:before {
+.jumbotron .item .panel.panel-blue.cornered .area:before {
   border-color: rgba(45, 184, 233, 0.94) transparent transparent transparent;
 }
 .jumbotron .item .panel .heading {
@@ -1508,15 +1520,17 @@ table tr td {
   }
   .jumbotron .item .panel {
     width: 440px;
-    min-height: 346px;
     margin-bottom: -40px;
-    padding: 44px 30px;
     position: relative;
     bottom: auto;
     left: auto;
     right: auto;
   }
-  .jumbotron .item .panel.cornered:before {
+  .jumbotron .item .panel.cornered .area {
+    min-height: 346px;
+    padding: 44px 30px;
+  }
+  .jumbotron .item .panel.cornered .area:before {
     border-width: 24px 440px 0 0;
   }
   .jumbotron .item .panel .heading {
@@ -1580,7 +1594,7 @@ table tr td {
   .jumbotron .item .panel {
     width: 480px;
   }
-  .jumbotron .item .panel.cornered:before {
+  .jumbotron .item .panel.cornered .area:before {
     border-width: 24px 480px 0 0;
   }
 }
@@ -1590,6 +1604,9 @@ table tr td {
 .testimonials .heading {
   margin-bottom: 40px;
   text-align: center;
+}
+.testimonials .large {
+  margin-bottom: 30px;
 }
 .testimonials .list {
   height: 554px;
@@ -1615,15 +1632,14 @@ table tr td {
 .testimonials .list .item .space {
   max-width: 450px;
   margin: 0 auto;
-  padding: 240px 15px 40px;
-  background-position: 100% 0;
+}
+.testimonials .list .item .space.cornered .area {
+  padding: 240px 15px 74px;
+  background-position: 50% 0;
   background-size: auto 220px;
   background-repeat: no-repeat;
 }
-.testimonials .list .item .space.cornered {
-  padding-bottom: 74px;
-}
-.testimonials .list .item .space.cornered:before {
+.testimonials .list .item .space.cornered .area:before {
   height: 42px;
   bottom: -21px;
 }
@@ -1639,7 +1655,6 @@ table tr td {
   display: block;
 }
 .testimonials .list .item .text {
-  min-height: 320px;
   margin-bottom: 18px;
 }
 .testimonials .list .item .text p:last-of-type {
@@ -1662,21 +1677,48 @@ table tr td {
   .testimonials .list .item {
     color: #fff;
   }
-  .testimonials .list .item .space {
-    padding: 40px 30px;
+  .testimonials .list .item .space.cornered .area {
+    padding: 40px 30px 76px;
     background-position: 40% 0;
     background-size: cover;
+    background-color: #6c8e95;
+  }
+  .testimonials .list .item .space.cornered .area:after {
+    display: block;
+    content: '\0020';
+    overflow: hidden;
+    clear: both;
+    width: 60%;
+    background-color: #6c8e95;
+    background: -webkit-linear-gradient(left, #6c8e95, rgba(108, 142, 149, 0));
+    background: -moz-linear-gradient(left, #6c8e95, rgba(108, 142, 149, 0));
+    background: -ms-linear-gradient(left, #6c8e95, rgba(108, 142, 149, 0));
+    background: -o-linear-gradient(left, #6c8e95, rgba(108, 142, 149, 0));
+    background: linear-gradient(to right, #6c8e95, rgba(108, 142, 149, 0));
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    opacity: .69;
+    z-index: -1;
   }
   .testimonials .list .item .text {
     max-width: 70%;
+    min-height: 320px;
   }
   .testimonials .list .item .icon-logo {
     display: inline-block;
   }
 }
 @media (min-width: 768px) {
+  .testimonials .large {
+    margin-bottom: 86px;
+  }
   .testimonials .list .item .space {
     max-width: none;
+  }
+  .testimonials .list .item .space.cornered .area {
     padding-left: 44px;
     padding-right: 44px;
   }
@@ -1687,14 +1729,17 @@ table tr td {
 @media (min-width: 1280px) {
   .testimonials .list {
     height: auto;
-    margin: 0 -32px;
+    margin: 0 -30px;
     overflow: visible;
   }
   .testimonials .list .item {
     width: 50%;
-    margin-bottom: 0;
-    padding: 0 20px;
+    margin-bottom: 100px;
+    padding: 0 30px;
     float: left;
+  }
+  .testimonials .list .item:nth-last-of-type(-n+2) {
+    margin-bottom: 0;
   }
   .testimonials .list .item .text {
     max-width: 64%;
@@ -1703,10 +1748,10 @@ table tr td {
   .testimonials .list .item .name {
     margin-bottom: 34px;
   }
-  .testimonials .list .item .space {
+  .testimonials .list .item .space.cornered .area {
     padding-bottom: 54px;
   }
-  .testimonials .list .item .space.cornered:before {
+  .testimonials .list .item .space.cornered .area:before {
     height: 30px;
     bottom: -15px;
   }
@@ -1718,7 +1763,7 @@ table tr td {
   .testimonials .list .item {
     padding: 0 40px;
   }
-  .testimonials .list .item .space.cornered:before {
+  .testimonials .list .item .space.cornered .area:before {
     height: 40px;
     bottom: -20px;
   }

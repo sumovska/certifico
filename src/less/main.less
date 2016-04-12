@@ -2343,7 +2343,7 @@ table {
   }
 
   @media @md {
-    margin-top: 50px;
+    margin: 50px 0 76px;
     &:before { height: 60px; }
     font-size: 26px;
     line-height: 36px;
@@ -2383,7 +2383,7 @@ table {
    ========================================================================== */
 .picture {
   max-width: 450px;
-  margin: 50px auto;
+  margin: 0 auto 50px;
 
   .cornered {
     position: relative;
@@ -2406,8 +2406,8 @@ table {
   }
 
   .text {
-    max-width: 75%;
-    margin: -60px auto 60px;
+    max-width: 80%;
+    margin: -60px auto 0;
     padding: 15px;
     background: @color-pink-light;
     position: relative;
@@ -2418,15 +2418,20 @@ table {
     max-width: none;
 
     .text {
-      margin: -110px auto 110px;
+      margin: -110px auto 0;
       padding: 30px 34px 40px;
     }
+  }
+
+  @media @xl {
+    .text { max-width: 80%; }
   }
 }
 /* ==========================================================================
    _CALL-TO-ACTION
    ========================================================================== */
 .call-to-action {
+  margin: 30px 0 80px;
   padding: 20px;
   background: @color-pink-light;
   text-align: center;
@@ -2448,7 +2453,7 @@ table {
   }
 
   .area {
-    max-width: 75%;
+    max-width: 450px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
@@ -2465,12 +2470,25 @@ table {
 
   .title {
     &:extend(.h2);
-    margin: 0;
+    margin: 0 0 4px 0;
   }
 
   .button {
+    display: block;
     position: relative;
-    bottom: -40px;
-    margin-top: -40px;
+    bottom: -45px;
+    margin-top: -35px;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  @media @md {
+    margin-top: 16px;
+    .button {font-size: 16px;}
+  }
+
+  @media @xl {
+    .area { max-width: 75%; }
   }
 }

@@ -816,10 +816,10 @@ table {
 
     &:before {
       .before;
-      height: 20px;
+      height: 40px;
       background: @color-white;
       position: absolute;
-      bottom: -11px;
+      bottom: -21px;
       left: 0;
       right: 0;
       .skew(0deg, -3deg);
@@ -828,7 +828,7 @@ table {
   }
 
   .border {
-    margin: -16px 16px 24px -16px;
+    margin: -16px 16px 36px -16px;
     position: absolute;
     top: 0;
     left: 0;
@@ -882,7 +882,7 @@ table {
       }
     }
     .area {
-      &:before { top: -11px; }
+      &:before { top: -20px; }
     }
   }
 }
@@ -1387,13 +1387,7 @@ table {
             background-position: 50% 0;
             background-size: auto 220px;
             background-repeat: no-repeat;
-            &:before {
-              height: 42px;
-              bottom: -21px;
-            }
           }
-
-          .border { margin-bottom: 36px; }
         }
       }
 
@@ -1507,7 +1501,6 @@ table {
           &.cornered {
             .area {
               padding-bottom: 54px;
-              &:before { height: 30px; bottom: -15px; }
             }
           }
         }
@@ -1519,14 +1512,6 @@ table {
       margin: 0 -40px;
       .item {
         padding: 0 40px;
-
-        .space {
-          &.cornered {
-            .area {
-              &:before { height: 40px; bottom: -20px; }
-            }
-          }
-        }
       }
     }
   }
@@ -1600,6 +1585,16 @@ table {
         min-height: 180px;
         margin: 0 0 30px;
         position: relative;
+
+        &.cornered {
+          .border { margin-bottom: 24px; }
+          .area {
+            &:before {
+              height: 20px;
+              bottom: -11px;
+            }
+          }
+        }
 
         img {
           width: 100%;
@@ -2455,15 +2450,7 @@ table {
   .cornered {
     position: relative;
     z-index: 1;
-
     .border {z-index: 3;}
-
-    .area {
-      &:before {
-        height: 40px;
-        top: -20px;
-      }
-    }
   }
 
   img {
@@ -2557,5 +2544,95 @@ table {
 
   @media @xl {
     .area { max-width: 75%; }
+  }
+}
+/* ==========================================================================
+   _ARTICLE
+   ========================================================================== */
+.article {
+  max-width: 450px;
+  margin: 0 auto 50px;
+
+  .cornered {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .text {
+    width: 50%;
+    padding: 40px 20px 56px;
+    background: @color-beige;
+    font-size: 14px;
+    line-height: 22px;
+    position: absolute;
+    z-index: 2;
+    bottom: -10px;
+    right: 10px;
+
+    &:before {
+      .before;
+      height: 40px;
+      background: @color-white;
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      right: 0;
+      .skew(0deg, -3deg);
+      z-index: 1;
+    }
+
+    .title {
+      margin-bottom: 0;
+      font: 900 20px/24px @font-daxline;
+      color: @color-blue;
+    }
+
+    p:last-of-type { margin-bottom: 0; }
+
+    .icon {
+      width: 34px;
+      height: 34px;
+      margin: -18px auto 0;
+      display: block;
+      background: @color-blue;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+
+      &:before, &:after {
+        .before;
+        clear: both;
+        width: 4px;
+        height: 10px;
+        background: @color-white;
+        border-radius: 10px;
+        position: absolute;
+      }
+      &:before {
+        top: 14px;
+        left: 12px;
+        .rotate(-45deg);
+      }
+      &:after {
+        height: 12px;
+        top: 11px;
+        left: 18px;
+        .rotate(45deg);
+      }
+    }
+  }
+
+  @media @md {
+    max-width: none;
   }
 }

@@ -199,7 +199,8 @@ h6,
 .jobs .item .title,
 .contact-us .heading,
 .contact-us .panel .title,
-.page-heading .h {
+.page-heading .h,
+.call-to-action .title {
   margin: 0;
   line-height: normal;
   font-weight: normal;
@@ -217,7 +218,8 @@ h1,
   font-style: normal;
 }
 .h2,
-h2 {
+h2,
+.call-to-action .title {
   margin: 18px 0 18px;
   font-size: 32px;
   line-height: 38px;
@@ -268,7 +270,8 @@ h6 {
     line-height: 46px;
   }
   .h2,
-  h2 {
+  h2,
+  .call-to-action .title {
     font-size: 36px;
     line-height: 42px;
   }
@@ -297,7 +300,8 @@ h6 {
     margin: 28px 0 28px;
   }
   .h2,
-  h2 {
+  h2,
+  .call-to-action .title {
     margin: 28px 0 28px;
   }
   .h3,
@@ -336,7 +340,8 @@ h6 {
     margin: 35px 0 35px;
   }
   .h2,
-  h2 {
+  h2,
+  .call-to-action .title {
     font-size: 40px;
     line-height: 40px;
   }
@@ -376,7 +381,8 @@ h6 {
     margin: 35px 0 35px;
   }
   .h2,
-  h2 {
+  h2,
+  .call-to-action .title {
     font-size: 46px;
     line-height: 46px;
   }
@@ -2654,4 +2660,55 @@ table tr td {
     margin: -110px auto 110px;
     padding: 30px 34px 40px;
   }
+}
+/* ==========================================================================
+   _CALL-TO-ACTION
+   ========================================================================== */
+.call-to-action {
+  padding: 20px;
+  background: #fafafb;
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+  z-index: 1;
+}
+.call-to-action:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  height: 40px;
+  background: #fff;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  transform: skew(0deg, -3deg);
+  -webkit-transform: skew(0deg, -3deg);
+  -moz-transform: skew(0deg, -3deg);
+  -o-transform: skew(0deg, -3deg);
+  -ms-transform: skew(0deg, -3deg);
+  z-index: 1;
+}
+.call-to-action .area {
+  max-width: 75%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.call-to-action .icon {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto -20px;
+  position: relative;
+  top: -50px;
+}
+.call-to-action .title {
+  margin: 0;
+}
+.call-to-action .button {
+  position: relative;
+  bottom: -40px;
+  margin-top: -40px;
 }

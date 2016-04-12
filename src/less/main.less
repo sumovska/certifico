@@ -2423,3 +2423,54 @@ table {
     }
   }
 }
+/* ==========================================================================
+   _CALL-TO-ACTION
+   ========================================================================== */
+.call-to-action {
+  padding: 20px;
+  background: @color-pink-light;
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+  z-index: 1;
+
+  &:before {
+      .before;
+      height: 40px;
+      background: @color-white;
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+      .skew(0deg, -3deg);
+      z-index: 1;
+  }
+
+  .area {
+    max-width: 75%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .icon {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 0 auto -20px;
+    position: relative;
+    top: -50px;
+  }
+
+  .title {
+    &:extend(.h2);
+    margin: 0;
+  }
+
+  .button {
+    position: relative;
+    bottom: -40px;
+    margin-top: -40px;
+  }
+}

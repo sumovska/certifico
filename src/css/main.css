@@ -202,7 +202,8 @@ h6,
 .contact-us .panel .title,
 .page-heading .h,
 .call-to-action .title,
-.articles .heading {
+.articles .heading,
+.sections .heading {
   margin: 0;
   line-height: normal;
   font-weight: normal;
@@ -223,7 +224,8 @@ h1,
 h2,
 .testimonials .heading,
 .call-to-action .title,
-.articles .heading {
+.articles .heading,
+.sections .heading {
   margin: 18px 0 18px;
   font-size: 32px;
   line-height: 38px;
@@ -277,7 +279,8 @@ h6 {
   h2,
   .testimonials .heading,
   .call-to-action .title,
-  .articles .heading {
+  .articles .heading,
+  .sections .heading {
     font-size: 36px;
     line-height: 42px;
   }
@@ -309,7 +312,8 @@ h6 {
   h2,
   .testimonials .heading,
   .call-to-action .title,
-  .articles .heading {
+  .articles .heading,
+  .sections .heading {
     margin: 28px 0 28px;
   }
   .h3,
@@ -351,7 +355,8 @@ h6 {
   h2,
   .testimonials .heading,
   .call-to-action .title,
-  .articles .heading {
+  .articles .heading,
+  .sections .heading {
     font-size: 40px;
     line-height: 40px;
   }
@@ -394,7 +399,8 @@ h6 {
   h2,
   .testimonials .heading,
   .call-to-action .title,
-  .articles .heading {
+  .articles .heading,
+  .sections .heading {
     font-size: 46px;
     line-height: 46px;
   }
@@ -2820,5 +2826,99 @@ table tr td {
 @media (min-width: 1280px) {
   .check-list .item {
     width: 20%;
+  }
+}
+/* ==========================================================================
+   _SECTIONS
+   ========================================================================== */
+.sections {
+  margin-bottom: 40px;
+}
+.sections .heading {
+  text-align: center;
+}
+.sections .more {
+  margin: 0;
+  text-align: center;
+}
+.sections .list:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.sections .list .item {
+  max-width: 450px;
+  margin: 90px auto 30px;
+  text-align: center;
+}
+.sections .list .item .area {
+  padding: 10px 10px 20px;
+  background: #ededed;
+  position: relative;
+  z-index: 1;
+}
+.sections .list .item .area:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  height: 20px;
+  background: #fff;
+  position: absolute;
+  top: -11px;
+  left: 0;
+  right: 0;
+  transform: skew(0deg, -3deg);
+  -webkit-transform: skew(0deg, -3deg);
+  -moz-transform: skew(0deg, -3deg);
+  -o-transform: skew(0deg, -3deg);
+  -ms-transform: skew(0deg, -3deg);
+  z-index: -1;
+}
+.sections .list .item .area .icon {
+  width: 192px;
+  height: 192px;
+  margin: 0 auto -60px;
+  display: block;
+  position: relative;
+  top: -84px;
+}
+.sections .list .item .area .h {
+  margin: 0;
+  font: 24px / normal 'Daxline Pro', Helvetica, sans-serif;
+}
+.sections .list .item:first-of-type,
+.sections .list .item:nth-of-type(4n+1) {
+  margin-top: 100px;
+}
+.sections .list .item:first-of-type .icon,
+.sections .list .item:nth-of-type(4n+1) .icon {
+  margin-bottom: -70px;
+  top: -94px;
+}
+@media (min-width: 568px) {
+  .sections .list {
+    margin: 0 -14px 60px;
+  }
+  .sections .list .item {
+    width: 50%;
+    max-width: none;
+    padding: 0 14px;
+    float: left;
+  }
+}
+@media (min-width: 768px) {
+  .sections {
+    margin-bottom: 64px;
+  }
+}
+@media (min-width: 1024px) {
+  .sections .heading {
+    font-size: 55px;
+    line-height: 60px;
+  }
+}
+@media (min-width: 1280px) {
+  .sections .list .item {
+    width: 25%;
   }
 }

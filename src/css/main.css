@@ -200,10 +200,10 @@ h6,
 .testimonials .heading,
 .contact-us .heading,
 .contact-us .panel .title,
-.page-heading .h,
 .call-to-action .title,
 .articles .heading,
-.sections .heading {
+.sections .heading,
+.certificates .heading {
   margin: 0;
   line-height: normal;
   font-weight: normal;
@@ -213,8 +213,7 @@ h6,
 h1,
 .faq .heading,
 .jobs .heading,
-.contact-us .heading,
-.page-heading .h {
+.contact-us .heading {
   margin: 18px 0 18px;
   font-size: 34px;
   line-height: 40px;
@@ -225,7 +224,8 @@ h2,
 .testimonials .heading,
 .call-to-action .title,
 .articles .heading,
-.sections .heading {
+.sections .heading,
+.certificates .heading {
   margin: 18px 0 18px;
   font-size: 32px;
   line-height: 38px;
@@ -270,8 +270,7 @@ h6 {
   h1,
   .faq .heading,
   .jobs .heading,
-  .contact-us .heading,
-  .page-heading .h {
+  .contact-us .heading {
     font-size: 40px;
     line-height: 46px;
   }
@@ -280,7 +279,8 @@ h6 {
   .testimonials .heading,
   .call-to-action .title,
   .articles .heading,
-  .sections .heading {
+  .sections .heading,
+  .certificates .heading {
     font-size: 36px;
     line-height: 42px;
   }
@@ -302,8 +302,7 @@ h6 {
   h1,
   .faq .heading,
   .jobs .heading,
-  .contact-us .heading,
-  .page-heading .h {
+  .contact-us .heading {
     font-size: 50px;
     line-height: 56px;
     margin: 28px 0 28px;
@@ -313,7 +312,8 @@ h6 {
   .testimonials .heading,
   .call-to-action .title,
   .articles .heading,
-  .sections .heading {
+  .sections .heading,
+  .certificates .heading {
     margin: 28px 0 28px;
   }
   .h3,
@@ -345,8 +345,7 @@ h6 {
   h1,
   .faq .heading,
   .jobs .heading,
-  .contact-us .heading,
-  .page-heading .h {
+  .contact-us .heading {
     font-size: 80px;
     line-height: 90px;
     margin: 35px 0 35px;
@@ -356,7 +355,8 @@ h6 {
   .testimonials .heading,
   .call-to-action .title,
   .articles .heading,
-  .sections .heading {
+  .sections .heading,
+  .certificates .heading {
     font-size: 40px;
     line-height: 40px;
   }
@@ -389,8 +389,7 @@ h6 {
   h1,
   .faq .heading,
   .jobs .heading,
-  .contact-us .heading,
-  .page-heading .h {
+  .contact-us .heading {
     font-size: 100px;
     line-height: 120px;
     margin: 35px 0 35px;
@@ -400,7 +399,8 @@ h6 {
   .testimonials .heading,
   .call-to-action .title,
   .articles .heading,
-  .sections .heading {
+  .sections .heading,
+  .certificates .heading {
     font-size: 46px;
     line-height: 46px;
   }
@@ -2216,7 +2216,10 @@ table tr td {
   z-index: 0;
 }
 .page-heading .h {
+  max-width: 768px;
   margin: 0 auto;
+  padding: 0 20px;
+  display: block;
   position: relative;
   z-index: 2;
 }
@@ -2229,19 +2232,30 @@ table tr td {
 @media (min-width: 568px) {
   .page-heading {
     margin-bottom: 60px;
-    padding-top: 160px;
-    padding-bottom: 60px;
+    padding: 160px 0 60px;
   }
   .page-heading:before {
     height: 40px;
-  }
-  .page-heading .h {
-    max-width: 75%;
   }
 }
 @media (min-width: 768px) {
   .page-heading:before {
     height: 60px;
+  }
+}
+@media (min-width: 1024px) {
+  .page-heading .h {
+    max-width: 860px;
+  }
+}
+@media (min-width: 1280px) {
+  .page-heading .h {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1560px) {
+  .page-heading .h {
+    max-width: 1420px;
   }
 }
 /* ==========================================================================
@@ -2920,5 +2934,134 @@ table tr td {
 @media (min-width: 1280px) {
   .sections .list .item {
     width: 25%;
+  }
+}
+/* ==========================================================================
+   _GALLERY
+   ========================================================================== */
+.gallery {
+  margin-bottom: 50px;
+}
+.gallery .for {
+  height: 668px;
+  margin: 0;
+  overflow: hidden;
+}
+.gallery .for.slick-initialized {
+  height: auto;
+  overflow: visible;
+}
+.gallery .for li {
+  margin: 0;
+  padding: 0;
+}
+.gallery .for li:before,
+.gallery .for li:after {
+  display: none;
+}
+.gallery .for li img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.gallery .nav {
+  width: auto;
+  margin: 4px auto;
+  text-align: center;
+}
+.gallery .nav.slick-initialized {
+  height: auto;
+  overflow: visible;
+}
+.gallery .nav.slick-initialized .slick-list {
+  padding: 0 !important;
+}
+.gallery .nav.slick-initialized .slick-track {
+  left: 0 !important;
+}
+.gallery .nav li {
+  margin: 0 2px;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+.gallery .nav li:before,
+.gallery .nav li:after {
+  display: none;
+}
+.gallery .nav li img {
+  width: 96px;
+  height: 62px;
+  margin: 0 auto;
+  display: block;
+}
+@media (min-width: 1024px) {
+  .gallery {
+    margin-bottom: 90px;
+  }
+}
+/* ==========================================================================
+   _CERTIFICATES
+   ========================================================================== */
+.certificates .heading {
+  margin-bottom: 50px;
+  text-align: center;
+}
+.certificates .list {
+  font-size: 15px;
+  line-height: 22px;
+}
+.certificates .list .item {
+  max-width: 320px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.certificates .list .item:last-of-type {
+  margin-bottom: 0;
+}
+.certificates .list .item img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 10px;
+  display: block;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.29);
+}
+.certificates .list .item .name {
+  margin: 0 auto;
+  display: block;
+}
+@media (min-width: 568px) {
+  .certificates .list {
+    margin: -15px;
+  }
+  .certificates .list .item {
+    width: 32%;
+    max-width: none;
+    padding: 0 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .certificates .list .item:last-of-type {
+    margin-bottom: 40px;
+  }
+}
+@media (min-width: 768px) {
+  .certificates .heading {
+    font-size: 65px;
+    line-height: 75px;
+  }
+  .certificates .list {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .certificates .list .item {
+    padding: 0 20px;
+  }
+  .certificates .list .item img {
+    margin-bottom: 26px;
+  }
+  .certificates .list .item .name {
+    max-width: 80%;
   }
 }

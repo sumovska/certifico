@@ -117,6 +117,30 @@ $(document).ready(function () {
 		});
 	});
 
+	/** Gallery */
+	$('.gallery').each(function () {
+		var fo = $('.for', this), nav = $('.nav', this);
+		fo.slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			asNavFor: nav,
+			mobileFirst: true,
+			adaptiveHeight: true,
+			arrows: false,
+			fade: true
+		});
+		nav.slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			asNavFor: fo,
+			focusOnSelect: true,
+			mobileFirst: true,
+			centerMode: true,
+			arrows: false,
+			variableWidth: true
+		});
+	});
+
 	/** Google Map */
 	$('.map').each(function () {
 		var _map = $(this);

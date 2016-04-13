@@ -1974,8 +1974,10 @@ table {
   }
 
   .h {
-    &:extend(.h1);
+    max-width: @md-width;
     margin: 0 auto;
+    padding: 0 20px;
+    display: block;
     position: relative;
     z-index: 2;
   }
@@ -1985,15 +1987,22 @@ table {
 
   @media @sm {
     margin-bottom: 60px;
-    padding-top: 160px;
-    padding-bottom: 60px;
-
+    padding: 160px 0 60px;
     &:before { height: 40px; }
-    .h { max-width: 75%; }
   }
 
   @media @md {
     &:before { height: 60px; }
+  }
+
+  @media @lg {
+    .h { max-width: @lg-width; }
+  }
+  @media @xl {
+    .h { max-width: @xl-width; }
+  }
+  @media @xxl {
+    .h { max-width: @xxl-width; }
   }
 }
 /* ==========================================================================
@@ -2223,8 +2232,7 @@ table {
   @media @md {
     max-width: none;
 
-    &.push-top { margin-top: -50px;}
-
+    &.push-top { margin-top: -50px; }
     .text {
       margin: -110px auto 0;
       padding: 30px 34px 40px;
@@ -2428,10 +2436,9 @@ table {
       font-size: 54px;
       line-height: 64px;
     }
-
     .article {
       &.article-double {
-        .image { margin-bottom: 30px;}
+        .image { margin-bottom: 30px; }
         .panel {
           width: 50%;
           position: absolute;
@@ -2449,7 +2456,7 @@ table {
 .check-list {
   padding-left: 16px;
   margin: 50px 0;
-  &:after {.clearfix;}
+  &:after { .clearfix; }
 
   .item {
     max-width: 320px;
@@ -2459,24 +2466,24 @@ table {
     line-height: 16px;
 
     &:last-of-type { margin-bottom: 0; }
-    
+
     .cornered {
-      .border { margin-bottom: 24px;}
+      .border { margin-bottom: 24px; }
       .area {
         padding: 30px 30px 50px;
         background: @color-pink-light;
 
-        &:before { height: 20px; bottom: -11px;}
+        &:before { height: 20px; bottom: -11px; }
       }
     }
-    
+
     .h {
       margin: 0 0 6px;
       font: 900 20px/24px @font-daxline;
       color: @color-blue;
     }
 
-    p:last-of-type { margin-bottom: 0;}
+    p:last-of-type { margin-bottom: 0; }
 
     .icon {
       width: 34px;
@@ -2531,7 +2538,7 @@ table {
   }
 
   @media @xl {
-   .item { width: 20%; }
+    .item { width: 20%; }
   }
 }
 /* ==========================================================================
@@ -2550,7 +2557,7 @@ table {
   }
 
   .list {
-    &:after {.clearfix;}
+    &:after { .clearfix; }
 
     .item {
       max-width: 450px;
@@ -2632,4 +2639,126 @@ table {
     }
   }
 }
+/* ==========================================================================
+   _GALLERY
+   ========================================================================== */
+.gallery {
+  margin-bottom: 50px;
+  .for {
+    height: 668px;
+    margin: 0;
+    overflow: hidden;
 
+    &.slick-initialized {
+      height: auto;
+      overflow: visible;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+      &:before, &:after { display: none; }
+      img { width: 100%; height: auto; display: block; }
+    }
+  }
+
+  .nav {
+    width: auto;
+    margin: 4px auto;
+    text-align: center;
+
+    &.slick-initialized {
+      height: auto;
+      overflow: visible;
+
+      .slick-list { padding: 0 !important; }
+      .slick-track { left: 0 !important; }
+    }
+
+    li {
+      margin: 0 2px;
+      padding: 0;
+      display: inline-block;
+      vertical-align: middle;
+
+      &:before, &:after { display: none; }
+      img {
+        width: 96px;
+        height: 62px;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+  }
+  @media @lg {
+    margin-bottom: 90px;
+  }
+}
+/* ==========================================================================
+   _CERTIFICATES
+   ========================================================================== */
+.certificates {
+  .heading {
+    &:extend(.h2);
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .list {
+    font-size: 15px;
+    line-height: 22px;
+
+    .item {
+      max-width: 320px;
+      margin: 0 auto 40px;
+      text-align: center;
+
+      &:last-of-type { margin-bottom: 0; }
+
+      img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto 10px;
+        display: block;
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, .29);
+      }
+
+      .name { margin: 0 auto; display: block; }
+    }
+  }
+
+  @media @sm {
+    .list {
+      margin: -15px;
+
+      .item {
+        width: 32%;
+        max-width: none;
+        padding: 0 15px;
+        display: inline-block;
+        vertical-align: middle;
+
+        &:last-of-type { margin-bottom: 40px; }
+      }
+    }
+  }
+
+  @media @md {
+    .heading {
+      font-size: 65px;
+      line-height: 75px;
+    }
+    .list {
+      margin-left: -20px;
+      margin-right: -20px;
+
+      .item {
+        padding: 0 20px;
+
+        img { margin-bottom: 26px; }
+        .name { max-width: 80%; }
+      }
+    }
+  }
+}

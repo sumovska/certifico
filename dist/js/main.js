@@ -73,7 +73,7 @@ $(document).ready(function () {
 
 	/*** Features section carousel ***/
 	$('.features').each(function () {
-		$('.list', this).slick({
+		$('.carousel', this).slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			mobileFirst: true,

@@ -2472,6 +2472,9 @@ table tr td {
   .picture {
     max-width: none;
   }
+  .picture.push-top {
+    margin-top: -50px;
+  }
   .picture .text {
     margin: -110px auto 0;
     padding: 30px 34px 40px;
@@ -2700,5 +2703,122 @@ table tr td {
     z-index: 2;
     bottom: -10px;
     right: 10px;
+  }
+}
+/* ==========================================================================
+   _CHECK-LIST
+   ========================================================================== */
+.check-list {
+  padding-left: 16px;
+  margin: 50px 0;
+}
+.check-list:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.check-list .item {
+  max-width: 320px;
+  margin: 0 auto 50px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+}
+.check-list .item:last-of-type {
+  margin-bottom: 0;
+}
+.check-list .item .cornered .border {
+  margin-bottom: 24px;
+}
+.check-list .item .cornered .area {
+  padding: 30px 30px 50px;
+  background: #fafafb;
+}
+.check-list .item .cornered .area:before {
+  height: 20px;
+  bottom: -11px;
+}
+.check-list .item .h {
+  margin: 0 0 6px;
+  font: 900 20px/24px 'Daxline Pro', Helvetica, sans-serif;
+  color: #2db8e9;
+}
+.check-list .item p:last-of-type {
+  margin-bottom: 0;
+}
+.check-list .item .icon {
+  width: 34px;
+  height: 34px;
+  margin: 0 auto -6px;
+  display: block;
+  background: #2db8e9;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.check-list .item .icon:before,
+.check-list .item .icon:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  width: 4px;
+  height: 10px;
+  background: #fff;
+  border-radius: 10px;
+  position: absolute;
+}
+.check-list .item .icon:before {
+  top: 14px;
+  left: 12px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-backface-visibility: hidden;
+}
+.check-list .item .icon:after {
+  height: 12px;
+  top: 11px;
+  left: 18px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-backface-visibility: hidden;
+}
+@media (min-width: 568px) {
+  .check-list {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+  .check-list .item {
+    width: 50%;
+    padding: 0 12px;
+    float: left;
+  }
+  .check-list .item .cornered .area {
+    min-height: 194px;
+    padding: 44px 10px 10px;
+  }
+}
+@media (min-width: 768px) {
+  .check-list {
+    margin-top: 54px;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+  .check-list .item {
+    width: 33.3%;
+  }
+}
+@media (min-width: 1280px) {
+  .check-list .item {
+    width: 20%;
   }
 }

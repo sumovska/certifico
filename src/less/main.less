@@ -2223,6 +2223,8 @@ table {
   @media @md {
     max-width: none;
 
+    &.push-top { margin-top: -50px;}
+
     .text {
       margin: -110px auto 0;
       padding: 30px 34px 40px;
@@ -2439,5 +2441,96 @@ table {
         }
       }
     }
+  }
+}
+/* ==========================================================================
+   _CHECK-LIST
+   ========================================================================== */
+.check-list {
+  padding-left: 16px;
+  margin: 50px 0;
+  &:after {.clearfix;}
+
+  .item {
+    max-width: 320px;
+    margin: 0 auto 50px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 16px;
+
+    &:last-of-type { margin-bottom: 0; }
+    
+    .cornered {
+      .border { margin-bottom: 24px;}
+      .area {
+        padding: 30px 30px 50px;
+        background: @color-pink-light;
+
+        &:before { height: 20px; bottom: -11px;}
+      }
+    }
+    
+    .h {
+      margin: 0 0 6px;
+      font: 900 20px/24px @font-daxline;
+      color: @color-blue;
+    }
+
+    p:last-of-type { margin-bottom: 0;}
+
+    .icon {
+      width: 34px;
+      height: 34px;
+      margin: 0 auto -6px;
+      display: block;
+      background: @color-blue;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+
+      &:before, &:after {
+        .before;
+        clear: both;
+        width: 4px;
+        height: 10px;
+        background: @color-white;
+        border-radius: 10px;
+        position: absolute;
+      }
+      &:before { top: 14px; left: 12px; .rotate(-45deg); }
+      &:after { height: 12px; top: 11px; left: 18px; .rotate(45deg); }
+    }
+  }
+
+  @media @sm {
+    margin-left: -12px;
+    margin-right: -12px;
+    .item {
+      width: 50%;
+      padding: 0 12px;
+      float: left;
+
+      .cornered {
+        .area {
+          min-height: 194px;
+          padding: 44px 10px 10px;
+        }
+      }
+    }
+  }
+
+  @media @md {
+    margin-top: 54px;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    .item { width: 33.3%; }
+  }
+
+  @media @xl {
+   .item { width: 20%; }
   }
 }

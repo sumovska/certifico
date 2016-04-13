@@ -3065,3 +3065,102 @@ table tr td {
     max-width: 80%;
   }
 }
+/* ==========================================================================
+   _TEAM
+   ========================================================================== */
+.team .item {
+  padding: 0 22px;
+  background: #fff;
+  overflow: hidden;
+}
+.team .item .space {
+  margin: -42px -70px 0;
+  padding: 64px 64px 34px;
+  background: #fff;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.29);
+}
+.team .item .photo {
+  margin: 0 0 16px;
+  position: relative;
+}
+.team .item .photo.cornered .area:before {
+  height: 20px;
+  bottom: -11px;
+}
+.team .item .photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.team .item .photo .icon {
+  width: 34px;
+  height: 34px;
+  margin: 0 auto -6px;
+  display: block;
+  background: #2db8e9;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.team .item .photo .icon:before,
+.team .item .photo .icon:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  width: 4px;
+  height: 10px;
+  background: #fff;
+  border-radius: 10px;
+  position: absolute;
+}
+.team .item .photo .icon:before {
+  top: 14px;
+  left: 12px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-backface-visibility: hidden;
+}
+.team .item .photo .icon:after {
+  height: 12px;
+  top: 11px;
+  left: 18px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-backface-visibility: hidden;
+}
+.team .item .name {
+  margin: 0 0 2px;
+  font: 900 20px/24px 'Daxline Pro', Helvetica, sans-serif;
+  color: #2db8e9;
+  text-align: center;
+}
+.team .item .post {
+  margin: 0;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+}
+.team .item .text {
+  margin: 26px 0 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+@media (min-width: 768px) {
+  .team .item {
+    width: 33.3%;
+    float: left;
+  }
+  .team .item:nth-of-type(3n+1) {
+    clear: left;
+  }
+}

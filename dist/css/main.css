@@ -2235,6 +2235,12 @@ table tr td {
 .page-heading.page-heading-independent {
   background-image: url('../img/page-headings/independent.jpg');
 }
+.page-heading.page-heading-about {
+  background-image: url('../img/page-headings/about.jpg');
+}
+.page-heading.page-heading-about:after {
+  opacity: .40;
+}
 @media (min-width: 568px) {
   .page-heading {
     margin-bottom: 60px;
@@ -2257,6 +2263,10 @@ table tr td {
 @media (min-width: 1280px) {
   .page-heading .h {
     max-width: 1140px;
+  }
+  .page-heading.page-heading-about {
+    min-height: 664px;
+    padding-top: 280px;
   }
 }
 @media (min-width: 1560px) {
@@ -3196,7 +3206,7 @@ table tr td {
 }
 @media (min-width: 1024px) {
   .team .list {
-    margin: 0;
+    margin: 0 -16px;
   }
   .team .list .item {
     padding: 0 16px;
@@ -3263,6 +3273,9 @@ table tr td {
   }
 }
 @media (min-width: 1280px) {
+  .team .list {
+    margin: 0 -20px;
+  }
   .team .list .item {
     padding: 0 20px;
   }
@@ -3288,6 +3301,10 @@ table tr td {
   position: relative;
   z-index: 1;
 }
+.about .image.cornered-inverse-top .border {
+  margin: 0 16px 16px -16px;
+  z-index: 2;
+}
 .about .image img {
   width: 100%;
   height: auto;
@@ -3301,11 +3318,22 @@ table tr td {
   margin: 0 0 4px;
 }
 .about .text .panel {
+  margin-bottom: 28px;
   padding: 15px;
   background: #efefef;
 }
 .about .text .panel p:last-of-type {
   margin: 0;
+}
+.about .text .name {
+  margin: 0 0 2px;
+  font: 900 20px/24px 'Daxline Pro', Helvetica, sans-serif;
+  color: #2db8e9;
+}
+.about .text .post {
+  margin: 0;
+  font-size: 15px;
+  line-height: 22px;
 }
 @media (min-width: 768px) {
   .about .image {
@@ -3324,8 +3352,25 @@ table tr td {
   .about .text .panel {
     padding: 38px 44px;
   }
+  .about .text .name {
+    max-width: 60%;
+  }
+  .about.about-inverse .image {
+    width: 75%;
+    float: right;
+  }
+  .about.about-inverse .text {
+    width: 25%;
+  }
+  .about.about-inverse .text .space {
+    margin-right: -160px;
+    margin-left: 0;
+  }
 }
 @media (min-width: 1280px) {
+  .about {
+    margin: 60px 0;
+  }
   .about .text .title {
     font-size: 65px;
     line-height: 70px;

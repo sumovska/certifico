@@ -1984,6 +1984,7 @@ table {
 
   &.page-heading-interlaboratory { background-image: url('@{images}/page-headings/interlaboratory.jpg'); }
   &.page-heading-independent { background-image: url('@{images}/page-headings/independent.jpg'); }
+  &.page-heading-about { background-image: url('@{images}/page-headings/about.jpg'); &:after { opacity: .40; } }
 
   @media @sm {
     margin-bottom: 60px;
@@ -2000,6 +2001,7 @@ table {
   }
   @media @xl {
     .h { max-width: @xl-width; }
+    &.page-heading-about { min-height: 664px; padding-top: 280px;}
   }
   @media @xxl {
     .h { max-width: @xxl-width; }
@@ -2879,7 +2881,7 @@ table {
   }
   @media @lg {
     .list {
-      margin: 0;
+      margin: 0 -16px;
       .item {
         padding: 0 16px;
         .space {
@@ -2917,7 +2919,7 @@ table {
           margin-left: auto;
           margin-right: auto;
         }
-        
+
         &:hover {
           overflow: visible;
           z-index: 999;
@@ -2942,6 +2944,7 @@ table {
 
   @media @xl {
     .list {
+      margin: 0 -20px;
       .item {
         padding: 0 20px;
         .space {
@@ -2965,6 +2968,13 @@ table {
     position: relative;
     z-index: 1;
 
+    &.cornered-inverse-top {
+      .border {
+        margin: 0 16px 16px -16px;
+        z-index: 2;
+      }
+    }
+
     img {
       width: 100%;
       height: auto;
@@ -2980,12 +2990,25 @@ table {
       &:extend(.h2);
       margin: 0 0 4px;
     }
-    
+
     .panel {
+      margin-bottom: 28px;
       padding: 15px;
       background: @color-beige;
 
       p:last-of-type { margin: 0;}
+    }
+
+    .name {
+      margin: 0 0 2px;
+      font: 900 20px/24px @font-daxline;
+      color: @color-blue;
+    }
+
+    .post {
+      margin: 0;
+      font-size: 15px;
+      line-height: 22px;
     }
   }
 
@@ -3002,10 +3025,20 @@ table {
       float: left;
       .space { margin-left: -120px; }
       .panel {padding: 38px 44px;}
+      .name {max-width: 60%; }
+    }
+
+    &.about-inverse {
+      .image { width: 75%; float: right;}
+      .text {
+        width: 25%;
+        .space { margin-right: -160px; margin-left: 0;}
+      }
     }
   }
 
   @media @xl {
+    margin: 60px 0;
     .text {
       .title { font-size: 65px; line-height: 70px; }
     }

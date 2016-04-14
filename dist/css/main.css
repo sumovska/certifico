@@ -2341,6 +2341,12 @@ table tr td {
   font-size: 40px;
   line-height: 50px;
 }
+.programs .icons li .h img {
+  width: 100px;
+  height: auto;
+  margin: 0 auto 10px;
+  display: block;
+}
 .programs .icons li p:last-of-type {
   margin-bottom: 0;
 }
@@ -2426,6 +2432,9 @@ table tr td {
     font-size: 60px;
     line-height: 70px;
   }
+  .programs .icons li .h img {
+    width: 130px;
+  }
   .programs .list li .title {
     font-size: 36px;
     line-height: 42px;
@@ -2464,6 +2473,9 @@ table tr td {
   .programs .icons li .h {
     font-size: 70px;
     line-height: 86px;
+  }
+  .programs .icons li .h img {
+    width: 190px;
   }
   .programs .list {
     margin-bottom: 50px;

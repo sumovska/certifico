@@ -203,7 +203,8 @@ h6,
 .call-to-action .title,
 .articles .heading,
 .sections .heading,
-.certificates .heading {
+.certificates .heading,
+.about .text .title {
   margin: 0;
   line-height: normal;
   font-weight: normal;
@@ -225,7 +226,8 @@ h2,
 .call-to-action .title,
 .articles .heading,
 .sections .heading,
-.certificates .heading {
+.certificates .heading,
+.about .text .title {
   margin: 18px 0 18px;
   font-size: 32px;
   line-height: 38px;
@@ -280,7 +282,8 @@ h6 {
   .call-to-action .title,
   .articles .heading,
   .sections .heading,
-  .certificates .heading {
+  .certificates .heading,
+  .about .text .title {
     font-size: 36px;
     line-height: 42px;
   }
@@ -313,7 +316,8 @@ h6 {
   .call-to-action .title,
   .articles .heading,
   .sections .heading,
-  .certificates .heading {
+  .certificates .heading,
+  .about .text .title {
     margin: 28px 0 28px;
   }
   .h3,
@@ -356,7 +360,8 @@ h6 {
   .call-to-action .title,
   .articles .heading,
   .sections .heading,
-  .certificates .heading {
+  .certificates .heading,
+  .about .text .title {
     font-size: 40px;
     line-height: 40px;
   }
@@ -400,7 +405,8 @@ h6 {
   .call-to-action .title,
   .articles .heading,
   .sections .heading,
-  .certificates .heading {
+  .certificates .heading,
+  .about .text .title {
     font-size: 46px;
     line-height: 46px;
   }
@@ -3263,5 +3269,65 @@ table tr td {
   .team .list .item .space {
     margin: -40px -70px 0;
     padding: 64px 70px 38px;
+  }
+}
+/* ==========================================================================
+   _ABOUT
+   ========================================================================== */
+.about {
+  margin: 30px 0;
+}
+.about:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.about .image {
+  max-width: 450px;
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 1;
+}
+.about .image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.about .text {
+  position: relative;
+  z-index: 2;
+}
+.about .text .title {
+  margin: 0 0 4px;
+}
+.about .text .panel {
+  padding: 15px;
+  background: #efefef;
+}
+.about .text .panel p:last-of-type {
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .about .image {
+    width: 64%;
+    max-width: none;
+    float: left;
+  }
+  .about .text {
+    width: 36%;
+    padding-top: 16px;
+    float: left;
+  }
+  .about .text .space {
+    margin-left: -120px;
+  }
+  .about .text .panel {
+    padding: 38px 44px;
+  }
+}
+@media (min-width: 1280px) {
+  .about .text .title {
+    font-size: 65px;
+    line-height: 70px;
   }
 }

@@ -2767,87 +2767,188 @@ table {
    ========================================================================== */
 .team {
 
-  .item {
-    padding: 0 22px;
-    background: @color-white;
-    overflow: hidden;
-    
-    .space {
-      margin: -42px -70px 0;
-      padding: 64px 64px 34px;
+  .list {
+    &:after {.clearfix;}
+
+    .item {
+      max-width: 450px;
+      margin: 0 auto 30px;
       background: @color-white;
-      box-shadow: 0 0 6px 0 rgba(0, 0, 0, .29);
-    }
-
-    .photo {
-      margin: 0 0 16px;
       position: relative;
+      overflow: hidden;
 
-      &.cornered {
-        .area {
-          &:before {
-            height: 20px;
-            bottom: -11px;
+      .space {
+        padding: 16px 0 0 16px;
+        transition: background-color .1s, box-shadow @duration;
+        position: relative;
+      }
+
+      .photo {
+        margin: 0 0 24px;
+        position: relative;
+
+        &.cornered {
+          .area {
+            &:before {
+              height: 20px;
+              bottom: -11px;
+            }
           }
         }
-      }
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      .icon {
-        width: 34px;
-        height: 34px;
-        margin: 0 auto -6px;
-        display: block;
-        background: @color-blue;
-        border-radius: 50%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 2;
 
-        &:before, &:after {
-          .before;
-          clear: both;
-          width: 4px;
-          height: 10px;
-          background: @color-white;
-          border-radius: 10px;
-          position: absolute;
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
         }
-        &:before { top: 14px; left: 12px; .rotate(-45deg); }
-        &:after { height: 12px; top: 11px; left: 18px; .rotate(45deg); }
+
+        .icon {
+          width: 34px;
+          height: 34px;
+          margin: 0 auto -6px;
+          display: block;
+          background: @color-blue;
+          border-radius: 50%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 2;
+
+          &:before, &:after {
+            .before;
+            clear: both;
+            width: 4px;
+            height: 10px;
+            background: @color-white;
+            border-radius: 10px;
+            position: absolute;
+          }
+          &:before { top: 14px; left: 12px; .rotate(-45deg); }
+          &:after { height: 12px; top: 11px; left: 18px; .rotate(45deg); }
+        }
+      }
+
+      .name {
+        margin: 0 0 2px;
+        font: 900 20px/24px @font-daxline;
+        color: @color-blue;
+        text-align: center;
+      }
+
+      .post {
+        margin: 0;
+        font-size: 15px;
+        line-height: 22px;
+        text-align: center;
+      }
+
+      .text {
+        margin: 26px 0 0;
+        font-size: 16px;
+        line-height: 24px;
+        display: none;
       }
     }
-    .name {
-      margin: 0 0 2px;
-      font: 900 20px/24px @font-daxline;
-      color: @color-blue;
-      text-align: center;
-    }
-    .post {
-      margin: 0;
-      font-size: 15px;
-      line-height: 22px;
-      text-align: center;
-    }
+  }
 
-    .text {
-      margin: 26px 0 0;
-      font-size: 16px;
-      line-height: 24px;
+  @media @sm {
+    .list {
+      margin: 0 -10px;
+      .item {
+        width: 50%;
+        max-width: none;
+        padding: 0 10px;
+        float: left;
+
+        &:nth-of-type(2n+1) { clear: left; }
+      }
     }
   }
 
   @media @md {
-    .item {
-      width: 33.3%;
-      float: left;
+    .list {
+      .item {
+        width: 33.3%;
+        float: left;
 
-      &:nth-of-type(3n+1) { clear: left;}
+        &:nth-of-type(2n+1) { clear: none; }
+        &:nth-of-type(3n+1) { clear: left; }
+      }
+    }
+  }
+  @media @lg {
+    .list {
+      margin: 0;
+      .item {
+        padding: 0 16px;
+        .space {
+          margin: -6px -40px 0;
+          padding: 36px 40px 30px;
+
+          &:before {
+            .before;
+            height: 30px;
+            background: @color-white;
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            right: 0;
+            .skew(0deg, -3deg);
+            z-index: 1;
+            transition: background-color .1s, box-shadow @duration;
+          }
+          &:after {
+            .before;
+            clear: both;
+            height: 30px;
+            background: @color-white;
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            .skew(0deg, -3deg);
+            z-index: 2;
+          }
+        }
+
+        .name {
+          max-width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        &:hover {
+          overflow: visible;
+          z-index: 999;
+
+          .space {
+            background: @color-white;
+            box-shadow: 0 0 6px 0 rgba(0, 0, 0, .29);
+            &:before {
+              background: @color-white;
+              box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.29);
+            }
+          }
+        }
+        &.visible {
+          &:hover {
+            .text { display: block; }
+          }
+        }
+      }
+    }
+  }
+
+  @media @xl {
+    .list {
+      .item {
+        padding: 0 20px;
+        .space {
+          margin: -40px -70px 0;
+          padding: 64px 70px 38px;
+        }
+      }
     }
   }
 }

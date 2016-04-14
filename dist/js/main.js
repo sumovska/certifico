@@ -195,6 +195,18 @@ $(document).ready(function () {
 		}
 	});
 
+	$('.team').each(function(){
+		$('.item', this).on('mouseenter', function () {
+			$(this).height($(this).height());
+			$(this).addClass('visible');
+		}).on('mouseleave', function () {
+			var _item = $(this);
+			setTimeout(function () {
+				_item.removeAttr('style').removeClass('visible');
+			}, 110);
+		});
+	});
+
 
 
 });

@@ -148,7 +148,7 @@ $(document).ready(function () {
 		/** Map initialization */
 		window.mapInit = function () {
 			if (typeof google != 'undefined') {
-				var pos = new google.maps.LatLng(55.965958, 38.0668768 );
+				var pos = new google.maps.LatLng(55.965958, 38.0668768);
 
 				var map = new google.maps.Map(_map[0], {
 					mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -195,7 +195,7 @@ $(document).ready(function () {
 		}
 	});
 
-	$('.team').each(function(){
+	$('.team').each(function () {
 		$('.item', this).on('mouseenter', function () {
 			$(this).height($(this).height());
 			$(this).addClass('visible');
@@ -207,6 +207,17 @@ $(document).ready(function () {
 		});
 	});
 
-
+	$('.inform').each(function () {
+		$('.carousel', this).slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			mobileFirst: true,
+			arrows: false,
+			dots: true,
+			customPaging: function (slider, i) {
+				return '<span class="dots" data-role="none"></span>';
+			}
+		});
+	});
 
 });

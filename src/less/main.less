@@ -354,7 +354,7 @@ h6 {&:extend(.h6); }
 }
 @media @xl {
   .h1 { font-size: 100px; line-height: 120px; margin: 35px 0 35px; }
-  .h2 { font-size: 46px; line-height: 46px; }
+  .h2 { font-size: 46px; line-height: 56px; }
   .h3 { font-size: 40px; line-height: 44px; }
   .h4 { font-size: 36px; line-height: 40px; }
   .h5 { font-size: 30px; line-height: 35px; }
@@ -814,6 +814,8 @@ table {
    _SHAPE
    ========================================================================== */
 .cornered {
+  min-height: 100px;
+  margin: 0;
   position: relative;
   z-index: 1;
 
@@ -833,6 +835,12 @@ table {
       right: 0;
       .skew(0deg, -3deg);
       z-index: 1;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
   }
 
@@ -869,6 +877,11 @@ table {
       left: 0;
       right: 0;
     }
+
+    &.border-upper { z-index: 3; }
+
+    &.push-right { margin: -16px -16px 36px 16px; }
+    &.push-bottom-right { margin: 16px -16px 0 16px; }
   }
 
   &.cornered-inverse {
@@ -880,15 +893,13 @@ table {
     }
   }
 
-  &.cornered-inverse-top {
+  &.cornered-top {
     .border {
-      margin: 36px -16px -16px 16px;
-      &:before {
-        .skew(0deg, -3deg);
-      }
-      &:after {
-        .skew(0deg, 0deg);
-      }
+      margin: 0 16px 16px -16px;
+      &.push-right { margin: 0 -16px 16px 16px; }
+      &.push-bottom-right { margin: 36px -16px -16px 16px; }
+      &:before { .skew(0deg, -3deg); }
+      &:after { .skew(0deg, 0deg); }
     }
     .area {
       &:before { top: -20px; }
@@ -1147,6 +1158,7 @@ table {
   overflow: hidden;
   color: @color-white;
   position: relative;
+  z-index: 1;
 
   &.slick-initialized {
     overflow: visible;
@@ -1181,7 +1193,7 @@ table {
           cursor: pointer;
           opacity: .21;
         }
-        &.slick-active {
+        &:hover, &.slick-active {
           .dots { opacity: 1; }
         }
       }
@@ -1333,7 +1345,7 @@ table {
   }
   @media @xl {
     height: 780px;
-    margin-bottom: 18px;
+    margin-bottom: 30px;
   }
   @media @xxl {
     height: 910px;
@@ -1575,7 +1587,7 @@ table {
             cursor: pointer;
             opacity: .21;
           }
-          &.slick-active {
+          &:hover, &.slick-active {
             .dots { opacity: 1; }
           }
         }
@@ -1605,13 +1617,6 @@ table {
               bottom: -11px;
             }
           }
-        }
-
-        img {
-          width: 100%;
-          height: auto;
-          margin: 0 auto;
-          display: block;
         }
 
         .icon {
@@ -1984,7 +1989,9 @@ table {
 
   &.page-heading-interlaboratory { background-image: url('@{images}/page-headings/interlaboratory.jpg'); }
   &.page-heading-independent { background-image: url('@{images}/page-headings/independent.jpg'); }
-  &.page-heading-about { background-image: url('@{images}/page-headings/about.jpg'); &:after { opacity: .40; } }
+  &.page-heading-about { background-image: url('@{images}/page-headings/about.jpg');
+    &:after { opacity: .40; }
+  }
 
   @media @sm {
     margin-bottom: 60px;
@@ -2001,7 +2008,7 @@ table {
   }
   @media @xl {
     .h { max-width: @xl-width; }
-    &.page-heading-about { min-height: 664px; padding-top: 280px;}
+    &.page-heading-about { min-height: 664px; padding-top: 280px; }
   }
   @media @xxl {
     .h { max-width: @xxl-width; }
@@ -2199,10 +2206,10 @@ table {
 
       li {
         padding: 74px 40px;
-        .h { 
+        .h {
           font-size: 70px;
           line-height: 86px;
-          img { width: 190px;}
+          img { width: 190px; }
         }
       }
     }
@@ -2224,18 +2231,6 @@ table {
 .picture {
   max-width: 450px;
   margin: 0 auto 50px;
-
-  .cornered {
-    position: relative;
-    z-index: 1;
-    .border { z-index: 3; }
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
 
   .text {
     max-width: 80%;
@@ -2261,9 +2256,9 @@ table {
   }
 }
 /* ==========================================================================
-   _CALL-TO-ACTION
+   _INFORM
    ========================================================================== */
-.call-to-action {
+.inform {
   margin: 30px 0 80px;
   padding: 20px;
   background: @color-pink-light;
@@ -2290,15 +2285,68 @@ table {
     margin: 0 auto;
     position: relative;
     z-index: 2;
+
+    &.carousel {
+      height: 450px;
+      margin-top: -84px;
+      padding-top: 84px;
+      overflow: hidden;
+
+      .item {
+        margin-bottom: 150px;
+        padding: 0 50px;
+
+        p:last-of-type{ margin-bottom: 0;}
+      }
+
+      &.slick-initialized {
+        padding-top: 0;
+        margin-top: 0;
+        overflow: visible;
+        height: auto;
+
+        .slick-list {
+          margin-top: -84px;
+          padding-top: 84px;
+        }
+
+        .slick-slide { margin-bottom: 0; }
+
+        .slick-dots {
+          margin: 28px 0 8px;
+          text-align: center;
+
+          li {
+            margin: 0 7px;
+            padding: 0;
+            display: inline-block;
+            &:before, &:after { display: none; }
+
+            .dots {
+              width: 10px;
+              height: 10px;
+              display: block;
+              border-radius: 50%;
+              background: @color-brown;
+              cursor: pointer;
+              opacity: .21;
+            }
+            &:hover, &.slick-active {
+              .dots { opacity: 1; }
+            }
+          }
+        }
+      }
+    }
   }
 
   .icon {
     width: 200px;
     height: 200px;
     display: block;
-    margin: 0 auto -20px;
+    margin: 0 auto -74px;
     position: relative;
-    top: -50px;
+    top: -84px;
   }
 
   .title {
@@ -2316,19 +2364,44 @@ table {
     padding-right: 10px;
   }
 
+  &.inform-beige {
+    background: @color-beige;
+  }
+
+  &.inform-inverse {
+    &:before {
+      top: auto;
+      bottom: -20px;
+    }
+  }
+
+  &.inform-index {
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-bottom: 86px;
+
+    .icon {
+      top: -72px;
+      margin-bottom: -55px;
+    }
+  }
+
   @media @md {
-    margin-top: 16px;
+    margin-top: 50px;
+    .area {
+      max-width: none;
+    }
     .button { font-size: 16px; }
   }
 
   @media @xl {
-    .area { max-width: 75%; }
+    .area-narrow { max-width: 300px; }
   }
 }
 /* ==========================================================================
-   _ARTICLES
+   _TESTS
    ========================================================================== */
-.articles {
+.tests {
   margin-bottom: 40px;
 
   .heading {
@@ -2342,7 +2415,7 @@ table {
     text-align: center;
   }
 
-  .article {
+  .item {
     max-width: 450px;
     margin: 0 auto 50px;
     font-size: 14px;
@@ -2387,12 +2460,6 @@ table {
           &:before { height: 20px; bottom: -11px; }
         }
       }
-
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
     }
 
     .title {
@@ -2401,7 +2468,7 @@ table {
       color: @color-blue;
     }
 
-    &.article-double {
+    &.item-double {
 
       .image {
         margin-bottom: -100px;
@@ -2445,7 +2512,7 @@ table {
   }
 
   @media @md {
-    .article { max-width: none; }
+    .item { max-width: none; }
   }
 
   @media @lg {
@@ -2453,8 +2520,8 @@ table {
       font-size: 54px;
       line-height: 64px;
     }
-    .article {
-      &.article-double {
+    .item {
+      &.item-double {
         .image { margin-bottom: 30px; }
         .panel {
           width: 50%;
@@ -2785,7 +2852,7 @@ table {
 .team {
 
   .list {
-    &:after {.clearfix;}
+    &:after { .clearfix; }
 
     .item {
       max-width: 450px;
@@ -2811,12 +2878,6 @@ table {
               bottom: -11px;
             }
           }
-        }
-
-        img {
-          width: 100%;
-          height: auto;
-          display: block;
         }
 
         .icon {
@@ -2975,26 +3036,13 @@ table {
    ========================================================================== */
 .about {
   margin: 30px 0;
-  &:after {.clearfix;}
+  &:after { .clearfix; }
 
   .image {
     max-width: 450px;
     margin: 0 auto 20px;
     position: relative;
     z-index: 1;
-
-    &.cornered-inverse-top {
-      .border {
-        margin: 0 16px 16px -16px;
-        z-index: 2;
-      }
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
   }
 
   .text {
@@ -3006,12 +3054,30 @@ table {
       margin: 0 0 4px;
     }
 
+    .h {
+      margin: 0;
+    }
+
     .panel {
       margin-bottom: 28px;
       padding: 15px;
       background: @color-beige;
 
-      p:last-of-type { margin: 0;}
+      p:last-of-type { margin: 0; }
+
+      &.panel-black {
+        width: 80%;
+        background-color: @color-black;
+        color: @color-white;
+
+        ul {
+          li {
+            &:before, &:after {
+              background: @color-white;
+            }
+          }
+        }
+      }
     }
 
     .name {
@@ -3025,37 +3091,126 @@ table {
       font-size: 15px;
       line-height: 22px;
     }
+
+    &.text-smaller {
+      .title {
+        margin-bottom: 16px;
+      }
+      .panel {
+        padding-left: 30px;
+        padding-right: 30px;
+        position: relative;
+        font-size: 16px;
+        line-height: 24px;
+
+        &:after { .clearfix; }
+
+        ul {
+          margin: 0;
+          font-size: 16px;
+          line-height: 20px;
+          li {
+            margin-bottom: 14px;
+            padding-left: 22px;
+
+            &:before {
+              width: 10px;
+              height: 10px;
+              background: url("@{images}/icons/check.png") 0 0 no-repeat;
+              background-size: cover;
+              top: 2px;
+              .rotate(0deg);
+            }
+
+            &:after { display: none; }
+          }
+        }
+
+        .button {
+          position: absolute;
+          bottom: -30px;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  &.about-index-1 { margin-top: 0; }
+
+  &.about-index-2 {
+    margin-top: 66px;
+
+    .text { margin-top: -54px; padding-top: 0; }
   }
 
   @media @md {
+    margin-top: 0;
     .image {
       width: 64%;
       max-width: none;
       float: left;
     }
-
     .text {
       width: 36%;
-      padding-top: 16px;
+      padding-top: 20px;
       float: left;
-      .space { margin-left: -120px; }
-      .panel {padding: 38px 44px;}
-      .name {max-width: 60%; }
+      .space { margin-left: -110px; }
+      .panel { padding: 38px 44px 44px; }
+      .name { max-width: 60%; }
     }
-
     &.about-inverse {
-      .image { width: 75%; float: right;}
+      .image { width: 75%; float: right; }
       .text {
         width: 25%;
-        .space { margin-right: -160px; margin-left: 0;}
+        .space { margin-right: -160px; margin-left: 0; }
+      }
+
+      &.about-narrow {
+        .text {
+          .space { margin-right: -260px; }
+        }
       }
     }
   }
 
   @media @xl {
-    margin: 60px 0;
+    margin-bottom: 40px;
     .text {
       .title { font-size: 65px; line-height: 70px; }
+      &.text-smaller {
+        .title { font-size: 56px; line-height: 64px; }
+      }
     }
   }
+}
+/* ==========================================================================
+   _ABOUT
+   ========================================================================== */
+.article {
+  margin: 16px 0;
+  padding: 0 18px;
+  font-size: 16px;
+  line-height: 24px;
+
+  .image {
+    margin: 0 -18px 20px;
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  &.article-index-1 {
+    margin-top: -26px;
+    margin-right: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &.article-index-2 {
+    margin-top: 74px;
+  }
+
+
+  &.article-center { text-align: center; }
 }

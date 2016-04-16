@@ -11,7 +11,7 @@ $(document).ready(function () {
 
 	/*** Toggle navigation ***/
 	$('.header').each(function () {
-		var body = $('body'), _nav = $('.nav', this);
+		var body = $('body'), _nav = $('.navigation');
 		$(this).prepend("<span class='toggle'></span>");
 		_nav.wrapInner('<div class="space"></div>');
 		$('.toggle', this).on('click', function () {
@@ -36,12 +36,14 @@ $(document).ready(function () {
 		});
 	});
 
+
 	/*** Table scroll ***/
 	$('table').wrapAll('<div class="table-scroll"></div>');
 
 	/*** Jumbotron carousel ***/
 	$('.jumbotron').each(function () {
-		$(this).slick({
+		_self = $(this);
+		_self.slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			mobileFirst: true,
@@ -51,6 +53,13 @@ $(document).ready(function () {
 				return '<span class="dots" data-role="none"></span>';
 			}
 		});
+		$(window).on('resize', function () {
+			if ($(window).width() <= 568) {
+				_self.height($('body').height());
+			} else {
+				_self.removeAttr("style");
+			}
+		}).trigger('resize');
 	});
 
 	/*** Testimonials carousel ***/

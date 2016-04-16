@@ -1472,7 +1472,7 @@ table tr td {
   right: 0;
   z-index: 10;
 }
-.jumbotron .item .panel {
+.jumbotron .item .unit {
   width: 260px;
   min-height: 264px;
   margin: 0 auto;
@@ -1485,11 +1485,11 @@ table tr td {
   right: 0;
   z-index: 100;
 }
-.jumbotron .item .panel.cornered .area {
+.jumbotron .item .unit.cornered .area {
   min-height: 264px;
   padding: 15px 25px 25px;
 }
-.jumbotron .item .panel.cornered .area:before {
+.jumbotron .item .unit.cornered .area:before {
   width: 0;
   height: 0;
   background: transparent;
@@ -1504,22 +1504,22 @@ table tr td {
   bottom: auto;
   top: 100%;
 }
-.jumbotron .item .panel.cornered .border {
+.jumbotron .item .unit.cornered .border {
   margin: -16px 16px 6px -16px;
   z-index: 2;
 }
-.jumbotron .item .panel.panel-blue {
+.jumbotron .item .unit.unit-blue {
   background: rgba(45, 184, 233, 0.94);
 }
-.jumbotron .item .panel.panel-blue.cornered .area:before {
+.jumbotron .item .unit.unit-blue.cornered .area:before {
   border-color: rgba(45, 184, 233, 0.94) transparent transparent transparent;
 }
-.jumbotron .item .panel .heading {
+.jumbotron .item .unit .heading {
   margin: 0 0 8px;
   font-size: 30px;
   line-height: 34px;
 }
-.jumbotron .item .panel p:last-of-type {
+.jumbotron .item .unit p:last-of-type {
   margin-bottom: 0;
 }
 @media (min-width: 568px) {
@@ -1539,7 +1539,7 @@ table tr td {
   .jumbotron .item {
     padding-top: 390px;
   }
-  .jumbotron .item .panel {
+  .jumbotron .item .unit {
     width: 440px;
     margin-bottom: -40px;
     position: relative;
@@ -1547,14 +1547,14 @@ table tr td {
     left: auto;
     right: auto;
   }
-  .jumbotron .item .panel.cornered .area {
+  .jumbotron .item .unit.cornered .area {
     min-height: 346px;
     padding: 44px 30px;
   }
-  .jumbotron .item .panel.cornered .area:before {
+  .jumbotron .item .unit.cornered .area:before {
     border-width: 24px 440px 0 0;
   }
-  .jumbotron .item .panel .heading {
+  .jumbotron .item .unit .heading {
     font-size: 46px;
     line-height: 55px;
   }
@@ -1587,7 +1587,7 @@ table tr td {
   .jumbotron .item:before {
     display: none;
   }
-  .jumbotron .item .panel {
+  .jumbotron .item .unit {
     margin-bottom: 0;
     float: right;
   }
@@ -1612,10 +1612,10 @@ table tr td {
     margin-left: -760px;
     top: 270px;
   }
-  .jumbotron .item .panel {
+  .jumbotron .item .unit {
     width: 480px;
   }
-  .jumbotron .item .panel.cornered .area:before {
+  .jumbotron .item .unit.cornered .area:before {
     border-width: 24px 480px 0 0;
   }
 }
@@ -2772,7 +2772,7 @@ table tr td {
   height: 40px;
   bottom: -21px;
 }
-.tests .item.item-double .panel {
+.tests .item.item-double .unit {
   width: 90%;
   margin: 0 auto;
   padding: 40px 20px 26px;
@@ -2780,7 +2780,7 @@ table tr td {
   position: relative;
   z-index: 2;
 }
-.tests .item.item-double .panel:before {
+.tests .item.item-double .unit:before {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -2797,12 +2797,12 @@ table tr td {
   -ms-transform: skew(0deg, -3deg);
   z-index: 1;
 }
-.tests .item.item-double .panel .icon {
+.tests .item.item-double .unit .icon {
   margin: -18px auto 0;
   bottom: auto;
   top: 0;
 }
-.tests .item.item-double .panel .title {
+.tests .item.item-double .unit .title {
   margin-bottom: 0;
 }
 @media (min-width: 768px) {
@@ -2818,7 +2818,7 @@ table tr td {
   .tests .item.item-double .image {
     margin-bottom: 30px;
   }
-  .tests .item.item-double .panel {
+  .tests .item.item-double .unit {
     width: 50%;
     position: absolute;
     z-index: 2;
@@ -3391,21 +3391,21 @@ table tr td {
 .about .text .h {
   margin: 0;
 }
-.about .text .panel {
+.about .text .unit {
   margin-bottom: 28px;
   padding: 15px;
   background: #efefef;
 }
-.about .text .panel p:last-of-type {
+.about .text .unit p:last-of-type {
   margin: 0;
 }
-.about .text .panel.panel-black {
+.about .text .unit.unit-black {
   width: 80%;
   background-color: #000;
   color: #fff;
 }
-.about .text .panel.panel-black ul li:before,
-.about .text .panel.panel-black ul li:after {
+.about .text .unit.unit-black ul li:before,
+.about .text .unit.unit-black ul li:after {
   background: #fff;
 }
 .about .text .name {
@@ -3421,28 +3421,28 @@ table tr td {
 .about .text.text-smaller .title {
   margin-bottom: 16px;
 }
-.about .text.text-smaller .panel {
+.about .text.text-smaller .unit {
   padding-left: 30px;
   padding-right: 30px;
   position: relative;
   font-size: 16px;
   line-height: 24px;
 }
-.about .text.text-smaller .panel:after {
+.about .text.text-smaller .unit:after {
   display: table;
   content: '\0020';
   clear: both;
 }
-.about .text.text-smaller .panel ul {
+.about .text.text-smaller .unit ul {
   margin: 0;
   font-size: 16px;
   line-height: 20px;
 }
-.about .text.text-smaller .panel ul li {
+.about .text.text-smaller .unit ul li {
   margin-bottom: 14px;
   padding-left: 22px;
 }
-.about .text.text-smaller .panel ul li:before {
+.about .text.text-smaller .unit ul li:before {
   width: 10px;
   height: 10px;
   background: url("../img/icons/check.png") 0 0 no-repeat;
@@ -3455,10 +3455,10 @@ table tr td {
   transform: rotate(0deg);
   -webkit-backface-visibility: hidden;
 }
-.about .text.text-smaller .panel ul li:after {
+.about .text.text-smaller .unit ul li:after {
   display: none;
 }
-.about .text.text-smaller .panel .button {
+.about .text.text-smaller .unit .button {
   position: absolute;
   bottom: -30px;
   right: 0;
@@ -3490,7 +3490,7 @@ table tr td {
   .about .text .space {
     margin-left: -110px;
   }
-  .about .text .panel {
+  .about .text .unit {
     padding: 38px 44px 44px;
   }
   .about .text .name {
@@ -3507,7 +3507,7 @@ table tr td {
     margin-right: -160px;
     margin-left: 0;
   }
-  .about.about-inverse.about-narrow .text .space {
+  .about.about-inverse.about-index-1 .text .space {
     margin-right: -260px;
   }
 }

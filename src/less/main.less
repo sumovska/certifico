@@ -595,6 +595,7 @@ table {
       width: 100%;
       height: 100%;
       display: block;
+      color: @color-black;
     }
 
     img {
@@ -727,61 +728,80 @@ table {
   }
 
   .toggle {
-    width: 22px;
-    height: 16px;
+    width: 44px;
+    height: 44px;
+    padding: 14px 11px;
     display: block;
-    border-top: 2px solid @color-black;
-    border-bottom: 2px solid @color-black;
     cursor: pointer;
     position: absolute;
-    right: 20px;
-    top: 20px;
-    transition: border-top-color @duration, border-bottom-color @duration;
+    right: 9px;
+    top: 6px;
     z-index: 1000;
 
-    &:before {
-      .before;
-      height: 2px;
-      background: @color-black;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 5px;
-      transition: background @duration, transform @duration-menu;
-    }
-    &:after {
-      .before;
-      clear: both;
-      height: 2px;
-      margin: auto auto;
-      background: @color-black;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      opacity: 0;
-      transition: opacity @duration-menu;
-      .rotate(-45deg);
+    span {
+      width: 22px;
+      height: 16px;
+      display: block;
+      border-top: 2px solid @color-black;
+      border-bottom: 2px solid @color-black;
+      transition: border-top-color @duration, border-bottom-color @duration;
+      position: relative;
+
+      &:before {
+        .before;
+        height: 2px;
+        background: @color-black;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 5px;
+        transition: background @duration, transform @duration-menu;
+      }
+      &:after {
+        .before;
+        clear: both;
+        height: 2px;
+        margin: auto auto;
+        background: @color-black;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        opacity: 0;
+        transition: opacity @duration-menu;
+        .rotate(-45deg);
+      }
     }
 
     &:hover {
-      border-color: @color-orange;
-      &:before { background: @color-orange; }
-      &:after { background: @color-orange; }
+      span {
+        border-color: @color-orange;
+        &:before { background: @color-orange; }
+        &:after { background: @color-orange; }
+      }
     }
 
     .nav-done & {
-      border-top-color: transparent !important;
-      border-bottom-color: transparent !important;
+      span {
+        border-top-color: transparent !important;
+        border-bottom-color: transparent !important;
 
-      &:before {
-        .rotate(45deg);
-        top: 0;
-        bottom: 0;
-        margin: auto auto;
+        &:before {
+          .rotate(45deg);
+          top: 0;
+          bottom: 0;
+          margin: auto auto;
+        }
+        &:after {opacity: 1;}
       }
-      &:after {opacity: 1;}
+      &:focus, &:hover {
+        span {
+        &:before, &:after {
+          background: @color-white;
+        }
+        }
+      }
     }
   }
 
@@ -807,10 +827,12 @@ table {
     }
     .toggle {
       &:not(:hover) {
-        border-top-color: @color-white;
-        border-bottom-color: @color-white;
-        &:before { background: @color-white; }
-        &:after { background: @color-white; }
+        span {
+          border-top-color: @color-white;
+          border-bottom-color: @color-white;
+          &:before { background: @color-white; }
+          &:after { background: @color-white; }
+        }
       }
     }
   }
@@ -822,7 +844,7 @@ table {
       padding: 36px 40px;
       &:after { border-width: 22px 326px 0 0; }
     }
-    .toggle { top: 36px; right: 50%; margin-right: -210px; }
+    .toggle { top: 24px; right: 50%; margin-right: -220px; }
   }
   @media @md {
     .nav-done & { .translate-3d(-375px, 0, 0); }
@@ -836,18 +858,18 @@ table {
       &:after { border-width: 22px 368px 0 0; }
       .slogan { display: block; }
     }
-    .toggle { margin-right: -410px; }
+    .toggle { margin-right: -420px; }
     .tel, .languages { display: block; }
   }
   @media @xl {
     .tel { left: 188px; }
     .languages { right: 230px; }
-    .toggle { margin-right: -550px; }
+    .toggle { margin-right: -560px; }
   }
   @media @xxl {
     .tel { left: 308px; }
     .languages { right: 370px; }
-    .toggle { margin-right: -690px; }
+    .toggle { margin-right: -700px; }
   }
 }
 /* ==========================================================================
@@ -871,7 +893,7 @@ table {
     top: 0;
     bottom: 0;
     opacity: 0;
-    .color-black(.5);
+    .color-black(.1);
     background: @color;
     transition: opacity @duration;
   }
@@ -1760,7 +1782,7 @@ table {
    _FEATURES
    ========================================================================== */
 .features {
-  padding: 50px 0 25px;
+  padding: 40px 0 25px;
   .heading {
     margin: 0 0 10px;
     text-align: center;
@@ -1893,6 +1915,7 @@ table {
     }
   }
   @media @md {
+    padding-top: 50px;
     .list {
       margin: 0 -16px;
       padding-top: 48px;
@@ -1913,6 +1936,7 @@ table {
     }
   }
   @media @xl {
+    padding-top: 70px;
     .list {
       .item {
         width: 25%;
@@ -2219,6 +2243,7 @@ table {
 
   @media @md {
     &:before { height: 60px; }
+    &.page-heading-about { min-height: 464px; }
   }
 
   @media @lg {
@@ -2563,9 +2588,9 @@ table {
     width: 200px;
     height: 200px;
     display: block;
-    margin: 0 auto -74px;
+    margin: 0 auto -40px;
     position: relative;
-    top: -84px;
+    top: -60px;
   }
 
   .title {
@@ -2604,25 +2629,48 @@ table {
         }
       }
     }
+    .icon {
+      margin: 0 auto -74px;
+      top: -84px;
+    }
+    &.inform-index {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+    &.inform-index-2 {
+      margin-top: 80px;
+    }
   }
 
   @media @md {
     margin: 50px 0 80px;
 
-    &.inform-index {
-      margin-top: 18px;
-      margin-left: 40px;
-      margin-bottom: 86px;
-
-      .icon {
-        top: -72px;
-        margin-bottom: -55px;
-      }
+    &.inform-index-2 {
+      margin-top: 70px;
+      margin-bottom: 14px;
     }
     .area {
       max-width: none;
     }
     .button { font-size: 16px; }
+  }
+
+  @media @lg {
+    &.inform-index {
+      margin-top: -24px;
+        margin-left: 40px;
+        margin-bottom: 86px;
+
+        .icon {
+          top: -72px;
+          margin-bottom: -55px;
+        }
+
+    }
+    &.inform-index-2 {
+      margin-top: 130px;
+      margin-bottom: 80px;
+    }
   }
 
   @media @xl {
@@ -2634,6 +2682,17 @@ table {
         }
       }
       &.area-narrow { max-width: 300px; }
+    }
+    &.inform-index {
+      margin-top: 10px;
+    }
+    &.inform-index-2 {
+      margin-top: 30px;
+    }
+  }
+  @media @xxl {
+    &.inform-index-2 {
+      margin-top: 90px;
     }
   }
 }
@@ -3221,7 +3280,7 @@ table {
             height: 30px;
             background: @color-white;
             position: absolute;
-            bottom: -8px;
+            bottom: -4px;
             left: 0;
             right: 0;
             .skew(0deg, -3deg);
@@ -3294,7 +3353,7 @@ table {
     }
 
     .h {
-      margin: 0;
+      margin: 0 0 40px;
     }
 
     .unit {
@@ -3377,8 +3436,7 @@ table {
 
   &.about-index-1 { margin-top: 0; }
 
-  @media @md {
-    margin-top: 0;
+  @media @sm {
     .image {
       width: 64%;
       max-width: none;
@@ -3391,12 +3449,14 @@ table {
       .space { margin-left: -110px; }
       .unit {
         padding: 38px 44px 44px;
-        &.unit-black { width: 80%; }
+        &.unit-black { width: 90%; }
       }
       .name { max-width: 60%; }
       &.text-smaller {
         .unit { padding-left: 30px; padding-right: 30px; }
       }
+      .button {    margin-bottom: -70px;
+        margin-right: -30px;}
     }
     &.about-inverse {
       .image { width: 75%; float: right; }
@@ -3406,14 +3466,45 @@ table {
       }
     }
     &.about-index-1 {
+      margin-bottom: 44px;
       .text {
+        padding-top: 50px;
         .space { margin-right: -260px; }
+        .title {
+          font-size: 46px;
+          line-height: 54px;
+        }
       }
     }
     &.about-index-2 {
       margin-top: 66px;
 
-      .text { margin-top: -54px; padding-top: 0; }
+      .text {
+        margin-top: -54px; padding-top: 0;
+        .space { margin-left: -180px;}
+      }
+    }
+  }
+  @media @lg {
+    &.about-index-1 {
+      .text {
+        padding-top: 30px;
+        .space { margin-right: -300px; }
+        .title {
+          font-size: 54px;
+          line-height: 62px;
+        }
+      }
+    }
+    &.about-index-2 {
+      margin-top: 130px;
+      margin-left: 44px;
+      .text {
+        margin-top: -110px;
+        .space {
+          margin-left: -150px;
+        }
+      }
     }
   }
 
@@ -3425,6 +3516,28 @@ table {
         .title { font-size: 56px; line-height: 64px; }
       }
     }
+    .h { margin-bottom: 0;}
+    &.about-index-2 {
+      margin-top: 44px;
+      margin-left: 24px;
+      .text {
+        margin-top: -54px;
+        .space { margin-left: -118px;}
+      }
+    }
+  }
+  @media @xxl {
+    .text {
+      .unit {
+        &.unit-black {
+          width: 68%;
+        }
+      }
+      &.text-smaller {
+        .title { font-size: 60px; }
+      }
+    }
+
   }
 }
 /* ==========================================================================
@@ -3432,12 +3545,13 @@ table {
    ========================================================================== */
 .article {
   margin: 16px 0;
-  padding: 0 18px;
+
   font-size: 16px;
   line-height: 24px;
 
   .image {
-    margin: 0 -18px 20px;
+    margin: 0 auto 20px;
+    max-width: 450px;
   }
 
   .title {
@@ -3446,13 +3560,25 @@ table {
 
   &.article-center { text-align: center; }
 
+  @media @sm {
+    padding: 0 18px;
+  }
+
   @media @md {
+    .image {
+      max-width: none;
+        margin-left: -18px;
+        margin-right: -18px;
+    }
     &.article-index-1 {
       margin-top: -26px;
       margin-right: 16px;
       position: relative;
       z-index: 2;
     }
+  }
+
+  @media @xl {
     &.article-index-2 {
       margin-top: 74px;
     }

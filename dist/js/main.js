@@ -12,7 +12,7 @@ $(document).ready(function () {
 	/*** Toggle navigation ***/
 	$('.header').each(function () {
 		var body = $('body'), _nav = $('.navigation');
-		$(this).prepend("<span class='toggle'></span>");
+		$(this).prepend("<span class='toggle'><span></span></span>");
 		_nav.wrapInner('<div class="space"></div>');
 		$('.toggle', this).on('click', function () {
 			body.addClass('nav-visible').on('click', function () {
@@ -48,6 +48,8 @@ $(document).ready(function () {
 			slidesToScroll: 1,
 			mobileFirst: true,
 			arrows: false,
+			autoplay: true,
+			autoplaySpeed: 5000,
 			dots: true,
 			customPaging: function (slider, i) {
 				return '<span class="dots" data-role="none"></span>';
@@ -126,7 +128,7 @@ $(document).ready(function () {
 		});
 	});
 
-	/** Gallery */
+	/** Gallery carousel */
 	$('.gallery').each(function () {
 		var fo = $('.for', this), nav = $('.nav', this);
 		fo.slick({
@@ -204,11 +206,13 @@ $(document).ready(function () {
 		}
 	});
 
+	/** Team text visible */
 	$('.team').each(function () {
-		$('.item', this).on('mouseenter', function () {
+		$('.item', this).on('mouseenter touchstart', function () {
 			$(this).height($(this).height());
 			$(this).addClass('visible');
-		}).on('mouseleave', function () {
+			$(this).siblings('.item').trigger('custom');
+		}).on('mouseleave custom', function () {
 			var _item = $(this);
 			setTimeout(function () {
 				_item.removeAttr('style').removeClass('visible');
@@ -216,6 +220,7 @@ $(document).ready(function () {
 		});
 	});
 
+	/*** Inform carousel ***/
 	$('.inform').each(function () {
 		$('.carousel', this).slick({
 			slidesToShow: 1,

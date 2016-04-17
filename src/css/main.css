@@ -786,6 +786,7 @@ table tr td {
   width: 100%;
   height: 100%;
   display: block;
+  color: #000;
 }
 .header .logo img {
   width: 100%;
@@ -919,19 +920,26 @@ table tr td {
   background-color: #fff;
 }
 .header .toggle {
+  width: 44px;
+  height: 44px;
+  padding: 14px 11px;
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  right: 9px;
+  top: 6px;
+  z-index: 1000;
+}
+.header .toggle span {
   width: 22px;
   height: 16px;
   display: block;
   border-top: 2px solid #000;
   border-bottom: 2px solid #000;
-  cursor: pointer;
-  position: absolute;
-  right: 20px;
-  top: 20px;
   transition: border-top-color 0.2s ease, border-bottom-color 0.2s ease;
-  z-index: 1000;
+  position: relative;
 }
-.header .toggle:before {
+.header .toggle span:before {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -943,7 +951,7 @@ table tr td {
   top: 5px;
   transition: background 0.2s ease, transform 0.4s ease;
 }
-.header .toggle:after {
+.header .toggle span:after {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -965,20 +973,20 @@ table tr td {
   transform: rotate(-45deg);
   -webkit-backface-visibility: hidden;
 }
-.header .toggle:hover {
+.header .toggle:hover span {
   border-color: #f26141;
 }
-.header .toggle:hover:before {
+.header .toggle:hover span:before {
   background: #f26141;
 }
-.header .toggle:hover:after {
+.header .toggle:hover span:after {
   background: #f26141;
 }
-.nav-done .header .toggle {
+.nav-done .header .toggle span {
   border-top-color: transparent !important;
   border-bottom-color: transparent !important;
 }
-.nav-done .header .toggle:before {
+.nav-done .header .toggle span:before {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -989,8 +997,14 @@ table tr td {
   bottom: 0;
   margin: auto auto;
 }
-.nav-done .header .toggle:after {
+.nav-done .header .toggle span:after {
   opacity: 1;
+}
+.nav-done .header .toggle:focus span:before,
+.nav-done .header .toggle:hover span:before,
+.nav-done .header .toggle:focus span:after,
+.nav-done .header .toggle:hover span:after {
+  background: #fff;
 }
 .index .header {
   color: #fff;
@@ -1008,14 +1022,14 @@ table tr td {
 .index .header .languages li.switch:not(:hover) .arrow:after {
   background-color: #fff;
 }
-.index .header .toggle:not(:hover) {
+.index .header .toggle:not(:hover) span {
   border-top-color: #fff;
   border-bottom-color: #fff;
 }
-.index .header .toggle:not(:hover):before {
+.index .header .toggle:not(:hover) span:before {
   background: #fff;
 }
-.index .header .toggle:not(:hover):after {
+.index .header .toggle:not(:hover) span:after {
   background: #fff;
 }
 @media (min-width: 568px) {
@@ -1030,9 +1044,9 @@ table tr td {
     border-width: 22px 326px 0 0;
   }
   .header .toggle {
-    top: 36px;
+    top: 24px;
     right: 50%;
-    margin-right: -210px;
+    margin-right: -220px;
   }
 }
 @media (min-width: 768px) {
@@ -1058,7 +1072,7 @@ table tr td {
     display: block;
   }
   .header .toggle {
-    margin-right: -410px;
+    margin-right: -420px;
   }
   .header .tel,
   .header .languages {
@@ -1073,7 +1087,7 @@ table tr td {
     right: 230px;
   }
   .header .toggle {
-    margin-right: -550px;
+    margin-right: -560px;
   }
 }
 @media (min-width: 1560px) {
@@ -1084,7 +1098,7 @@ table tr td {
     right: 370px;
   }
   .header .toggle {
-    margin-right: -690px;
+    margin-right: -700px;
   }
 }
 /* ==========================================================================
@@ -1110,7 +1124,7 @@ table tr td {
   top: 0;
   bottom: 0;
   opacity: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.1);
   transition: opacity 0.2s ease;
 }
 .nav-visible .navigation {
@@ -2069,7 +2083,7 @@ table tr td {
    _FEATURES
    ========================================================================== */
 .features {
-  padding: 50px 0 25px;
+  padding: 40px 0 25px;
 }
 .features .heading {
   margin: 0 0 10px;
@@ -2210,6 +2224,9 @@ table tr td {
   }
 }
 @media (min-width: 768px) {
+  .features {
+    padding-top: 50px;
+  }
   .features .list {
     margin: 0 -16px;
     padding-top: 48px;
@@ -2234,6 +2251,9 @@ table tr td {
   }
 }
 @media (min-width: 1280px) {
+  .features {
+    padding-top: 70px;
+  }
   .features .list .item {
     width: 25%;
   }
@@ -2563,6 +2583,9 @@ table tr td {
 @media (min-width: 768px) {
   .page-heading:before {
     height: 60px;
+  }
+  .page-heading.page-heading-about {
+    min-height: 464px;
   }
 }
 @media (min-width: 1024px) {
@@ -2926,9 +2949,9 @@ table tr td {
   width: 200px;
   height: 200px;
   display: block;
-  margin: 0 auto -74px;
+  margin: 0 auto -40px;
   position: relative;
-  top: -84px;
+  top: -60px;
 }
 .inform .title {
   margin: 0 0 4px 0;
@@ -2954,13 +2977,36 @@ table tr td {
     font-size: 36px;
     line-height: 42px;
   }
+  .inform .icon {
+    margin: 0 auto -74px;
+    top: -84px;
+  }
+  .inform.inform-index {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .inform.inform-index-2 {
+    margin-top: 80px;
+  }
 }
 @media (min-width: 768px) {
   .inform {
     margin: 50px 0 80px;
   }
+  .inform.inform-index-2 {
+    margin-top: 70px;
+    margin-bottom: 14px;
+  }
+  .inform .area {
+    max-width: none;
+  }
+  .inform .button {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1024px) {
   .inform.inform-index {
-    margin-top: 18px;
+    margin-top: -24px;
     margin-left: 40px;
     margin-bottom: 86px;
   }
@@ -2968,11 +3014,9 @@ table tr td {
     top: -72px;
     margin-bottom: -55px;
   }
-  .inform .area {
-    max-width: none;
-  }
-  .inform .button {
-    font-size: 16px;
+  .inform.inform-index-2 {
+    margin-top: 130px;
+    margin-bottom: 80px;
   }
 }
 @media (min-width: 1280px) {
@@ -2985,6 +3029,17 @@ table tr td {
   }
   .inform .area.area-narrow {
     max-width: 300px;
+  }
+  .inform.inform-index {
+    margin-top: 10px;
+  }
+  .inform.inform-index-2 {
+    margin-top: 30px;
+  }
+}
+@media (min-width: 1560px) {
+  .inform.inform-index-2 {
+    margin-top: 90px;
   }
 }
 /* ==========================================================================
@@ -3628,7 +3683,7 @@ table tr td {
     height: 30px;
     background: #fff;
     position: absolute;
-    bottom: -8px;
+    bottom: -4px;
     left: 0;
     right: 0;
     transform: skew(0deg, -3deg);
@@ -3696,7 +3751,7 @@ table tr td {
   margin: 0 0 4px;
 }
 .about .text .h {
-  margin: 0;
+  margin: 0 0 40px;
 }
 .about .text .unit {
   margin-bottom: 30px;
@@ -3779,10 +3834,7 @@ table tr td {
 .about.about-index-1 {
   margin-top: 0;
 }
-@media (min-width: 768px) {
-  .about {
-    margin-top: 0;
-  }
+@media (min-width: 568px) {
   .about .image {
     width: 64%;
     max-width: none;
@@ -3800,7 +3852,7 @@ table tr td {
     padding: 38px 44px 44px;
   }
   .about .text .unit.unit-black {
-    width: 80%;
+    width: 90%;
   }
   .about .text .name {
     max-width: 60%;
@@ -3808,6 +3860,10 @@ table tr td {
   .about .text.text-smaller .unit {
     padding-left: 30px;
     padding-right: 30px;
+  }
+  .about .text .button {
+    margin-bottom: -70px;
+    margin-right: -30px;
   }
   .about.about-inverse .image {
     width: 75%;
@@ -3820,8 +3876,18 @@ table tr td {
     margin-right: -160px;
     margin-left: 0;
   }
+  .about.about-index-1 {
+    margin-bottom: 44px;
+  }
+  .about.about-index-1 .text {
+    padding-top: 50px;
+  }
   .about.about-index-1 .text .space {
     margin-right: -260px;
+  }
+  .about.about-index-1 .text .title {
+    font-size: 46px;
+    line-height: 54px;
   }
   .about.about-index-2 {
     margin-top: 66px;
@@ -3829,6 +3895,31 @@ table tr td {
   .about.about-index-2 .text {
     margin-top: -54px;
     padding-top: 0;
+  }
+  .about.about-index-2 .text .space {
+    margin-left: -180px;
+  }
+}
+@media (min-width: 1024px) {
+  .about.about-index-1 .text {
+    padding-top: 30px;
+  }
+  .about.about-index-1 .text .space {
+    margin-right: -300px;
+  }
+  .about.about-index-1 .text .title {
+    font-size: 54px;
+    line-height: 62px;
+  }
+  .about.about-index-2 {
+    margin-top: 130px;
+    margin-left: 44px;
+  }
+  .about.about-index-2 .text {
+    margin-top: -110px;
+  }
+  .about.about-index-2 .text .space {
+    margin-left: -150px;
   }
 }
 @media (min-width: 1280px) {
@@ -3843,18 +3934,39 @@ table tr td {
     font-size: 56px;
     line-height: 64px;
   }
+  .about .h {
+    margin-bottom: 0;
+  }
+  .about.about-index-2 {
+    margin-top: 44px;
+    margin-left: 24px;
+  }
+  .about.about-index-2 .text {
+    margin-top: -54px;
+  }
+  .about.about-index-2 .text .space {
+    margin-left: -118px;
+  }
+}
+@media (min-width: 1560px) {
+  .about .text .unit.unit-black {
+    width: 68%;
+  }
+  .about .text.text-smaller .title {
+    font-size: 60px;
+  }
 }
 /* ==========================================================================
    _ARTICLE
    ========================================================================== */
 .article {
   margin: 16px 0;
-  padding: 0 18px;
   font-size: 16px;
   line-height: 24px;
 }
 .article .image {
-  margin: 0 -18px 20px;
+  margin: 0 auto 20px;
+  max-width: 450px;
 }
 .article .title {
   margin: 0;
@@ -3862,13 +3974,25 @@ table tr td {
 .article.article-center {
   text-align: center;
 }
+@media (min-width: 568px) {
+  .article {
+    padding: 0 18px;
+  }
+}
 @media (min-width: 768px) {
+  .article .image {
+    max-width: none;
+    margin-left: -18px;
+    margin-right: -18px;
+  }
   .article.article-index-1 {
     margin-top: -26px;
     margin-right: 16px;
     position: relative;
     z-index: 2;
   }
+}
+@media (min-width: 1280px) {
   .article.article-index-2 {
     margin-top: 74px;
   }

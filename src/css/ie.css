@@ -11,3 +11,7 @@ body {
 div {
   zoom: 1;
 }
+.cornered.cornered-inverse .area:before {
+  left: -4px;
+  right: -4px;
+}

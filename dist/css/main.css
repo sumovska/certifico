@@ -792,7 +792,7 @@ table tr td {
   height: auto;
   display: block;
 }
-.header .slogan {
+.header .logo .slogan {
   width: 246px;
   margin: 0 auto;
   display: none;
@@ -817,48 +817,106 @@ table tr td {
   left: 36px;
   top: 36px;
 }
-.header .language {
+.header .languages {
+  width: 146px;
+  margin: 0;
   display: none;
-  opacity: 0;
   font: 14px/24px 'Daxline Pro', Helvetica, sans-serif;
   position: absolute;
-  right: 110px;
-  top: 36px;
+  right: 80px;
+  top: 26px;
+  transition: background 0.2s ease;
 }
-.header .language li {
-  padding-left: 0;
+.header .languages li {
+  margin-bottom: 0;
+  padding: 0;
+  display: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
-.header .language li:before,
-.header .language li:after {
+.header .languages li:before,
+.header .languages li:after {
   display: none;
 }
-.header .language .switch {
-  padding-right: 18px;
+.header .languages li:last-of-type {
+  border-bottom: none;
+}
+.header .languages li a {
+  padding: 10px 16px;
   display: block;
   color: #000;
   text-decoration: none;
+}
+.header .languages li a:hover {
+  color: #f26141;
+}
+.header .languages li.switch {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  border-bottom-color: transparent;
+  opacity: 1;
+  transition: border-bottom-color 0.2s ease;
+}
+.header .languages li.switch .arrow {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  vertical-align: middle;
   position: relative;
 }
-.header .language .switch:before {
-  display: block;
+.header .languages li.switch .arrow:before,
+.header .languages li.switch .arrow:after {
   content: '\0020';
   overflow: hidden;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px 4px 0 4px;
-  border-color: #000 transparent transparent transparent;
+  clear: both;
+  width: 1px;
+  height: 8px;
+  display: block;
+  background: #000;
   position: absolute;
+  top: 1px;
+  transition: background-color 0.2s ease;
+}
+.header .languages li.switch .arrow:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-backface-visibility: hidden;
   right: 0;
-  top: 8px;
-  transition: border-color 0.2s ease;
 }
-.header .language .switch:hover {
-  color: #2db8e9;
+.header .languages li.switch .arrow:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-backface-visibility: hidden;
+  right: 5px;
 }
-.header .language .switch:hover:before {
-  border-color: #2db8e9 transparent transparent transparent;
+.header .languages li.switch:hover .arrow:before,
+.header .languages li.switch:hover .arrow:after {
+  background-color: #f26141;
+}
+.header .languages:hover {
+  background: #000;
+}
+.header .languages:hover li {
+  opacity: 1;
+  display: block;
+}
+.header .languages:hover li a:not(:hover) {
+  color: #fff;
+}
+.header .languages:hover li.switch {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+.header .languages:hover li.switch:not(:hover) .arrow:before,
+.header .languages:hover li.switch:not(:hover) .arrow:after {
+  background-color: #fff;
 }
 .header .toggle {
   width: 22px;
@@ -908,10 +966,13 @@ table tr td {
   -webkit-backface-visibility: hidden;
 }
 .header .toggle:hover {
-  border-color: #2db8e9;
+  border-color: #f26141;
 }
 .header .toggle:hover:before {
-  background: #2db8e9;
+  background: #f26141;
+}
+.header .toggle:hover:after {
+  background: #f26141;
 }
 .nav-done .header .toggle {
   border-top-color: transparent !important;
@@ -934,17 +995,18 @@ table tr td {
 .index .header {
   color: #fff;
 }
-.index .header .slogan {
+.index .header .logo .slogan {
   color: #000;
 }
 .index .header .tel {
   color: #fff;
 }
-.index .header .language .switch:not(:hover) {
+.index .header .languages li a:not(:hover) {
   color: #fff;
 }
-.index .header .language .switch:not(:hover):before {
-  border-color: #fff transparent transparent transparent;
+.index .header .languages li.switch:not(:hover) .arrow:before,
+.index .header .languages li.switch:not(:hover) .arrow:after {
+  background-color: #fff;
 }
 .index .header .toggle:not(:hover) {
   border-top-color: #fff;
@@ -992,14 +1054,14 @@ table tr td {
   .header .logo:after {
     border-width: 22px 368px 0 0;
   }
+  .header .logo .slogan {
+    display: block;
+  }
   .header .toggle {
     margin-right: -410px;
   }
-  .header .slogan {
-    display: block;
-  }
   .header .tel,
-  .header .language {
+  .header .languages {
     display: block;
   }
 }
@@ -1007,8 +1069,8 @@ table tr td {
   .header .tel {
     left: 188px;
   }
-  .header .language {
-    right: 260px;
+  .header .languages {
+    right: 230px;
   }
   .header .toggle {
     margin-right: -550px;
@@ -1018,8 +1080,8 @@ table tr td {
   .header .tel {
     left: 308px;
   }
-  .header .language {
-    right: 400px;
+  .header .languages {
+    right: 370px;
   }
   .header .toggle {
     margin-right: -690px;
@@ -1843,6 +1905,7 @@ table tr td {
   margin-bottom: 30px;
 }
 .testimonials .list {
+  margin-top: 20px;
   height: 554px;
   overflow: hidden;
 }
@@ -1949,6 +2012,9 @@ table tr td {
   .testimonials .large {
     margin-bottom: 86px;
   }
+  .testimonials .list {
+    margin-top: 74px;
+  }
   .testimonials .list .item .space {
     max-width: none;
   }
@@ -1966,7 +2032,8 @@ table tr td {
   }
   .testimonials .list {
     height: auto;
-    margin: 0 -30px;
+    margin-left: -30px;
+    margin-right: -30px;
     overflow: visible;
   }
   .testimonials .list .item {
@@ -1991,7 +2058,8 @@ table tr td {
 }
 @media (min-width: 1560px) {
   .testimonials .list {
-    margin: 0 -40px;
+    margin-left: -40px;
+    margin-right: -40px;
   }
   .testimonials .list .item {
     padding: 0 40px;

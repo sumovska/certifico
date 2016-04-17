@@ -399,7 +399,7 @@ h6 {&:extend(.h6); }
   }
   .main {
     .main-space {
-      .nav-done & { .translate-3d(-434px, 0, 0); }
+      .nav-done & { .translate-3d(-375px, 0, 0); }
     }
   }
 }
@@ -645,7 +645,6 @@ table {
       border-bottom: 1px solid @color;
       &:before, &:after { display: none; }
 
-
     }
 
     .switch {
@@ -685,7 +684,7 @@ table {
     position: absolute;
     right: 20px;
     top: 20px;
-    transition: border-color @duration;
+    transition: border-top-color @duration, border-bottom-color @duration;
     z-index: 1000;
 
     &:before {
@@ -696,12 +695,40 @@ table {
       left: 0;
       right: 0;
       top: 5px;
-      transition: background @duration;
+      transition: background @duration, transform @duration-menu;
+    }
+    &:after {
+      .before;
+      clear: both;
+      height: 2px;
+      margin: auto auto;
+      background: @color-black;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      opacity: 0;
+      transition: opacity @duration-menu;
+      .rotate(-45deg);
     }
 
     &:hover {
       border-color: @color-blue;
       &:before { background: @color-blue; }
+    }
+
+    .nav-done & {
+      border-top-color: transparent !important;
+      border-bottom-color: transparent !important;
+
+      &:before {
+        .rotate(45deg);
+        top: 0;
+        bottom: 0;
+        margin: auto auto;
+      }
+      &:after {opacity: 1;}
     }
   }
 
@@ -722,6 +749,7 @@ table {
         border-top-color: @color-white;
         border-bottom-color: @color-white;
         &:before { background: @color-white; }
+        &:after { background: @color-white; }
       }
     }
   }
@@ -736,7 +764,7 @@ table {
     .toggle { top: 36px; right: 50%; margin-right: -210px; }
   }
   @media @md {
-    .nav-done & { .translate-3d(-434px, 0, 0); }
+    .nav-done & { .translate-3d(-375px, 0, 0); }
   }
   @media @lg {
     .logo {
@@ -792,13 +820,27 @@ table {
     &:before { opacity: 1; }
   }
 
+  .head {
+    margin-bottom: 35px;
+
+    .logo {
+      width: 246px;
+      height: 20px;
+      margin: 0 auto 14px;
+      display: block;
+    }
+    .slogan {
+      margin: 0;
+      font: 14px/normal @font-daxline;
+      text-align: center;
+    }
+  }
+
   .space {
     width: 250px;
     height: 100% !important;
     padding: 12px 20px;
-    background-color: @color-black;
-    border-top: 4px solid @color-orange;
-    color: @color-white;
+    background-color: @color-white;
     position: fixed;
     top: 0;
     right: -250px;
@@ -813,20 +855,20 @@ table {
     margin: 0 0 16px 0;
     padding: 0;
     list-style: none;
-    font: 16px @font-daxline;
-    text-transform: uppercase;
+    font: bold 16px @font-daxline;
+    text-align: center;
 
     li {
       margin-bottom: 0;
       padding: 8px 0;
-      .color-white(.1);
       letter-spacing: .06em;
-      border-bottom: 1px solid @color;
+      border-bottom: 1px solid @color-black;
 
+      &:first-of-type { border-top: 1px solid @color-black; }
       &:before, &:after { display: none; }
 
       a {
-        color: @color-white;
+        color: @color-black;
         text-decoration: none;
 
         &:hover {
@@ -836,130 +878,52 @@ table {
     }
   }
 
-  .tel {
-    margin-bottom: 16px;
-    padding-left: 26px;
-    display: block;
-    font: 18px/normal @font-daxline;
-    color: @color-white;
-    text-decoration: none;
-    cursor: default;
-    position: relative;
+  .contact-line {
+    font: bold 16px/normal @font-daxline;
+    &:after { .clearfix; }
 
-    &:before {
-      .before;
-      width: 20px;
-      height: 20px;
-      background: url("@{images}/icons/tel.png") 0 0 no-repeat;
-      background-size: cover;
-      position: absolute;
-      left: 0;
-      top: 3px;
+    .tel {
+      text-decoration: none;
+      cursor: default;
+      color: @color-black;
+      float: left;
+    }
+
+    .email {
+      text-decoration: none;
+      float: right;
+      color: @color-black;
     }
   }
 
-  .email {
-    margin-bottom: 16px;
-    padding-left: 26px;
+  .button {
+    margin: 0 auto;
     display: block;
-    font: 18px/normal @font-daxline;
-    color: @color-white;
-    text-decoration: none;
-    position: relative;
-
-    &:before {
-      .before;
-      width: 20px;
-      height: 20px;
-      background: url("@{images}/icons/mail.png") 0 0 no-repeat;
-      background-size: cover;
-      position: absolute;
-      left: 0;
-      top: 3px;
-    }
-  }
-
-  .social {
-    margin: 16px -4px;
-    li {
-      margin: 0 4px;
-      padding-left: 0;
-      display: inline-block;
-      &:before, &:after { display: none; }
-
-      a {
-        width: 32px;
-        height: 32px;
-        display: block;
-        background-position: 50% 50%;
-        background-size: 24px 24px;
-        background-repeat: no-repeat;
-        .color-white(.1);
-        background-color: @color;
-        border-radius: 50%;
-        transition: background-color @duration;
-
-        &.facebook { background-image: url('@{images}/icons/facebook.png'); }
-        &.vk { background-image: url('@{images}/icons/vk.png'); }
-        &.youtube { background-image: url('@{images}/icons/youtube.png'); }
-        &.insta { background-image: url('@{images}/icons/insta.png'); }
-
-        &:hover {
-          .color-white(.15);
-          background-color: @color;
-        }
-      }
-    }
   }
 
   @media @md {
     .space {
-      width: 434px;
-      padding-left: 20px;
-      padding-right: 20px;
-      right: -434px;
-      .nav-done & { .translate-3d(-434px, 0, 0); }
+      width: 375px;
+      padding: 40px 36px;
+      right: -375px;
+      .nav-done & { .translate-3d(-375px, 0, 0); }
     }
     .list {
-      margin-bottom: 22px;
+      margin-bottom: 38px;
       font-size: 18px;
       li {
-        padding: 26px 0;
+        padding: 32px 0;
       }
     }
-    .tel {
-      margin-bottom: 26px;
-      padding-left: 32px;
-      font-size: 20px;
-
-      &:before {
-        width: 25px;
-        height: 25px;
-        top: 4px;
-      }
-    }
-    .email {
-      margin-bottom: 26px;
-      padding-left: 32px;
-      font-size: 20px;
-
-      &:before {
-        width: 25px;
-        height: 25px;
-        top: 4px;
-      }
-    }
-    .social {
-      margin: 32px -10px;
-      li {
-        margin: 0 9px;
-
-        a {
-          width: 40px;
-          height: 40px;
-          background-size: 30px 30px;
+    .contact-line { margin-bottom: 40px; }
+    @media (max-height: 800px) {
+      .list {
+        margin-bottom: 22px;
+        li {
+          padding: 22px 0;
         }
       }
+      .contact-line { margin-bottom: 22px; }
     }
   }
 }
@@ -986,7 +950,7 @@ table {
     height: 98px;
     padding: 44px 0;
 
-    .nav-done & { .translate-3d(-434px, 0, 0); }
+    .nav-done & { .translate-3d(-375px, 0, 0); }
   }
 }
 /* ==========================================================================

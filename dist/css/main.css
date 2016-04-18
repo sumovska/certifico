@@ -1177,6 +1177,7 @@ table tr td {
   top: 0;
   right: -250px;
   bottom: 0;
+  overflow-y: scroll;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
@@ -1740,6 +1741,7 @@ table tr td {
    ========================================================================== */
 .jumbotron {
   height: 100%;
+  min-height: 468px;
   padding-bottom: 30px;
   overflow: hidden;
   color: #fff;
@@ -2639,7 +2641,7 @@ table tr td {
 @media (min-width: 568px) {
   .page-heading {
     margin-bottom: 60px;
-    padding: 160px 0 60px;
+    padding: 160px 0 100px;
   }
   .page-heading:before {
     height: 40px;
@@ -2892,10 +2894,10 @@ table tr td {
    ========================================================================== */
 .picture {
   max-width: 450px;
-  margin: 0 auto 50px;
+  margin: 20px auto 50px;
 }
 .picture .text {
-  max-width: 80%;
+  max-width: 88%;
   margin: -60px auto 0;
   padding: 15px;
   background: #fafafb;
@@ -2910,6 +2912,7 @@ table tr td {
     margin-top: -50px;
   }
   .picture .text {
+    max-width: 88%;
     margin: -110px auto 0;
     padding: 30px 34px 40px;
   }

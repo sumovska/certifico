@@ -595,7 +595,7 @@ textarea:focus {
 button,
 input[type="submit"] {
   height: auto;
-  padding: 26px 14px 16px;
+  padding: 24px 14px 18px;
   font: bold 16px/16px 'Daxline Pro', Helvetica, sans-serif;
   display: inline-block;
   background: #2db8e9;
@@ -2527,6 +2527,15 @@ table tr td {
     height: 560px;
   }
 }
+.map a[href^="https://maps.google.com/maps"] {
+  display: none !important;
+}
+.map .gm-style-cc {
+  display: none !important;
+}
+.map .gm-style div {
+  overflow: visible !important;
+}
 /* ==========================================================================
    _PAGE-HEADING
    ========================================================================== */
@@ -3475,6 +3484,7 @@ table tr td {
   height: 62px;
   margin: 0 auto;
   display: block;
+  cursor: pointer;
 }
 @media (min-width: 1024px) {
   .gallery {
@@ -3564,7 +3574,6 @@ table tr td {
 }
 .team .list .item .space {
   padding: 16px 0 0 16px;
-  transition: background-color 0.1s, box-shadow 0.2s ease;
   position: relative;
 }
 .team .list .item .photo {
@@ -3692,7 +3701,6 @@ table tr td {
     -o-transform: skew(0deg, -3deg);
     -ms-transform: skew(0deg, -3deg);
     z-index: 1;
-    transition: background-color 0.1s, box-shadow 0.2s ease;
   }
   .team .list .item .space:after {
     display: block;

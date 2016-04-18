@@ -164,7 +164,7 @@ $(document).ready(function () {
 				var map = new google.maps.Map(_map[0], {
 					mapTypeId: google.maps.MapTypeId.ROADMAP,
 					center: pos,
-					zoom: 17,
+					zoom: 16,
 					scrollwheel: false,
 					disableDefaultUI: true,
 					backgroundColor: "#f7f1d9"
@@ -208,15 +208,13 @@ $(document).ready(function () {
 
 	/** Team text visible */
 	$('.team').each(function () {
-		$('.item', this).on('mouseenter touchstart', function () {
-			$(this).height($(this).height());
-			$(this).addClass('visible');
-			$(this).siblings('.item').trigger('custom');
-		}).on('mouseleave custom', function () {
+		$('.item', this).each(function () {
 			var _item = $(this);
-			setTimeout(function () {
+			_item.on('mouseenter touchstart', function () {
+				_item.height($(this).height()).addClass('visible').siblings('.item').trigger('custom');
+			}).on('mouseleave custom', function () {
 				_item.removeAttr('style').removeClass('visible');
-			}, 110);
+			});
 		});
 	});
 

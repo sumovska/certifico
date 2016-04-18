@@ -473,7 +473,7 @@ textarea {
 /* BUTTONS */
 .button, button, input[type="submit"] {
   height: auto;
-  padding: 26px 14px 16px;
+  padding: 24px 14px 18px;
   font: bold 16px/16px @font-daxline;
   display: inline-block;
   background: @color-blue;
@@ -2213,6 +2213,10 @@ table {
   @media @lg {
     height: 560px;
   }
+
+  a[href^="https://maps.google.com/maps"] { display: none !important; }
+  .gm-style-cc { display: none !important; }
+  .gm-style div { overflow: visible !important; }
 }
 /* ==========================================================================
    _PAGE-HEADING
@@ -3103,6 +3107,7 @@ table {
         height: 62px;
         margin: 0 auto;
         display: block;
+        cursor: pointer;
       }
     }
   }
@@ -3196,7 +3201,7 @@ table {
 
       .space {
         padding: 16px 0 0 16px;
-        transition: background-color .1s, box-shadow @duration;
+        //transition: background-color .1s, box-shadow @duration;
         position: relative;
       }
 
@@ -3307,7 +3312,7 @@ table {
             right: 0;
             .skew(0deg, -3deg);
             z-index: 1;
-            transition: background-color .1s, box-shadow @duration;
+            //transition: background-color .1s, box-shadow @duration;
           }
           &:after {
             .before;

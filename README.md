@@ -14,8 +14,11 @@
 * Html5shiv
 * jQuery
 * jQuery.browser
-* Fastlick
+* Normalize
 * PureCSS
+* Fastlick
+* Magnific Popup
+* Slick.js
 
 
 ###Installation

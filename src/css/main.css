@@ -565,6 +565,12 @@ input:focus {
   border-color: #2db8e9;
   box-shadow: 0 0 7px 0 rgba(57, 188, 234, 0.31);
 }
+input.error {
+  border-color: #f26c4f;
+}
+input.error:focus {
+  box-shadow: 0 0 7px 0 rgba(252, 93, 58, 0.34);
+}
 .form-line input {
   width: 100%;
 }
@@ -696,6 +702,12 @@ input[type="submit"].button-orange:active {
 .label {
   margin-bottom: 8px;
   display: block;
+}
+.fn-error {
+  margin: 12px 0 0 0;
+  display: block;
+  color: #f26c4f;
+  font: 16px/18px 'Daxline Pro', Helvetica, sans-serif;
 }
 /* TABLE */
 table tr th {
@@ -4174,8 +4186,11 @@ table tr td {
   font: 18px/26px 'Daxline Pro', Helvetica, sans-serif;
   padding: 12px 15px 10px;
 }
-.popup .form input:not(:focus) {
+.popup .form input:not(.error) {
   border-color: #000;
+}
+.popup .form input:not(.error):focus {
+  border-color: #2db8e9;
 }
 .popup .form .form-submit {
   text-align: center;

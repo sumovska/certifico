@@ -33,6 +33,7 @@
 @color-gray-lighter: #ededed;
 @color-dark: #414141;
 @color-red: #fa5e37;
+@color-red-light: #f26c4f;
 @color-orange: #f26141;
 @color-orange-medium: #f64;
 @color-orange-light: #ff8568;
@@ -461,6 +462,10 @@ input {
     .color-blue-medium(.31);
     box-shadow: 0 0 7px 0 @color;
   }
+  &.error {
+    border-color: @color-red-light;
+    &:focus {box-shadow: 0 0 7px 0 rgba(252, 93, 58, 0.34);}
+  }
   .form-line & { width: 100%; }
 }
 textarea {
@@ -531,6 +536,12 @@ textarea {
 .label {
   margin-bottom: 8px;
   display: block;
+}
+.fn-error {
+  margin: 12px 0 0 0;
+  display: block;
+  color: @color-red-light;
+  font: 16px/18px @font-daxline;
 }
 /* TABLE */
 table {
@@ -3739,7 +3750,12 @@ table {
       height: 50px;
       font: 18px/26px @font-daxline;
       padding: 12px 15px 10px;
-      &:not(:focus) { border-color: @color-black; }
+      &:not(.error) {
+        border-color: @color-black;
+        &:focus {
+          border-color: @color-blue;
+        }
+      }
     }
 
     .form-submit {

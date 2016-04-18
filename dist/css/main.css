@@ -558,11 +558,12 @@ textarea {
   background: #fff;
   border: 1px solid #d3d1ce;
   border-radius: 0;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   -webkit-appearance: none;
 }
 input:focus {
   border-color: #2db8e9;
+  box-shadow: 0 0 7px 0 rgba(57, 188, 234, 0.31);
 }
 .form-line input {
   width: 100%;
@@ -1141,23 +1142,24 @@ table tr td {
   opacity: 1;
 }
 .navigation .head {
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 }
 .navigation .head .logo {
-  width: 246px;
-  height: 20px;
+  width: 100%;
+  max-width: 246px;
+  height: auto;
   margin: 0 auto 14px;
   display: block;
 }
 .navigation .head .slogan {
   margin: 0;
-  font: 14px / normal 'Daxline Pro', Helvetica, sans-serif;
+  font: 10px / normal 'Daxline Pro', Helvetica, sans-serif;
   text-align: center;
 }
 .navigation .space {
   width: 250px;
   height: 100% !important;
-  padding: 12px 20px;
+  padding: 30px 20px;
   background-color: #fff;
   position: fixed;
   top: 0;
@@ -1208,8 +1210,12 @@ table tr td {
 .navigation .list li a:hover {
   color: #fa5e37;
 }
+.navigation .list li.active a {
+  color: #f26141;
+}
 .navigation .contact-line {
   font: bold 16px / normal 'Daxline Pro', Helvetica, sans-serif;
+  text-align: center;
 }
 .navigation .contact-line:after {
   display: table;
@@ -1217,21 +1223,32 @@ table tr td {
   clear: both;
 }
 .navigation .contact-line .tel {
+  margin-bottom: 10px;
+  display: block;
   text-decoration: none;
   cursor: default;
   color: #000;
-  float: left;
 }
 .navigation .contact-line .email {
+  display: block;
   text-decoration: none;
-  float: right;
   color: #000;
 }
 .navigation .button {
   margin: 0 auto;
   display: block;
+  font-size: 14px;
 }
 @media (min-width: 768px) {
+  .navigation .head {
+    margin-bottom: 35px;
+  }
+  .navigation .head .tel {
+    margin-bottom: 0;
+  }
+  .navigation .head .slogan {
+    font-size: 14px;
+  }
   .navigation .space {
     width: 375px;
     padding: 40px 36px;
@@ -1253,6 +1270,15 @@ table tr td {
   }
   .navigation .contact-line {
     margin-bottom: 40px;
+  }
+  .navigation .contact-line .tel {
+    float: left;
+  }
+  .navigation .contact-line .email {
+    float: right;
+  }
+  .navigation .button {
+    font-size: 16px;
   }
 }
 @media (min-width: 768px) and (max-height: 800px) {
@@ -4102,19 +4128,70 @@ table tr td {
   padding: 15px;
   background: #fff;
   position: relative;
+  z-index: 1;
 }
 .popup .heading {
+  margin: -15px -15px 15px;
+  padding: 30px 15px;
   text-align: center;
+  color: #fff;
+  background: #2db8e9;
+  position: relative;
+  z-index: 1;
+}
+.popup .heading:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  height: 40px;
+  background: #fff;
+  position: absolute;
+  bottom: -21px;
+  left: 0;
+  right: 0;
+  transform: skew(0deg, -3deg);
+  -webkit-transform: skew(0deg, -3deg);
+  -moz-transform: skew(0deg, -3deg);
+  -o-transform: skew(0deg, -3deg);
+  -ms-transform: skew(0deg, -3deg);
+  z-index: 1;
+}
+.popup .space {
+  position: relative;
+  z-index: 2;
 }
 .popup .form {
-  width: 385px;
+  max-width: 385px;
   margin: 0 auto;
+}
+.popup .form .label {
+  margin-bottom: 6px;
+  display: block;
+  font-family: 'Daxline Pro', Helvetica, sans-serif;
+}
+.popup .form input {
+  height: 50px;
+  font: 18px/26px 'Daxline Pro', Helvetica, sans-serif;
+  padding: 12px 15px 10px;
+}
+.popup .form input:not(:focus) {
+  border-color: #000;
 }
 .popup .form .form-submit {
   text-align: center;
 }
+.popup .form .form-submit .button {
+  display: inline-block;
+}
 @media (min-width: 768px) {
   .popup {
     padding: 45px;
+  }
+  .popup .heading {
+    margin: -45px -45px 25px;
+    padding: 45px;
+  }
+  .popup .form-submit {
+    margin-top: 40px;
   }
 }

@@ -26,6 +26,7 @@
 @color-black: #000;
 @color-blue: #2db8e9;
 @color-blue-light: #59d0fa;
+@color-blue-medium: #39bcea;
 @color-pink-light: #fafafb;
 @color-gray: #d3d1ce;
 @color-gray-light: #ece7e7;
@@ -112,6 +113,7 @@
 .color-orange-medium(@opacity) { @color: rgba(255, 102, 68, @opacity); }
 .color-blue(@opacity) { @color: rgba(45, 184, 233, @opacity); }
 .color-green-dark(@opacity) { @color: rgba(108, 142, 149, @opacity); }
+.color-blue-medium(@opacity) { @color: rgba(57, 188, 234, @opacity); }
 // ROTATE
 .rotate(@deg) {
   -webkit-transform: rotate(@deg);
@@ -451,10 +453,14 @@ input {
   background: @color-white;
   border: 1px solid @color-gray;
   border-radius: 0;
-  transition: background-color @duration, border-color @duration;
+  transition: background-color @duration, border-color @duration, box-shadow @duration;
   -webkit-appearance: none;
 
-  &:focus { border-color: @color-blue; }
+  &:focus {
+    border-color: @color-blue;
+    .color-blue-medium(.31);
+    box-shadow: 0 0 7px 0 @color;
+  }
   .form-line & { width: 100%; }
 }
 textarea {
@@ -486,7 +492,8 @@ textarea {
   letter-spacing: .09em;
   transition: background @duration;
 
-  &:hover, &:focus { background: @color-blue-light; }
+  &:hover, &:focus {
+    background: @color-blue-light; }
   &:active { background: @color-blue-light; box-shadow: inset -2px 0 7px 0 rgba(0, 0, 0, 0.22); }
 
   .form-submit & { width: 100%; }
@@ -921,17 +928,18 @@ table {
   }
 
   .head {
-    margin-bottom: 35px;
+    margin-bottom: 20px;
 
     .logo {
-      width: 246px;
-      height: 20px;
+      width: 100%;
+      max-width: 246px;
+      height: auto;
       margin: 0 auto 14px;
       display: block;
     }
     .slogan {
       margin: 0;
-      font: 14px/normal @font-daxline;
+      font: 10px/normal @font-daxline;
       text-align: center;
     }
   }
@@ -939,7 +947,7 @@ table {
   .space {
     width: 250px;
     height: 100% !important;
-    padding: 12px 20px;
+    padding: 30px 20px;
     background-color: @color-white;
     position: fixed;
     top: 0;
@@ -975,23 +983,28 @@ table {
           color: @color-red;
         }
       }
+      &.active {
+        a { color: @color-orange; }
+      }
     }
   }
 
   .contact-line {
     font: bold 16px/normal @font-daxline;
+    text-align: center;
     &:after { .clearfix; }
 
     .tel {
+      margin-bottom: 10px;
+      display: block;
       text-decoration: none;
       cursor: default;
       color: @color-black;
-      float: left;
     }
 
     .email {
+      display: block;
       text-decoration: none;
-      float: right;
       color: @color-black;
     }
   }
@@ -999,9 +1012,15 @@ table {
   .button {
     margin: 0 auto;
     display: block;
+    font-size: 14px;
   }
 
   @media @md {
+    .head {
+      margin-bottom: 35px;
+      .tel { margin-bottom: 0;}
+      .slogan { font-size: 14px; }
+    }
     .space {
       width: 375px;
       padding: 40px 36px;
@@ -1015,7 +1034,11 @@ table {
         padding: 32px 0;
       }
     }
-    .contact-line { margin-bottom: 40px; }
+    .contact-line { margin-bottom: 40px;
+      .tel { float: left; }
+      .email { float: right; }
+    }
+    .button { font-size: 16px; }
     @media (max-height: 800px) {
       .list {
         margin-bottom: 22px;
@@ -3673,22 +3696,66 @@ table {
   padding: 15px;
   background: @color-white;
   position: relative;
+  z-index: 1;
 
   .heading {
     &:extend(h2);
+    margin: -15px -15px 15px;
+    padding: 30px 15px;
     text-align: center;
+    color: @color-white;
+    background: @color-blue;
+    position: relative;
+    z-index: 1;
+
+    &:before {
+      .before;
+      height: 40px;
+      background: @color-white;
+      position: absolute;
+      bottom: -21px;
+      left: 0;
+      right: 0;
+      .skew(0deg, -3deg);
+      z-index: 1;
+    }
+  }
+
+  .space {
+    position: relative;
+    z-index: 2;
   }
 
   .form {
-    width: 385px;
+    max-width: 385px;
     margin: 0 auto;
+
+    .label {
+      margin-bottom: 6px;
+      display: block;
+      font-family: @font-daxline;
+    }
+    input {
+      height: 50px;
+      font: 18px/26px @font-daxline;
+      padding: 12px 15px 10px;
+      &:not(:focus) { border-color: @color-black; }
+    }
 
     .form-submit {
       text-align: center;
+      .button { display: inline-block; }
     }
   }
 
   @media @md {
     padding: 45px;
+    .heading {
+      margin: -45px -45px 25px;
+      padding: 45px;
+    }
+    .form-submit {
+      margin-top: 40px;
+    }
   }
 }

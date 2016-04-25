@@ -13,25 +13,42 @@ $(document).ready(function () {
 	$('.header').each(function () {
 		var body = $('body'), _nav = $('.navigation');
 		$(this).prepend("<span class='toggle'><span></span></span>");
-		_nav.wrapInner('<div class="space"></div>');
-		$('.toggle', this).on('click', function () {
-			body.addClass('nav-visible').on('click', function () {
-				if ($(this).hasClass('nav-done')) {
-					$(this).removeClass('nav-done');
-					setTimeout(function () {
-						body.removeClass('nav-visible');
-					}, 500);
+		_nav.each(function(){
+			$(this).wrapInner('<div class="space"></div>');
+			$(this).prepend("<span class='toggle'><span></span></span>");
+		});
+		$('.header .toggle, .navigation .toggle').on('click', function () {
+
+			function keyhandler(e) {
+				if (e.which == 27) {
+					close();
 				}
-			});
-			if (!$('body').is('.nav-done')) {
+			}
+
+			function clickhandler(e) {
+				if ($(e.target).hasClass('navigation')) {
+					close();
+				}
+			}
+
+			function open() {
+				body.addClass('nav-visible').on('keydown', keyhandler).on('click touchstart', clickhandler);
 				setTimeout(function () {
 					body.addClass('nav-done');
 				}, 20);
-			} else {
-				body.removeClass('nav-done');
+			}
+
+			function close() {
+				body.removeClass('nav-done').off('keydown', keyhandler);
 				setTimeout(function () {
 					body.removeClass('nav-visible');
-				}, 500);
+				}, 400);
+			}
+
+			if (body.hasClass('nav-done')) {
+				close();
+			} else {
+				open();
 			}
 		});
 	});

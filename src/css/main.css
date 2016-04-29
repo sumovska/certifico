@@ -1523,6 +1523,12 @@ table tr td {
 .cornered.cornered-top .area:before {
   top: -20px;
 }
+@media (min-width: 1560px) {
+  .cornered .area:before {
+    height: 50px;
+    bottom: -25px;
+  }
+}
 @media all and (-ms-high-contrast: none) {
   .cornered.cornered-inverse .area:before {
     left: -4px;
@@ -3896,6 +3902,16 @@ table tr td {
   .team .list .item .space {
     margin: -40px -70px 0;
     padding: 64px 70px 38px;
+  }
+}
+@media (min-width: 1560px) {
+  .team .list .item .photo.cornered .area:before {
+    height: 25px;
+    bottom: -13px;
+  }
+  .team .list .item .space:before {
+    height: 35px;
+    bottom: -16px;
   }
 }
 /* ==========================================================================

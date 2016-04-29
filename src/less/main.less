@@ -1220,6 +1220,14 @@ table {
       &:before { top: -20px; }
     }
   }
+  @media @xxl {
+    .area {
+      &:before {
+        height: 50px;
+        bottom: -25px;
+      }
+    }
+  }
 }
 @media all and (-ms-high-contrast: none) {
   .cornered {
@@ -3485,6 +3493,28 @@ table {
         .space {
           margin: -40px -70px 0;
           padding: 64px 70px 38px;
+        }
+      }
+    }
+  }
+  @media @xxl {
+    .list {
+      .item {
+        .photo {
+          &.cornered {
+            .area {
+              &:before {
+                height: 25px;
+                bottom: -13px;
+              }
+            }
+          }
+        }
+        .space {
+          &:before {
+            height: 35px;
+            bottom: -16px;
+          }
         }
       }
     }

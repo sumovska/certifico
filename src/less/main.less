@@ -1227,6 +1227,13 @@ table {
         bottom: -25px;
       }
     }
+    &.cornered-top {
+      .area {
+        &:before {
+          top: -30px;
+        }
+      }
+    }
   }
 }
 @media all and (-ms-high-contrast: none) {
@@ -1718,6 +1725,7 @@ table {
   }
   @media @xxl {
     height: 910px;
+    margin-bottom: 40px;
 
     &:before { height: 100px; }
     &.slick-initialized {

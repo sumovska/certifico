@@ -1528,6 +1528,9 @@ table tr td {
     height: 50px;
     bottom: -25px;
   }
+  .cornered.cornered-top .area:before {
+    top: -30px;
+  }
 }
 @media all and (-ms-high-contrast: none) {
   .cornered.cornered-inverse .area:before {
@@ -2036,6 +2039,7 @@ table tr td {
 @media (min-width: 1560px) {
   .jumbotron {
     height: 910px;
+    margin-bottom: 40px;
   }
   .jumbotron:before {
     height: 100px;

@@ -1429,6 +1429,12 @@ table tr td {
   -ms-transform: skew(0deg, -3deg);
   z-index: 1;
 }
+@-moz-document url-prefix() {
+  .cornered .area:before {
+    left: -1px;
+    right: -1px;
+  }
+}
 .cornered .area img {
   width: 100%;
   height: auto;

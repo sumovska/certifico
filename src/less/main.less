@@ -1146,6 +1146,9 @@ table {
       .skew(0deg, -3deg);
       z-index: 1;
     }
+    @-moz-document url-prefix() {
+      &:before { left: -1px; right: -1px; }
+    }
 
     img {
       width: 100%;
@@ -3024,7 +3027,6 @@ table {
       .area {
         padding: 30px 30px 50px;
         background: @color-pink-light;
-
         &:before { height: 20px; bottom: -11px; }
       }
     }
@@ -3343,10 +3345,7 @@ table {
 
         &.cornered {
           .area {
-            &:before {
-              height: 20px;
-              bottom: -11px;
-            }
+            &:before { height: 20px; bottom: -11px; }
           }
         }
 
@@ -3506,18 +3505,12 @@ table {
         .photo {
           &.cornered {
             .area {
-              &:before {
-                height: 25px;
-                bottom: -13px;
-              }
+              &:before { height: 25px; bottom: -13px; }
             }
           }
         }
         .space {
-          &:before {
-            height: 35px;
-            bottom: -16px;
-          }
+          &:before { height: 35px; bottom: -16px; }
         }
       }
     }

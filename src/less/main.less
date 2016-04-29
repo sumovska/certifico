@@ -3338,7 +3338,7 @@ table {
       background: @color-white;
       position: relative;
       overflow: hidden;
-      cursor: pointer;
+      cursor: default;
 
       .space {
         padding: 16px 0 0 16px;
@@ -3467,6 +3467,26 @@ table {
           }
         }
 
+        .photo {
+          .area {
+            img {
+              width: 432px;
+              height: 347px;
+              display: block;
+              position: relative;
+              z-index: 1;
+              &.over {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                z-index: 2;
+                transition: opacity 1s ease;
+              }
+            }
+          }
+        }
+
         .name {
           max-width: 80%;
           margin-left: auto;
@@ -3487,6 +3507,11 @@ table {
             .photo {
               .icon {
                 .scale(0);
+              }
+              .area {
+                img.over {
+                  opacity: 1;
+                }
               }
             }
           }
@@ -3709,9 +3734,7 @@ table {
     &.about-index-2 {
       margin-top: 130px;
       margin-left: 44px;
-      .image {
-        width: 92%;
-      }
+      .image { width: 92%; }
       .text {
         width: 8%;
         margin-top: -110px;

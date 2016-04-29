@@ -2094,32 +2094,52 @@ table tr td {
 }
 .testimonials .list .item {
   margin-bottom: 44px;
-  padding: 16px 0 36px;
-  line-height: 30px;
-}
-.testimonials .list .item .space {
-  max-width: 450px;
-  margin: 0 auto;
+  padding: 16px 0 16px 16px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
 }
 .testimonials .list .item .space.cornered .border {
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: -16px;
+  margin-right: 16px;
 }
 .testimonials .list .item .space.cornered .area {
-  padding: 240px 15px 74px;
-  background-position: 50% 0;
-  background-size: auto 220px;
+  padding: 20px 10px 56px;
+  background-position: 40% 0;
+  background-size: cover;
+  background-color: #6c8e95;
   background-repeat: no-repeat;
+}
+.testimonials .list .item .space.cornered .area:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  width: 60%;
+  background-color: #6c8e95;
+  background: -webkit-linear-gradient(left, #6c8e95, rgba(108, 142, 149, 0));
+  background: -moz-linear-gradient(left, #6c8e95, rgba(108, 142, 149, 0));
+  background: -ms-linear-gradient(left, #6c8e95, rgba(108, 142, 149, 0));
+  background: -o-linear-gradient(left, #6c8e95, rgba(108, 142, 149, 0));
+  background: linear-gradient(to right, #6c8e95, rgba(108, 142, 149, 0));
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  opacity: .69;
+  z-index: -1;
 }
 .testimonials .list .item .name {
   min-height: 60px;
-  margin: 0 0 20px;
-  font: bold 16px/20px 'Segoe Print', Helvetica, sans-serif;
+  margin: 0;
+  font: bold 14px/18px 'Segoe Print', Helvetica, sans-serif;
 }
 .testimonials .list .item .name span {
   display: block;
 }
 .testimonials .list .item .text {
+  max-width: 182px;
   margin-bottom: 18px;
 }
 .testimonials .list .item .text p:last-of-type {
@@ -2128,55 +2148,43 @@ table tr td {
 .testimonials .list .item .button {
   display: inline-block;
   vertical-align: middle;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 14px 10px 12px;
 }
 .testimonials .list .item .icon-logo {
   width: auto;
-  height: 58px;
+  height: 38px;
   margin: 0 0 0 26px;
-  display: none;
+  display: inline-block;
   vertical-align: middle;
 }
 @media (min-width: 568px) {
   .testimonials .list .item {
-    padding-left: 16px;
     color: #fff;
-  }
-  .testimonials .list .item .space.cornered .border {
-    margin-left: -16px;
-    margin-right: 16px;
+    font-size: 18px;
+    line-height: 30px;
   }
   .testimonials .list .item .space.cornered .area {
     padding: 40px 30px 76px;
     background-position: 40% 0;
-    background-size: cover;
-    background-color: #6c8e95;
   }
-  .testimonials .list .item .space.cornered .area:after {
-    display: block;
-    content: '\0020';
-    overflow: hidden;
-    clear: both;
-    width: 60%;
-    background-color: #6c8e95;
-    background: -webkit-linear-gradient(left, #6c8e95, rgba(108, 142, 149, 0));
-    background: -moz-linear-gradient(left, #6c8e95, rgba(108, 142, 149, 0));
-    background: -ms-linear-gradient(left, #6c8e95, rgba(108, 142, 149, 0));
-    background: -o-linear-gradient(left, #6c8e95, rgba(108, 142, 149, 0));
-    background: linear-gradient(to right, #6c8e95, rgba(108, 142, 149, 0));
-    background-color: transparent;
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    opacity: .69;
-    z-index: -1;
+  .testimonials .list .item .name {
+    margin: 0 0 20px;
+    font-size: 16px;
+    line-height: 20px;
   }
   .testimonials .list .item .text {
     max-width: 70%;
     min-height: 320px;
   }
   .testimonials .list .item .icon-logo {
-    display: inline-block;
+    height: 58px;
+  }
+  .testimonials .list .item .button {
+    padding: 24px 34px 18px;
+    font-size: 18px;
+    line-height: 18px;
   }
 }
 @media (min-width: 768px) {

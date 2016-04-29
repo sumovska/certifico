@@ -13,7 +13,7 @@ $(document).ready(function () {
 	$('.header').each(function () {
 		var body = $('body'), _nav = $('.navigation');
 		$(this).prepend("<span class='toggle'><span></span></span>");
-		_nav.each(function(){
+		_nav.each(function () {
 			$(this).wrapInner('<div class="space"></div>');
 			$(this).prepend("<span class='toggle'><span></span></span>");
 		});
@@ -249,6 +249,18 @@ $(document).ready(function () {
 		});
 	});
 
+	/** Certificates */
+	$('.certificates').each(function () {
+		$(this).magnificPopup({
+			delegate: 'a',
+			type: 'image',
+			gallery: {
+				enabled: true,
+				navigateByImgClick: true,
+				preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+			}
+		});
+	});
 
 	/*** Ajax popup ***/
 	$('.js-popup').magnificPopup({
@@ -270,9 +282,5 @@ $.extend(true, $.magnificPopup.defaults, {
 	midClick: true,
 	removalDelay: 300,
 	autoFocusLast: false,
-	preload: false,
-	callbacks: {
-		ajaxContentAdded: function () {
-		}
-	}
+	preload: false
 });

@@ -165,6 +165,7 @@
   -o-transform: scale(@a, @b);
   -ms-transform: scale(@a, @b);
   transform: scale(@a, @b);
+  -webkit-backface-visibility: hidden;
 }
 // SCALE-ROTATE
 .scale-rotate(@a,@b, @c) {
@@ -173,6 +174,7 @@
   -o-transform: scale(@a, @b) rotate(@c);
   -ms-transform: scale(@a, @b) rotate(@c);
   transform: scale(@a, @b) rotate(@c);
+  -webkit-backface-visibility: hidden;
 }
 // SKEW
 .skew(@a,@b) {
@@ -181,6 +183,7 @@
   -moz-transform: skew(@a, @b);
   -o-transform: skew(@a, @b);
   -ms-transform: skew(@a, @b);
+  -webkit-backface-visibility: hidden;
 }
 // SCALE
 .scale(@rate) {
@@ -189,6 +192,7 @@
   -ms-transform: scale(@rate);
   -o-transform: scale(@rate);
   transform: scale(@rate);
+  -webkit-backface-visibility: hidden;
 }
 // TRANSITION TRANSLATE OPACITY
 .transition-translate-opacity(@duration) {
@@ -212,21 +216,18 @@ html {
   margin: 0;
   font: 18px/28px @font-segoe;
   color: @color-black;
-  background: @color-white;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 body {
   width: 100%;
   min-width: @min-width;
   height: 100%;
   min-height: 100%;
-  margin: 0 auto;
   padding-top: 70px;
   background: @color-white;
-  position: relative;
-  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   &.index { padding-top: 0; }
+  &.nav-visible { overflow-x: hidden; }
 }
 @media @sm {
   body { padding-top: 130px; }
@@ -3193,7 +3194,7 @@ table {
         max-width: none;
         padding: 0 14px;
         float: left;
-        &:nth-of-type(2n+1) {clear: left;}
+        &:nth-of-type(2n+1) { clear: left; }
       }
     }
   }
@@ -3212,8 +3213,8 @@ table {
     .list {
       .item {
         width: 25%;
-        &:nth-of-type(2n+1) {clear: none;}
-        &:nth-of-type(4n+1) {clear: left;}
+        &:nth-of-type(2n+1) { clear: none; }
+        &:nth-of-type(4n+1) { clear: left; }
       }
     }
   }
@@ -3272,7 +3273,7 @@ table {
           transition: opacity @duration;
         }
         &.slick-current {
-          &:before {opacity: 1;}
+          &:before { opacity: 1; }
         }
       }
     }
@@ -3318,13 +3319,21 @@ table {
 
       &:last-of-type { margin-bottom: 0; }
 
-      img {
-        width: auto;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto 10px;
+      .link {
         display: block;
-        box-shadow: 0 0 6px 0 rgba(0, 0, 0, .29);
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .picture {
+        padding: 0;
+        margin: 0;
+        display: block;
+        img {
+          margin: 0 auto 10px;
+          display: block;
+          box-shadow: 0 0 6px 0 rgba(0, 0, 0, .29);
+        }
       }
 
       .name { margin: 0 auto; display: block; }
@@ -3872,7 +3881,7 @@ table {
    _POPUP
    ========================================================================== */
 /* ====== Fade-zoom animation ====== */
-.mfp-zoom-in, .mfp-img-mobile {
+.mfp-zoom-in {
   .mfp-content {
     padding: 0;
     opacity: 0;
@@ -3888,29 +3897,72 @@ table {
   }
 
   &.mfp-ready {
-    .mfp-content { opacity: 1; .scale(1); }
-    &.mfp-bg { opacity: 0.5; }
+    .mfp-content {
+      opacity: 1;
+      .scale(1);
+    }
+    &.mfp-bg { opacity: 0.8; }
   }
 
   &.mfp-removing {
-    .mfp-content { opacity: 0; .scale(.5); }
+    .mfp-content {
+      opacity: 0;
+      .scale(.8);
+    }
     &.mfp-bg { opacity: 0; }
   }
 }
 .mfp-iframe-holder {
-  .mfp-close { top: -35px; right: 0; }
+  .mfp-close {
+    top: -35px;
+    right: 0;
+  }
+}
+img.mfp-img {
+  padding: 0;
 }
 .mfp-bg {
   background: @color-black;
 
-  &.mfp-ready { opacity: .5; }
+  &.mfp-ready {
+    opacity: .95;
+  }
 }
 .mfp-container {
-  padding: 0 15px;
+  padding: 0 10px;
 
-  .mfp-img-mobile & { padding: 0 20px; }
+  @media @md {
+    padding: 0 20px;
+  }
 }
 .mfp-close {
+  width: 40px !important;
+  height: 40px;
+  padding: 0 !important;
+  display: block;
+  position: fixed;
+  top: 20px !important;
+  right: 20px !important;
+  opacity: 1;
+  cursor: pointer;
+
+  &:before, &:after {
+    width: 25px;
+    height: 2px;
+    margin: auto;
+    overflow: hidden;
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: @color-white;
+  }
+
+  &:before { .rotate(45deg); }
+  &:after { .rotate(-45deg); }
 }
 .popup {
   max-width: 630px;

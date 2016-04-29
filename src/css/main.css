@@ -526,12 +526,6 @@ h6 {
   .wrapper {
     max-width: 860px;
   }
-  .main > .main-space > .wrapper > div.table-scroll {
-    margin: 0 -52px 0 -22px;
-  }
-  .main > .main-space > .wrapper > div.table-scroll table {
-    width: 100%;
-  }
 }
 @media (min-width: 1280px) {
   .wrapper {
@@ -539,6 +533,13 @@ h6 {
   }
   .wrapper-narrow {
     max-width: 750px;
+  }
+  .main > .main-space > .wrapper > div.table-scroll {
+    width: auto;
+    margin: 0 -52px 0 -22px;
+  }
+  .main > .main-space > .wrapper > div.table-scroll table {
+    width: 100%;
   }
 }
 @media (min-width: 1560px) {

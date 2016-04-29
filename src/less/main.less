@@ -427,10 +427,17 @@ h6 {&:extend(.h6); }
 @media @lg {
   .mobile-hidden { display: block; }
   .wrapper { max-width: @lg-width; }
+}
+@media @xl {
+  .wrapper { max-width: @xl-width; }
+  &.wrapper-narrow {
+    max-width: 750px;
+  }
   .main {
     > .main-space {
       > .wrapper {
         > div.table-scroll {
+          width: auto;
           margin: 0 -52px 0 -22px;
           table {
             width: 100%;
@@ -438,12 +445,6 @@ h6 {&:extend(.h6); }
         }
       }
     }
-  }
-}
-@media @xl {
-  .wrapper { max-width: @xl-width; }
-  &.wrapper-narrow {
-    max-width: 750px;
   }
 }
 @media @xxl {

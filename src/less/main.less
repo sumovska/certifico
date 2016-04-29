@@ -3321,7 +3321,6 @@ table {
    _TEAM
    ========================================================================== */
 .team {
-
   .list {
     &:after { .clearfix; }
 
@@ -3361,6 +3360,7 @@ table {
           left: 0;
           right: 0;
           z-index: 2;
+          transition: transform .1s;
 
           &:before, &:after {
             .before;
@@ -3476,6 +3476,11 @@ table {
               background: @color-white;
               box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.29);
             }
+            .photo {
+              .icon {
+                .scale(0);
+              }
+            }
           }
         }
         &.visible {
@@ -3493,8 +3498,8 @@ table {
       .item {
         padding: 0 20px;
         .space {
-          margin: -40px -70px 0;
-          padding: 64px 70px 38px;
+          margin: -40px -60px 0;
+          padding: 64px 60px 38px;
         }
       }
     }

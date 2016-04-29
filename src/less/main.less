@@ -3129,7 +3129,7 @@ table {
 
       .area {
         padding: 10px 10px 20px;
-        background: @color-gray-lighter;
+        background: #f1f2f3;
         position: relative;
         z-index: 1;
 
@@ -3180,6 +3180,7 @@ table {
         max-width: none;
         padding: 0 14px;
         float: left;
+        &:nth-of-type(2n+1) {clear: left;}
       }
     }
   }
@@ -3198,6 +3199,8 @@ table {
     .list {
       .item {
         width: 25%;
+        &:nth-of-type(2n+1) {clear: none;}
+        &:nth-of-type(4n+1) {clear: left;}
       }
     }
   }
@@ -3236,6 +3239,29 @@ table {
 
       .slick-list { padding: 0 !important; }
       .slick-track { left: 0 !important; }
+      .slick-slide {
+        position: relative;
+        outline: none !important;
+        &:before {
+          .before;
+          width: auto;
+          height: auto;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          border: 3px solid @color-blue;
+          background: transparent;
+          border-radius: 0;
+          transform: none;
+          opacity: 0;
+          transition: opacity @duration;
+        }
+        &.slick-current {
+          &:before {opacity: 1;}
+        }
+      }
     }
 
     li {

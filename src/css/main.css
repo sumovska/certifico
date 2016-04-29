@@ -3531,7 +3531,7 @@ table tr td {
 }
 .sections .list .item .area {
   padding: 10px 10px 20px;
-  background: #ededed;
+  background: #f1f2f3;
   position: relative;
   z-index: 1;
 }
@@ -3583,6 +3583,9 @@ table tr td {
     padding: 0 14px;
     float: left;
   }
+  .sections .list .item:nth-of-type(2n+1) {
+    clear: left;
+  }
 }
 @media (min-width: 768px) {
   .sections {
@@ -3598,6 +3601,12 @@ table tr td {
 @media (min-width: 1280px) {
   .sections .list .item {
     width: 25%;
+  }
+  .sections .list .item:nth-of-type(2n+1) {
+    clear: none;
+  }
+  .sections .list .item:nth-of-type(4n+1) {
+    clear: left;
   }
 }
 /* ==========================================================================
@@ -3642,6 +3651,31 @@ table tr td {
 }
 .gallery .nav.slick-initialized .slick-track {
   left: 0 !important;
+}
+.gallery .nav.slick-initialized .slick-slide {
+  position: relative;
+  outline: none !important;
+}
+.gallery .nav.slick-initialized .slick-slide:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border: 3px solid #2db8e9;
+  background: transparent;
+  border-radius: 0;
+  transform: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.gallery .nav.slick-initialized .slick-slide.slick-current:before {
+  opacity: 1;
 }
 .gallery .nav li {
   margin: 0 2px;

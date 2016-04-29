@@ -2761,6 +2761,9 @@ table tr td {
 .page-heading.page-heading-independent {
   background-image: url('../img/page-headings/independent.jpg');
 }
+.page-heading.page-heading-certification {
+  background-image: url('../img/page-headings/certification.jpg');
+}
 .page-heading.page-heading-about {
   background-image: url('../img/page-headings/about.jpg');
 }

@@ -1137,10 +1137,10 @@ table {
 
     &:before {
       .before;
-      height: 40px;
+      height: 50px;
       background: @color-white;
       position: absolute;
-      bottom: -21px;
+      bottom: -27px;
       left: 0;
       right: 0;
       .skew(0deg, -3deg);
@@ -1215,14 +1215,14 @@ table {
       &:after { .skew(0deg, 0deg); }
     }
     .area {
-      &:before { top: -20px; }
+      &:before { top: -33px; }
     }
   }
   @media @xxl {
     .area {
       &:before {
         height: 50px;
-        bottom: -25px;
+        bottom: -27px;
       }
     }
     &.cornered-top {
@@ -3344,30 +3344,30 @@ table {
         margin: -10px -10px 0;
         padding: 26px 10px 40px 26px;
         position: relative;
-          &:before {
-            .before;
-            height: 30px;
-            background: @color-white;
-            position: absolute;
-            bottom: -12px;
-            left: 0;
-            right: 0;
-            .skew(0deg, -3deg);
-            z-index: 1;
-            //transition: background-color .1s, box-shadow @duration;
-          }
-          &:after {
-            .before;
-            clear: both;
-            height: 30px;
-            background: @color-white;
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            right: 0;
-            .skew(0deg, -3deg);
-            z-index: 2;
-          }
+        &:before {
+          .before;
+          height: 30px;
+          background: @color-white;
+          position: absolute;
+          bottom: -12px;
+          left: 0;
+          right: 0;
+          .skew(0deg, -3deg);
+          z-index: 1;
+          //transition: background-color .1s, box-shadow @duration;
+        }
+        &:after {
+          .before;
+          clear: both;
+          height: 30px;
+          background: @color-white;
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          right: 0;
+          .skew(0deg, -3deg);
+          z-index: 2;
+        }
       }
 
       .photo {
@@ -3380,18 +3380,19 @@ table {
           }
         }
         .area {
-         img {
-           position: relative;
-           z-index: 1;
-           &.over {
-             position: absolute;
-             top: 0;
-             left: 0;
-             opacity: 0;
-             z-index: 2;
-             transition: opacity 1s ease;
-           }
-         }
+          &:before { z-index: 5; left: -1px; right: -1px; }
+          img {
+            position: relative;
+            z-index: 1;
+            &.over {
+              position: absolute;
+              top: 0;
+              left: 0;
+              opacity: 0;
+              z-index: 2;
+              transition: opacity 1s ease;
+            }
+          }
         }
 
         .icon {
@@ -3405,7 +3406,7 @@ table {
           bottom: 0;
           left: 0;
           right: 0;
-          z-index: 2;
+          z-index: 8;
           transition: transform .1s;
 
           &:before, &:after {

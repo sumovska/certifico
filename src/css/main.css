@@ -1416,10 +1416,10 @@ table tr td {
   display: block;
   content: '\0020';
   overflow: hidden;
-  height: 40px;
+  height: 50px;
   background: #fff;
   position: absolute;
-  bottom: -21px;
+  bottom: -27px;
   left: 0;
   right: 0;
   transform: skew(0deg, -3deg);
@@ -1528,12 +1528,12 @@ table tr td {
   -ms-transform: skew(0deg, 0deg);
 }
 .cornered.cornered-top .area:before {
-  top: -20px;
+  top: -33px;
 }
 @media (min-width: 1560px) {
   .cornered .area:before {
     height: 50px;
-    bottom: -25px;
+    bottom: -27px;
   }
   .cornered.cornered-top .area:before {
     top: -30px;
@@ -3791,6 +3791,11 @@ table tr td {
   height: 20px;
   bottom: -11px;
 }
+.team .list .item .photo .area:before {
+  z-index: 5;
+  left: -1px;
+  right: -1px;
+}
 .team .list .item .photo .area img {
   position: relative;
   z-index: 1;
@@ -3814,7 +3819,7 @@ table tr td {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 8;
   transition: transform .1s;
 }
 .team .list .item .photo .icon:before,

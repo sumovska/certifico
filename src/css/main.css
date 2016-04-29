@@ -3412,7 +3412,7 @@ table tr td {
   margin-bottom: 0;
 }
 .check-list .item .cornered .border {
-  margin-bottom: 24px;
+  margin: -10px 10px 20px -10px;
 }
 .check-list .item .cornered .area {
   padding: 30px 30px 50px;

@@ -802,7 +802,7 @@ table {
     position: absolute;
     right: 80px;
     top: 26px;
-    transition: background @duration;
+    transition: none;
 
     li {
       margin-bottom: 0;
@@ -816,11 +816,12 @@ table {
       &:last-of-type { border-bottom: none; }
 
       a, > span {
-        padding: 10px 16px;
+        padding: 12px 16px 8px;
         display: block;
         color: @color-black;
         text-decoration: none;
         cursor: pointer;
+        transition: none;
         &:hover { color: @color-orange; }
       }
 
@@ -830,7 +831,7 @@ table {
         text-decoration: none;
         border-bottom-color: transparent;
         opacity: 1;
-        transition: border-bottom-color @duration;
+        transition: none;
 
         .arrow {
           width: 12px;
@@ -848,7 +849,7 @@ table {
             background: @color-black;
             position: absolute;
             top: 1px;
-            transition: background-color @duration;
+            transition: none;
           }
           &:before { .rotate(45deg); right: 0; }
           &:after { .rotate(-45deg); right: 5px; }
@@ -856,9 +857,7 @@ table {
 
         &:hover {
           .arrow {
-            &:before, &:after {
-              background-color: @color-orange;
-            }
+            &:before, &:after { background-color: @color-orange; }
           }
         }
       }
@@ -870,9 +869,7 @@ table {
         opacity: 1;
         display: block;
         a, > span {
-          &:not(:hover) {
-            color: @color-white;
-          }
+          &:not(:hover) { color: @color-white; }
         }
 
         &.switch {
@@ -880,9 +877,7 @@ table {
           border-bottom-color: @color;
           &:not(:hover) {
             .arrow {
-              &:before, &:after {
-                background-color: @color-white;
-              }
+              &:before, &:after { background-color: @color-white; }
             }
           }
         }
@@ -2161,8 +2156,8 @@ table {
       padding-bottom: 76px;
       &:before {
         height: 20px;
-        .color-blue(.5);
-        border-right-color: @color;
+        /*.color-blue(.5);
+        border-right-color: @color;*/
       }
       &:after {
         width: 65px;

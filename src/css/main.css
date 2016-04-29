@@ -1681,7 +1681,7 @@ table tr td {
    _404
    ========================================================================== */
 .page-404 {
-  padding-top: 200px;
+  padding: 200px 20px 0;
   position: relative;
 }
 .page-404:before {
@@ -1698,33 +1698,51 @@ table tr td {
   right: 0;
   z-index: 1;
 }
-.page-404 .wrapper {
+.page-404 .space {
   position: relative;
   z-index: 2;
 }
 @media (min-width: 768px) {
   .page-404 {
     padding-top: 0;
+    padding-left: 42%;
   }
   .page-404:before {
-    width: 43%;
+    width: 39%;
+    background-position: 100% 0;
     height: auto;
     top: 20px;
     bottom: 0;
     left: 0;
     right: auto;
   }
-  .page-404 .wrapper {
-    padding-left: 340px;
+  .page-404 .space {
+    max-width: 384px;
+  }
+}
+@media (min-width: 1024px) {
+  .page-404 .space {
+    max-width: 450px;
   }
 }
 @media (min-width: 1280px) {
   .page-404 {
+    padding-left: 46%;
     padding-bottom: 120px;
   }
   .page-404:before {
-    bottom: 50px;
-    background-position: 100% 0;
+    width: 43%;
+  }
+  .page-404 .space {
+    max-width: 550px;
+  }
+}
+@media (min-width: 1560px) {
+  .page-404 {
+    padding-left: 50%;
+  }
+  .page-404:before {
+    width: 47%;
   }
 }
 /* ==========================================================================

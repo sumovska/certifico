@@ -1382,7 +1382,7 @@ table {
    _404
    ========================================================================== */
 .page-404 {
-  padding-top: 200px;
+  padding: 200px 20px 0;
   position: relative;
   &:before {
     .before;
@@ -1396,30 +1396,39 @@ table {
     right: 0;
     z-index: 1;
   }
-  .wrapper {
+  .space {
     position: relative;
     z-index: 2;
   }
 
   @media @md {
     padding-top: 0;
+    padding-left: 42%;
     &:before {
-      width: 43%;
+      width: 39%;
+      background-position: 100% 0;
       height: auto;
       top: 20px;
       bottom: 0;
       left: 0;
       right: auto;
     }
-    .wrapper { padding-left: 340px; }
+    .space { max-width: 384px; }
+  }
+
+  @media @lg {
+    .space { max-width: 450px; }
   }
 
   @media @xl {
+    padding-left: 46%;
     padding-bottom: 120px;
-    &:before {
-      bottom: 50px;
-      background-position: 100% 0;
-    }
+    &:before { width: 43%; }
+    .space { max-width: 550px; }
+  }
+  @media @xxl {
+    padding-left: 50%;
+    &:before { width: 47%; }
   }
 }
 /* ==========================================================================

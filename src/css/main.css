@@ -526,6 +526,12 @@ h6 {
   .wrapper {
     max-width: 860px;
   }
+  .main > .main-space > .wrapper > div.table-scroll {
+    margin: 0 -52px 0 -22px;
+  }
+  .main > .main-space > .wrapper > div.table-scroll table {
+    width: 100%;
+  }
 }
 @media (min-width: 1280px) {
   .wrapper {
@@ -725,7 +731,7 @@ table tr td {
   width: auto;
   overflow-x: scroll;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   table tr th {
     padding: 28px 30px;
   }

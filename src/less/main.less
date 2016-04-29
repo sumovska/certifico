@@ -427,6 +427,18 @@ h6 {&:extend(.h6); }
 @media @lg {
   .mobile-hidden { display: block; }
   .wrapper { max-width: @lg-width; }
+  .main {
+    > .main-space {
+      > .wrapper {
+        > div.table-scroll {
+          margin: 0 -52px 0 -22px;
+          table {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }
 @media @xl {
   .wrapper { max-width: @xl-width; }
@@ -568,7 +580,7 @@ table {
   width: auto;
   overflow-x: scroll;
 }
-@media @lg {
+@media @md {
   table {
     tr {
       th { padding: 28px 30px; }

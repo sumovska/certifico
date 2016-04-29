@@ -1681,32 +1681,50 @@ table tr td {
    _404
    ========================================================================== */
 .page-404 {
-  padding-bottom: 200px;
-  background: url("../img/404.jpg") 50% 100% no-repeat;
-  background-size: auto 200px;
+  padding-top: 200px;
+  position: relative;
 }
-@media (min-width: 568px) {
-  .page-404 {
-    padding-bottom: 0;
-    background-position: 4% 50%;
-    background-size: 200px auto;
-  }
-  .page-404 .wrapper {
-    padding-left: 230px;
-  }
+.page-404:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 100%;
+  height: 190px;
+  background: url("../img/404.jpg") 50% 0 no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.page-404 .wrapper {
+  position: relative;
+  z-index: 2;
 }
 @media (min-width: 768px) {
   .page-404 {
-    background-position: 4% 0;
-    background-size: auto 100%;
+    padding-top: 0;
+  }
+  .page-404:before {
+    width: 43%;
+    height: auto;
+    top: 20px;
+    bottom: 0;
+    left: 0;
+    right: auto;
   }
   .page-404 .wrapper {
-    padding-left: 320px;
+    padding-left: 340px;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .page-404 {
     padding-bottom: 120px;
+  }
+  .page-404:before {
+    bottom: 50px;
+    background-position: 100% 0;
   }
 }
 /* ==========================================================================
@@ -1793,7 +1811,7 @@ table tr td {
   overflow: hidden;
   color: #fff;
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 .jumbotron.slick-initialized {
   overflow: visible;
@@ -3853,14 +3871,22 @@ table tr td {
   clear: both;
 }
 .about .image {
+  width: 95%;
   max-width: 450px;
   margin: 0 auto 20px;
+  float: left;
   position: relative;
   z-index: 1;
 }
 .about .text {
+  width: 5%;
+  padding-top: 50px;
+  float: left;
   position: relative;
   z-index: 2;
+}
+.about .text .space {
+  margin-left: -250px;
 }
 .about .text .title {
   margin: 0 0 4px;
@@ -3893,6 +3919,7 @@ table tr td {
   background: #fff;
 }
 .about .text .name {
+  max-width: 60%;
   margin: 0 0 2px;
   font: 900 20px/24px 'Daxline Pro', Helvetica, sans-serif;
   color: #2db8e9;
@@ -3946,6 +3973,13 @@ table tr td {
 .about .text.text-smaller .unit ul li:after {
   display: none;
 }
+.about.about-inverse .image {
+  float: right;
+}
+.about.about-inverse .text .space {
+  margin-right: -250px;
+  margin-left: 0;
+}
 .about.about-index-1 {
   margin-top: 0;
 }
@@ -3953,12 +3987,10 @@ table tr td {
   .about .image {
     width: 64%;
     max-width: none;
-    float: left;
   }
   .about .text {
     width: 36%;
     padding-top: 20px;
-    float: left;
   }
   .about .text .space {
     margin-left: -110px;
@@ -3982,14 +4014,12 @@ table tr td {
   }
   .about.about-inverse .image {
     width: 75%;
-    float: right;
   }
   .about.about-inverse .text {
     width: 25%;
   }
   .about.about-inverse .text .space {
     margin-right: -160px;
-    margin-left: 0;
   }
   .about.about-index-1 {
     margin-bottom: 44px;

@@ -3744,8 +3744,44 @@ table tr td {
   cursor: default;
 }
 .team .list .item .space {
-  padding: 16px 0 0 16px;
+  margin: -10px -10px 0;
+  padding: 26px 10px 40px 26px;
   position: relative;
+}
+.team .list .item .space:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  height: 30px;
+  background: #fff;
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  right: 0;
+  transform: skew(0deg, -3deg);
+  -webkit-transform: skew(0deg, -3deg);
+  -moz-transform: skew(0deg, -3deg);
+  -o-transform: skew(0deg, -3deg);
+  -ms-transform: skew(0deg, -3deg);
+  z-index: 1;
+}
+.team .list .item .space:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  height: 30px;
+  background: #fff;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  transform: skew(0deg, -3deg);
+  -webkit-transform: skew(0deg, -3deg);
+  -moz-transform: skew(0deg, -3deg);
+  -o-transform: skew(0deg, -3deg);
+  -ms-transform: skew(0deg, -3deg);
+  z-index: 2;
 }
 .team .list .item .photo {
   margin: 0 0 24px;
@@ -3754,6 +3790,18 @@ table tr td {
 .team .list .item .photo.cornered .area:before {
   height: 20px;
   bottom: -11px;
+}
+.team .list .item .photo .area img {
+  position: relative;
+  z-index: 1;
+}
+.team .list .item .photo .area img.over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 1s ease;
 }
 .team .list .item .photo .icon {
   width: 34px;
@@ -3820,6 +3868,31 @@ table tr td {
   line-height: 24px;
   display: none;
 }
+.team .list .item:hover {
+  overflow: visible;
+  z-index: 999;
+}
+.team .list .item:hover .space {
+  background: #fff;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.29);
+}
+.team .list .item:hover .space:before {
+  background: #fff;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.29);
+}
+.team .list .item:hover .space .photo .icon {
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+.team .list .item:hover .space .photo .area img.over {
+  opacity: 1;
+}
+.team .list .item.visible:hover .text {
+  display: block;
+}
 @media (min-width: 568px) {
   .team .list {
     margin: 0 -10px;
@@ -3857,85 +3930,10 @@ table tr td {
     margin: -6px -40px 0;
     padding: 36px 40px 30px;
   }
-  .team .list .item .space:before {
-    display: block;
-    content: '\0020';
-    overflow: hidden;
-    height: 30px;
-    background: #fff;
-    position: absolute;
-    bottom: -12px;
-    left: 0;
-    right: 0;
-    transform: skew(0deg, -3deg);
-    -webkit-transform: skew(0deg, -3deg);
-    -moz-transform: skew(0deg, -3deg);
-    -o-transform: skew(0deg, -3deg);
-    -ms-transform: skew(0deg, -3deg);
-    z-index: 1;
-  }
-  .team .list .item .space:after {
-    display: block;
-    content: '\0020';
-    overflow: hidden;
-    clear: both;
-    height: 30px;
-    background: #fff;
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    transform: skew(0deg, -3deg);
-    -webkit-transform: skew(0deg, -3deg);
-    -moz-transform: skew(0deg, -3deg);
-    -o-transform: skew(0deg, -3deg);
-    -ms-transform: skew(0deg, -3deg);
-    z-index: 2;
-  }
-  .team .list .item .photo .area img {
-    width: 432px;
-    height: 347px;
-    display: block;
-    position: relative;
-    z-index: 1;
-  }
-  .team .list .item .photo .area img.over {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    z-index: 2;
-    transition: opacity 1s ease;
-  }
   .team .list .item .name {
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
-  }
-  .team .list .item:hover {
-    overflow: visible;
-    z-index: 999;
-  }
-  .team .list .item:hover .space {
-    background: #fff;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.29);
-  }
-  .team .list .item:hover .space:before {
-    background: #fff;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.29);
-  }
-  .team .list .item:hover .space .photo .icon {
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    -ms-transform: scale(0);
-    -o-transform: scale(0);
-    transform: scale(0);
-  }
-  .team .list .item:hover .space .photo .area img.over {
-    opacity: 1;
-  }
-  .team .list .item.visible:hover .text {
-    display: block;
   }
 }
 @media (min-width: 1280px) {

@@ -3341,9 +3341,33 @@ table {
       cursor: default;
 
       .space {
-        padding: 16px 0 0 16px;
-        //transition: background-color .1s, box-shadow @duration;
+        margin: -10px -10px 0;
+        padding: 26px 10px 40px 26px;
         position: relative;
+          &:before {
+            .before;
+            height: 30px;
+            background: @color-white;
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            right: 0;
+            .skew(0deg, -3deg);
+            z-index: 1;
+            //transition: background-color .1s, box-shadow @duration;
+          }
+          &:after {
+            .before;
+            clear: both;
+            height: 30px;
+            background: @color-white;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            .skew(0deg, -3deg);
+            z-index: 2;
+          }
       }
 
       .photo {
@@ -3354,6 +3378,20 @@ table {
           .area {
             &:before { height: 20px; bottom: -11px; }
           }
+        }
+        .area {
+         img {
+           position: relative;
+           z-index: 1;
+           &.over {
+             position: absolute;
+             top: 0;
+             left: 0;
+             opacity: 0;
+             z-index: 2;
+             transition: opacity 1s ease;
+           }
+         }
         }
 
         .icon {
@@ -3404,6 +3442,35 @@ table {
         line-height: 24px;
         display: none;
       }
+
+      &:hover {
+        overflow: visible;
+        z-index: 999;
+
+        .space {
+          background: @color-white;
+          box-shadow: 0 0 6px 0 rgba(0, 0, 0, .29);
+          &:before {
+            background: @color-white;
+            box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.29);
+          }
+          .photo {
+            .icon {
+              .scale(0);
+            }
+            .area {
+              img.over {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+      &.visible {
+        &:hover {
+          .text { display: block; }
+        }
+      }
     }
   }
 
@@ -3440,86 +3507,12 @@ table {
         .space {
           margin: -6px -40px 0;
           padding: 36px 40px 30px;
-
-          &:before {
-            .before;
-            height: 30px;
-            background: @color-white;
-            position: absolute;
-            bottom: -12px;
-            left: 0;
-            right: 0;
-            .skew(0deg, -3deg);
-            z-index: 1;
-            //transition: background-color .1s, box-shadow @duration;
-          }
-          &:after {
-            .before;
-            clear: both;
-            height: 30px;
-            background: @color-white;
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            right: 0;
-            .skew(0deg, -3deg);
-            z-index: 2;
-          }
-        }
-
-        .photo {
-          .area {
-            img {
-              width: 432px;
-              height: 347px;
-              display: block;
-              position: relative;
-              z-index: 1;
-              &.over {
-                position: absolute;
-                top: 0;
-                left: 0;
-                opacity: 0;
-                z-index: 2;
-                transition: opacity 1s ease;
-              }
-            }
-          }
         }
 
         .name {
           max-width: 80%;
           margin-left: auto;
           margin-right: auto;
-        }
-
-        &:hover {
-          overflow: visible;
-          z-index: 999;
-
-          .space {
-            background: @color-white;
-            box-shadow: 0 0 6px 0 rgba(0, 0, 0, .29);
-            &:before {
-              background: @color-white;
-              box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.29);
-            }
-            .photo {
-              .icon {
-                .scale(0);
-              }
-              .area {
-                img.over {
-                  opacity: 1;
-                }
-              }
-            }
-          }
-        }
-        &.visible {
-          &:hover {
-            .text { display: block; }
-          }
         }
       }
     }

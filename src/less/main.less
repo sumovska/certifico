@@ -467,7 +467,7 @@ input {
   }
   &.error {
     border-color: @color-red-light;
-    &:focus {box-shadow: 0 0 7px 0 rgba(252, 93, 58, 0.34);}
+    &:focus { box-shadow: 0 0 7px 0 rgba(252, 93, 58, 0.34); }
   }
   .form-line & { width: 100%; }
 }
@@ -688,16 +688,15 @@ table {
     }
   }
   @media @lg {
-     margin-right: -420px;
+    margin-right: -420px;
   }
   @media @xl {
-     margin-right: -560px;
+    margin-right: -560px;
   }
   @media @xxl {
     margin-right: -700px;
   }
 }
-
 /* ==========================================================================
    _HEADER
    ========================================================================== */
@@ -1068,7 +1067,7 @@ table {
   @media @md {
     .head {
       margin-bottom: 35px;
-      .tel { margin-bottom: 0;}
+      .tel { margin-bottom: 0; }
       .slogan { font-size: 14px; }
     }
     .space {
@@ -2088,9 +2087,10 @@ table {
    ========================================================================== */
 .blockquote {
   margin: 0;
-  padding-top: 278px;
   background: @color-beige-light url("@{images}/temp/picture-1.jpg") 50% 0 no-repeat;
   background-size: auto 320px;
+
+  > .wrapper { padding-top: 278px; }
 
   .quote {
     margin-bottom: 10px;
@@ -2163,9 +2163,9 @@ table {
   }
 
   @media @lg {
-    padding: 70px 0 20px;
     background-size: auto 100%;
     background-position: 250px 0;
+    > .wrapper { padding: 70px 0 20px; }
     .pure-g { padding-right: 0; }
     .quote {
       padding-left: 46px;
@@ -2182,8 +2182,25 @@ table {
   }
 
   @media @xxl {
-    padding-top: 90px;
-    background-position: 100% 0;
+    overflow: hidden;
+    background-image: none;
+    > .wrapper {
+      padding-top: 90px;
+      position: relative;
+      &:before {
+        width: 1148px;
+        display: block;
+        margin-left: -158px;
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        z-index: 0;
+        background: url("@{images}/temp/picture-1.jpg") 100% 100% no-repeat;
+        background-size: auto 100%;
+      }
+    }
     .quote { padding-left: 76px; padding-right: 76px; }
   }
 }
@@ -3616,7 +3633,7 @@ table {
       .image { width: 75%; }
       .text {
         width: 25%;
-        .space { margin-right: -160px;  }
+        .space { margin-right: -160px; }
       }
     }
     &.about-index-1 {
@@ -3736,11 +3753,11 @@ table {
       z-index: 2;
     }
   }
-@media @lg {
-  &.article-index-2 {
-    margin-top: 0;
+  @media @lg {
+    &.article-index-2 {
+      margin-top: 0;
+    }
   }
-}
   @media @xl {
     &.article-index-2 {
       margin-top: 40px;

@@ -2409,9 +2409,11 @@ table tr td {
    ========================================================================== */
 .blockquote {
   margin: 0;
-  padding-top: 278px;
   background: #f3f6f9 url("../img/temp/picture-1.jpg") 50% 0 no-repeat;
   background-size: auto 320px;
+}
+.blockquote > .wrapper {
+  padding-top: 278px;
 }
 .blockquote .quote {
   margin-bottom: 10px;
@@ -2494,9 +2496,11 @@ table tr td {
 }
 @media (min-width: 1024px) {
   .blockquote {
-    padding: 70px 0 20px;
     background-size: auto 100%;
     background-position: 250px 0;
+  }
+  .blockquote > .wrapper {
+    padding: 70px 0 20px;
   }
   .blockquote .pure-g {
     padding-right: 0;
@@ -2524,8 +2528,25 @@ table tr td {
 }
 @media (min-width: 1560px) {
   .blockquote {
+    overflow: hidden;
+    background-image: none;
+  }
+  .blockquote > .wrapper {
     padding-top: 90px;
-    background-position: 100% 0;
+    position: relative;
+  }
+  .blockquote > .wrapper:before {
+    width: 1148px;
+    display: block;
+    margin-left: -158px;
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    background: url("../img/temp/picture-1.jpg") 100% 100% no-repeat;
+    background-size: auto 100%;
   }
   .blockquote .quote {
     padding-left: 76px;

@@ -2444,8 +2444,9 @@ table {
     .h { max-width: @lg-width; }
   }
   @media @xl {
-    .h { max-width: @xl-width; }
+    &:before { height: 85px; }
     &.page-heading-about { min-height: 664px; padding-top: 280px; }
+    .h { max-width: @xl-width; }
   }
   @media @xxl {
     .h { max-width: @xxl-width; }
@@ -3248,11 +3249,8 @@ table {
     text-align: center;
 
     &.slick-initialized {
-      height: auto;
-      overflow: visible;
-
-      .slick-list { padding: 0 !important; }
-      .slick-track { left: 0 !important; }
+      .slick-slide { outline: none !important; }
+      .slick-list { padding: 0 !important; position: relative; z-index: 1; }
       .slick-slide {
         position: relative;
         outline: none !important;
@@ -3261,8 +3259,8 @@ table {
           width: auto;
           height: auto;
           position: absolute;
-          left: 0;
-          right: 0;
+          left: 2px;
+          right: 2px;
           top: 0;
           bottom: 0;
           border: 3px solid @color-blue;
@@ -3279,15 +3277,18 @@ table {
     }
 
     li {
-      margin: 0 2px;
-      padding: 0;
-      display: inline-block;
-      vertical-align: middle;
+      width: 25%;
+      padding: 0 2px;
+      margin: 0;
+      float: left;
+      color: @color-white;
+      position: relative;
+      cursor: pointer;
 
       &:before, &:after { display: none; }
       img {
-        width: 96px;
-        height: 62px;
+        width: 100%;
+        height: auto;
         margin: 0 auto;
         display: block;
         cursor: pointer;

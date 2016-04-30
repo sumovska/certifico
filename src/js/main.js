@@ -148,26 +148,38 @@ $(document).ready(function () {
 	/** Gallery carousel */
 	$('.gallery').each(function () {
 		var fo = $('.for', this), nav = $('.nav', this);
-		fo.slick({
+
+		var _for = $('.for', this), _nav = $('.nav', this);
+		_for.slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			asNavFor: nav,
-			mobileFirst: true,
-			adaptiveHeight: true,
 			arrows: false,
-			fade: true
+			fade: true,
+			infinite: true,
+			asNavFor: _nav
 		});
-		nav.slick({
-			slidesToShow: 3,
+		_nav.slick({
+			slidesToShow: 4,
 			slidesToScroll: 1,
-			asNavFor: fo,
-			focusOnSelect: true,
+			asNavFor: _for,
 			mobileFirst: true,
-			centerMode: true,
+			dots: false,
 			arrows: false,
-			variableWidth: true
+			speed: 400,
+			infinite: true,
+			focusOnSelect: true,
+			responsive: [
+				{breakpoint: 400, settings: {slidesToShow: 5}},
+				{breakpoint: 568, settings: {slidesToShow: 6}},
+				{breakpoint: 768, settings: {slidesToShow: 8}},
+				{breakpoint: 1024, settings: {slidesToShow: 10}},
+				{breakpoint: 1280, settings: {slidesToShow: 12}},
+				{breakpoint: 1440, settings: {slidesToShow: 14}},
+				{breakpoint: 1560, settings: {slidesToShow: 16}}
+			]
 		});
 	});
+
 
 	/** Google Map */
 	$('.map').each(function () {

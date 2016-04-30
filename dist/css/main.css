@@ -2808,12 +2808,15 @@ table tr td {
   }
 }
 @media (min-width: 1280px) {
-  .page-heading .h {
-    max-width: 1140px;
+  .page-heading:before {
+    height: 85px;
   }
   .page-heading.page-heading-about {
     min-height: 664px;
     padding-top: 280px;
+  }
+  .page-heading .h {
+    max-width: 1140px;
   }
 }
 @media (min-width: 1560px) {
@@ -3660,15 +3663,13 @@ table tr td {
   margin: 4px auto;
   text-align: center;
 }
-.gallery .nav.slick-initialized {
-  height: auto;
-  overflow: visible;
+.gallery .nav.slick-initialized .slick-slide {
+  outline: none !important;
 }
 .gallery .nav.slick-initialized .slick-list {
   padding: 0 !important;
-}
-.gallery .nav.slick-initialized .slick-track {
-  left: 0 !important;
+  position: relative;
+  z-index: 1;
 }
 .gallery .nav.slick-initialized .slick-slide {
   position: relative;
@@ -3681,8 +3682,8 @@ table tr td {
   width: auto;
   height: auto;
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 2px;
+  right: 2px;
   top: 0;
   bottom: 0;
   border: 3px solid #2db8e9;
@@ -3696,18 +3697,21 @@ table tr td {
   opacity: 1;
 }
 .gallery .nav li {
-  margin: 0 2px;
-  padding: 0;
-  display: inline-block;
-  vertical-align: middle;
+  width: 25%;
+  padding: 0 2px;
+  margin: 0;
+  float: left;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
 }
 .gallery .nav li:before,
 .gallery .nav li:after {
   display: none;
 }
 .gallery .nav li img {
-  width: 96px;
-  height: 62px;
+  width: 100%;
+  height: auto;
   margin: 0 auto;
   display: block;
   cursor: pointer;

@@ -216,6 +216,8 @@ html {
   margin: 0;
   font: 18px/28px @font-segoe;
   color: @color-black;
+  &.mobile { overflow: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; }
+  &.nav-visible { overflow: hidden !important; }
 }
 body {
   width: 100%;
@@ -227,7 +229,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   &.index { padding-top: 0; }
-  &.nav-visible { overflow-x: hidden; }
+  //.mobile & { overflow: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; }
+  .nav-visible & { overflow: hidden !important; }
 }
 @media @sm {
   body { padding-top: 130px; }
@@ -599,7 +602,7 @@ table {
   padding: 14px 11px;
   display: block;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   right: 9px;
   top: 6px;
   z-index: 1000;
@@ -610,7 +613,7 @@ table {
     display: block;
   }
 
-  .header & {
+  &.toggle-header {
     span {
       border-top: 2px solid @color-black;
       border-bottom: 2px solid @color-black;
@@ -691,30 +694,19 @@ table {
     }
   }
 
-  @media @sm {
-    margin-right: -220px;
-    top: 24px;
-    right: 50%;
-  }
   @media @md {
+    top: 20px;
+    right: 24px;
     .navigation & {
       .nav-done & { .translate-3d(-375px, 0, 0); }
     }
-  }
-  @media @lg {
-    margin-right: -420px;
-  }
-  @media @xl {
-    margin-right: -560px;
-  }
-  @media @xxl {
-    margin-right: -700px;
   }
 }
 /* ==========================================================================
    _HEADER
    ========================================================================== */
 .header {
+  min-width: 320px;
   height: 70px;
   position: absolute;
   top: 0;
@@ -1733,7 +1725,7 @@ table {
   }
   @media @xl {
     height: 780px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   @media @xxl {
     height: 910px;

@@ -69,6 +69,14 @@ html {
   font: 18px/28px 'Segoe Ui', Helvetica, sans-serif;
   color: #000;
 }
+html.mobile {
+  overflow: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+html.nav-visible {
+  overflow: hidden !important;
+}
 body {
   width: 100%;
   min-width: 320px;
@@ -82,8 +90,8 @@ body {
 body.index {
   padding-top: 0;
 }
-body.nav-visible {
-  overflow-x: hidden;
+.nav-visible body {
+  overflow: hidden !important;
 }
 @media (min-width: 568px) {
   body {
@@ -748,7 +756,7 @@ table tr td {
   padding: 14px 11px;
   display: block;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   right: 9px;
   top: 6px;
   z-index: 1000;
@@ -758,13 +766,13 @@ table tr td {
   height: 16px;
   display: block;
 }
-.header .toggle span {
+.toggle.toggle-header span {
   border-top: 2px solid #000;
   border-bottom: 2px solid #000;
   transition: border-top-color 0.2s ease, border-bottom-color 0.2s ease;
   position: relative;
 }
-.header .toggle span:before {
+.toggle.toggle-header span:before {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -776,20 +784,20 @@ table tr td {
   top: 5px;
   transition: background 0.2s ease;
 }
-.header .toggle:hover span {
+.toggle.toggle-header:hover span {
   border-color: #f26141;
 }
-.header .toggle:hover span:before {
+.toggle.toggle-header:hover span:before {
   background: #f26141;
 }
-.index .header .toggle:not(:hover) span {
+.index .toggle.toggle-header:not(:hover) span {
   border-top-color: #fff;
   border-bottom-color: #fff;
 }
-.index .header .toggle:not(:hover) span:before {
+.index .toggle.toggle-header:not(:hover) span:before {
   background: #fff;
 }
-.nav-visible .header .toggle {
+.nav-visible .toggle.toggle-header {
   display: none;
   opacity: 0;
 }
@@ -859,14 +867,11 @@ table tr td {
   -o-transform: translate3d(-250px, 0, 0);
   transform: translate3d(-250px, 0, 0);
 }
-@media (min-width: 568px) {
-  .toggle {
-    margin-right: -220px;
-    top: 24px;
-    right: 50%;
-  }
-}
 @media (min-width: 768px) {
+  .toggle {
+    top: 20px;
+    right: 24px;
+  }
   .nav-done .navigation .toggle {
     -webkit-transform: translate3d(-375px, 0, 0);
     -moz-transform: translate3d(-375px, 0, 0);
@@ -875,25 +880,11 @@ table tr td {
     transform: translate3d(-375px, 0, 0);
   }
 }
-@media (min-width: 1024px) {
-  .toggle {
-    margin-right: -420px;
-  }
-}
-@media (min-width: 1280px) {
-  .toggle {
-    margin-right: -560px;
-  }
-}
-@media (min-width: 1560px) {
-  .toggle {
-    margin-right: -700px;
-  }
-}
 /* ==========================================================================
    _HEADER
    ========================================================================== */
 .header {
+  min-width: 320px;
   height: 70px;
   position: absolute;
   top: 0;
@@ -2053,7 +2044,7 @@ table tr td {
 @media (min-width: 1280px) {
   .jumbotron {
     height: 780px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 }
 @media (min-width: 1560px) {

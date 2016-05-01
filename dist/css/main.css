@@ -1326,6 +1326,9 @@ table tr td {
   .navigation .head .slogan {
     font-size: 14px;
   }
+  .navigation .head .logo {
+    width: 246px;
+  }
   .navigation .space {
     width: 375px;
     padding: 40px 36px;
@@ -4454,6 +4457,10 @@ img.mfp-img {
   .mfp-container {
     padding: 0 20px;
   }
+}
+.mfp-arrow-right:before,
+.mfp-arrow-left:before {
+  border: none;
 }
 .mfp-close {
   width: 40px !important;

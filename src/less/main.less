@@ -230,7 +230,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   &.index { padding-top: 0; }
   //.mobile & { overflow: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; }
-  .nav-visible & { overflow: hidden !important; }
+  //.nav-visible & { overflow: hidden !important; }
 }
 @media @sm {
   body { padding-top: 130px; }
@@ -521,6 +521,8 @@ textarea {
   letter-spacing: .09em;
   transition: background @duration;
 
+  &[disabled] { background: @color-gray !important; }
+
   &:hover, &:focus {
     background: @color-blue-light; }
   &:active { background: @color-blue-light; box-shadow: inset -2px 0 7px 0 rgba(0, 0, 0, 0.22); }
@@ -614,6 +616,7 @@ table {
   }
 
   &.toggle-header {
+    cursor: pointer;
     span {
       border-top: 2px solid @color-black;
       border-bottom: 2px solid @color-black;
@@ -644,6 +647,15 @@ table {
           border-top-color: @color-white;
           border-bottom-color: @color-white;
           &:before { background: @color-white; }
+        }
+      }
+    }
+    .toggle-color & {
+      &:not(:hover) {
+        span {
+          border-top-color: @color-black;
+          border-bottom-color: @color-black;
+          &:before { background: @color-black; }
         }
       }
     }
@@ -692,8 +704,15 @@ table {
     .nav-done & {
       .translate-3d(-250px, 0, 0);
     }
+    .toggle-color & {
+      &:not(:hover) {
+        span {
+          border-color: @color-black !important;
+          &:before, &:after { background: @color-black !important; }
+        }
+      }
+    }
   }
-
   @media @md {
     top: 20px;
     right: 24px;
@@ -2408,7 +2427,7 @@ table {
   .h {
     max-width: @md-width;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 10px;
     display: block;
     position: relative;
     z-index: 2;
@@ -3437,6 +3456,40 @@ table {
           }
         }
 
+        .nickname {
+          width: 180px;
+          height: 45px;
+          padding: 10px 20px;
+          margin: auto;
+          display: block;
+          position: absolute;
+          right: 0;
+          bottom: -10px;
+          left: 0;
+          z-index: 20;
+          color: @color-white;
+          font: 900 14px/27px @font-daxline;
+          text-transform: uppercase;
+          text-align: center;
+          white-space: nowrap;
+          background: @color-blue;
+          opacity: 0;
+          transition: opacity 1s ease;
+          &:before, &:after {
+            width: 9px;
+            height: 100%;
+            display: block;
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background: url("@{images}/corners.png") 0 0 no-repeat;
+            background-size: auto 100%;
+          }
+          &:before { left: -9px; }
+          &:after { right: -9px; background-position: 100% 0; }
+        }
+
         .icon {
           width: 34px;
           height: 34px;
@@ -3449,7 +3502,6 @@ table {
           left: 0;
           right: 0;
           z-index: 8;
-          transition: transform .1s;
 
           &:before, &:after {
             .before;
@@ -3498,14 +3550,12 @@ table {
             box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.29);
           }
           .photo {
-            .icon {
-              .scale(0);
-            }
             .area {
               img.over {
                 opacity: 1;
               }
             }
+            .nickname { opacity: 1; }
           }
         }
       }
@@ -3608,7 +3658,7 @@ table {
 
   .text {
     width: 5%;
-    padding-top: 50px;
+    padding-top: 110px;
     float: left;
     position: relative;
     z-index: 2;
@@ -3619,9 +3669,7 @@ table {
       margin: 0 0 4px;
     }
 
-    .h {
-      margin: 0 0 40px;
-    }
+    .h { margin: 0 0 40px; }
 
     .unit {
       margin-bottom: 30px;
@@ -3629,7 +3677,6 @@ table {
       background: @color-beige;
 
       &:after { .clearfix; }
-
       p:last-of-type { margin: 0; }
 
       &.unit-black {
@@ -3638,11 +3685,8 @@ table {
 
         ul {
           margin-bottom: 0;
-
           li {
-            &:before, &:after {
-              background: @color-white;
-            }
+            &:before, &:after { background: @color-white; }
           }
         }
       }

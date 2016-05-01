@@ -25,6 +25,32 @@
  */
 $(document).ready(function () {
 
+	/*** Toggle button color ***/
+	(function () {
+		var cElement, ph = $('.page-heading'), jm = $('.jumbotron'), _body = $('body');
+		if (ph.length > 0) {
+			cElement = ph;
+		}
+		if (jm.length > 0) {
+			cElement = jm;
+		}
+		if (typeof cElement != 'undefined') {
+			$(window).on('resize', function () {
+				_body.attr('data-toggle', cElement.outerHeight());
+			}).on('scroll', function () {
+				if (!_body.hasClass('toggle-color')) {
+					if ($(window).scrollTop() > +_body.attr('data-toggle')) {
+						_body.addClass('toggle-color')
+					}
+				} else {
+					if ($(window).scrollTop() <= +_body.attr('data-toggle')) {
+						_body.removeClass('toggle-color')
+					}
+				}
+			}).trigger('resize');
+		}
+	})();
+
 	/*** Toggle navigation ***/
 	$('.header').each(function () {
 		var html = $('html'), body = $('body'), _nav = $('.navigation');
@@ -49,18 +75,21 @@ $(document).ready(function () {
 
 			function open() {
 				// lock scroll position, but retain settings for later
+				/*
 				var scrollPosition = self.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 				window.scrollTo(0, scrollPosition);
 				html.attr('data-scroll-position', scrollPosition).addClass('nav-visible');
+				*/
 				html.on('keydown', keyhandler).on('click touchstart', clickhandler);
+				html.addClass('nav-visible');
 				setTimeout(function () {
 					body.addClass('nav-done');
 				}, 20);
 			}
 
 			function close() {
-				var scrollPosition = html.data('scroll-position');
-				window.scrollTo(0, scrollPosition);
+				//var scrollPosition = html.data('scroll-position');
+				//window.scrollTo(0, scrollPosition);
 				body.removeClass('nav-done').off('keydown', keyhandler);
 				setTimeout(function () {
 					html.removeClass('nav-visible');

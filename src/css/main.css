@@ -90,9 +90,6 @@ body {
 body.index {
   padding-top: 0;
 }
-.nav-visible body {
-  overflow: hidden !important;
-}
 @media (min-width: 568px) {
   body {
     padding-top: 130px;
@@ -631,6 +628,11 @@ input[type="submit"] {
   letter-spacing: .09em;
   transition: background 0.2s ease;
 }
+.button[disabled],
+button[disabled],
+input[type="submit"][disabled] {
+  background: #d3d1ce !important;
+}
 .button:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -766,6 +768,9 @@ table tr td {
   height: 16px;
   display: block;
 }
+.toggle.toggle-header {
+  cursor: pointer;
+}
 .toggle.toggle-header span {
   border-top: 2px solid #000;
   border-bottom: 2px solid #000;
@@ -796,6 +801,13 @@ table tr td {
 }
 .index .toggle.toggle-header:not(:hover) span:before {
   background: #fff;
+}
+.toggle-color .toggle.toggle-header:not(:hover) span {
+  border-top-color: #000;
+  border-bottom-color: #000;
+}
+.toggle-color .toggle.toggle-header:not(:hover) span:before {
+  background: #000;
 }
 .nav-visible .toggle.toggle-header {
   display: none;
@@ -866,6 +878,13 @@ table tr td {
   -ms-transform: translate3d(-250px, 0, 0);
   -o-transform: translate3d(-250px, 0, 0);
   transform: translate3d(-250px, 0, 0);
+}
+.toggle-color .navigation .toggle:not(:hover) span {
+  border-color: #000 !important;
+}
+.toggle-color .navigation .toggle:not(:hover) span:before,
+.toggle-color .navigation .toggle:not(:hover) span:after {
+  background: #000 !important;
 }
 @media (min-width: 768px) {
   .toggle {
@@ -2756,7 +2775,7 @@ table tr td {
 .page-heading .h {
   max-width: 768px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
   display: block;
   position: relative;
   z-index: 2;
@@ -3867,6 +3886,45 @@ table tr td {
   z-index: 2;
   transition: opacity 1s ease;
 }
+.team .list .item .photo .nickname {
+  width: 180px;
+  height: 45px;
+  padding: 10px 20px;
+  margin: auto;
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  left: 0;
+  z-index: 20;
+  color: #fff;
+  font: 900 14px/27px 'Daxline Pro', Helvetica, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  background: #2db8e9;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.team .list .item .photo .nickname:before,
+.team .list .item .photo .nickname:after {
+  width: 9px;
+  height: 100%;
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: url("../img/corners.png") 0 0 no-repeat;
+  background-size: auto 100%;
+}
+.team .list .item .photo .nickname:before {
+  left: -9px;
+}
+.team .list .item .photo .nickname:after {
+  right: -9px;
+  background-position: 100% 0;
+}
 .team .list .item .photo .icon {
   width: 34px;
   height: 34px;
@@ -3879,7 +3937,6 @@ table tr td {
   left: 0;
   right: 0;
   z-index: 8;
-  transition: transform .1s;
 }
 .team .list .item .photo .icon:before,
 .team .list .item .photo .icon:after {
@@ -3944,15 +4001,10 @@ table tr td {
   background: #fff;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.29);
 }
-.team .list .item:hover .space .photo .icon {
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0);
-  -webkit-backface-visibility: hidden;
-}
 .team .list .item:hover .space .photo .area img.over {
+  opacity: 1;
+}
+.team .list .item:hover .space .photo .nickname {
   opacity: 1;
 }
 .team .list .item.visible:hover .text {
@@ -4044,7 +4096,7 @@ table tr td {
 }
 .about .text {
   width: 5%;
-  padding-top: 50px;
+  padding-top: 110px;
   float: left;
   position: relative;
   z-index: 2;
